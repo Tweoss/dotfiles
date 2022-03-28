@@ -1,0 +1,13 @@
+format = "$status$all$character"
+
+
+[status]
+style = "fg:27"
+symbol = "🔴"
+format = '[\[$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = false
+
+[nodejs]
+disabled = true
+

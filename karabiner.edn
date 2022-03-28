@@ -1,0 +1,171 @@
+{
+     :layers {
+     }
+     :applications {
+         :chrome ["^net\\.java\\.openjdk\\.cmd$"]               
+         :brave ["^com\\.brave\\.Browser$"]
+         :mimestream ["^com\\.mimestream\\.Mimestream$"]
+     }
+    :devices {
+        :econ_clicker [
+            {:vendor_id 3469}
+            {:product_id 5398}
+        ]
+    } ;; devices
+
+    :froms {
+        :anykey {:any :key_code :modi {:optional [:any]}}
+    }
+
+    :main [
+        {:des "get rid of chris"
+            :rules [
+                :brave
+                ;; [:!Cq :vk_none]
+                ;; [:!Cw :vk_none]
+            ]
+        }
+        {:des "layers"
+            :rules [
+                [:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]
+            ]
+        }
+        {:des "clicker mapping for google slides"
+            :rules [
+                [:!Sf5 :left_arrow [:econ_clicker]]
+                [:escape :left_arrow [:econ_clicker]]
+                [:!STOp :vk_none [:econ_clicker]]
+                [:!COp :vk_none [:econ_clicker]]
+                [:b :right_arrow [:econ_clicker]]
+            ]
+        }
+        {:des "pageupdown to parenthesesopenclose"
+            :rules [
+                [:page_up :!S9] 
+                [:page_down :!S0] 
+            ]
+        }
+        {:des "clearing notifications in vscode"
+            :rules [
+                [:!Scaps_lock :!Sescape] 
+            ]
+        }
+        {:des "Math Help" 
+            :rules [ 
+                [:f19 :!S6]
+                [:f18 [:semicolon :x :o :k :!S9]]
+                [:f17 :!Cright_arrow]
+                [:f16 :!Cleft_arrow]
+                [:keypad_num_lock :!Cdelete_or_backspace] 
+            ]
+        }
+        {:des "capslock layer"
+            :rules [
+                :caps-mode
+                ; VIM MODE - hold caps and HJKL
+                ; home row computing
+                [:!Tl "/usr/local/bin/yabai -m space --focus next"]
+                [:!Th "/usr/local/bin/yabai -m space --focus prev"]
+                [:##h :left_arrow] ; even with f, still do left arrow
+                [:##k :up_arrow]
+                [:##j :down_arrow]
+                [:##l :right_arrow]
+                [:##s :left_shift]
+                [:##delete_or_backspace :delete_forward]
+                [:##spacebar ["caps-mode" 0]]
+                [:##p :!!backslash]
+                [:o "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"]
+                ; turning on yabai-layer
+                [:m [["yabai-layer" 1] ["caps-mode" 0]]]
+                ; turning on disable-layer
+                [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
+                ; turning on screensaver
+                [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
+                ; launch bunch
+                [:b :!!n]
+                ; clearing notifications
+                [:c "osascript ~/gitutils/executables/applescript/clear_notifs.scpt"]
+                ; moom window splitting
+                ; [:m :!!m]
+                ; word counter
+                [:i :!!c]
+                ; clicker
+                [:0 "/Users/francischua/gitprojects/click/target/debug/click 100 10 0 4 right"]
+                ; kill clicker
+                [:9 "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"]
+            ]
+        }
+        {:des "yabai layer"
+            :rules [
+                [:condi :yabai-layer]
+                ; disabling yabai-layer
+                [:caps_lock ["yabai-layer" 0]]
+                ; toggle window float
+                [:f "/usr/local/bin/yabai -m window --toggle float"]
+                ; full screen like moom
+                [:spacebar "/usr/local/bin/yabai -m window --grid 1:1:0:0:1:1"]
+                ; corner combos
+                [[:h :j] "/usr/local/bin/yabai -m window --grid 2:2:0:1:1:2"]
+                [[:h :k] "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:1"]
+                [[:l :j] "/usr/local/bin/yabai -m window --grid 2:2:1:1:2:2"]
+                [[:l :k] "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:1"]
+                ; half screens
+                [:h "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:2"]
+                [:j "/usr/local/bin/yabai -m window --grid 2:2:0:1:2:2"]
+                [:k "/usr/local/bin/yabai -m window --grid 2:2:0:0:2:1"]
+                [:l "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:2"]
+                ; move to display
+                [:n "/usr/local/bin/yabai -m window --display recent"]
+                ; topmost
+                [:s "/usr/local/bin/yabai -m window --toggle topmost"]
+            ]
+        }
+        {:des "disable layer"
+            :rules [
+                [:condi :disable-layer]
+                ; disabling disable-layer
+                [[:caps_lock :l] ["disable-layer" 0]]
+                ; capture all keps
+                [:anykey :vk_none]
+            ]
+        }
+        {:des "cmd-H"
+            :rules [
+                :chrome
+                [:x :!Ch]
+                [:##right_shift :x]
+            ] 
+        }
+        {:des "Minimal menu"
+            :rules [
+                [:escape "killall minimal_menu; open /Applications/minimal_menu.app/"]
+            ] 
+        }
+        {:des "Brave Nav" 
+            :rules [
+                :brave :caps-mode
+                [:!Rtab :!COleft_arrow]      
+                [:!Stab :!COleft_arrow]      
+                [:tab :!COright_arrow]
+            ] 
+        }
+        {:des "Unbind sending key for mimestream"
+            :rules [
+                :mimestream
+                [:!C#S#Rreturn_or_enter :vk_none]
+                [:!Q#S#Rreturn_or_enter :vk_none]
+            ]
+        }
+        {:des "Do not disturb without notification binding"
+            :rules [
+                [:!OCd "osascript -l JavaScript /Users/francischua/gitprojects/dnd_script/toggle_dnd.jxa"]
+            ]
+        }
+        {:des "Temporary Binding"
+            :rules [
+                ; :brave
+                ; [:fn :!Ctab]
+            ]
+        }
+    ]
+}

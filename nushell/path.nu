@@ -1,0 +1,24 @@
+#!/usr/bin/env nu
+
+let-env PATH = [
+    # '/usr/local/Caskroom/miniforge/base/condabin',
+    # '/Users/francischua/Dropbox/My Mac (Francis-MBP.local)/Downloads/pngquant/',
+    '/Applications/LilyPond.app/Contents/Resources/bin',
+    '/Users/francischua/.cargo/bin',
+    # '/Users/francischua/thomas_scripts',
+    # '/Users/francischua/gitprojects/onos/tools/dev/bash_profile',
+    # '/Users/francischua/go/bin',
+    # '/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport',
+    # '/Applications/Wine Crossover.app/Contents/Resources/wine/bin',
+    # '/Users/francischua/gitutils/wabt/build',
+    # '/usr/local/texlive/2020/bin/x86_64-darwin',
+    # '/Library/TeX/texbin',
+    '/usr/local/opt/ruby/bin',
+    # '/Users/francischua/gitutils/executables/shellscript',
+    '/opt/homebrew/bin/',
+    '/usr/local/bin',
+    '/usr/bin',
+    '/bin',
+    '/usr/sbin',
+    '/sbin',
+]
