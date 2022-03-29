@@ -1,24 +1,31 @@
 # Nushell Config File
 
+# Path Configuration
+source ~/.config/nushell/config/path.nu
+
 # starship prompt
-source ~/.config/nushell/prompt.nu
+source ~/.config/nushell/config/prompt.nu
 
 # aliases (e.g. open)
-source ~/.config/nushell/alias.nu
+source ~/.config/nushell/config/alias.nu
 
 # env variables
-source ~/.config/nushell/env.nu
+source ~/.config/nushell/config/env.nu
+
+# script files
+source ~/.config/nushell/scripts.nu
 
 # Get just the extern definitions without the custom completion commands
-source ~/.config/nushell/git_completions.nu
+source ~/.config/nushell/config/git_completions.nu
 use git_completions *
 
 # theming
-source ~/.config/nushell/theme.nu
+source ~/.config/nushell/config/theme.nu
 
 # custom keybinds
-source ~/.config/nushell/custom_keybinds.nu
+source ~/.config/nushell/config/custom_keybinds.nu
 
+# combine default and custom keybinds
 let __keybinds = ([
     {
       name: completion_menu
@@ -99,8 +106,4 @@ let $config = {
   }
   keybindings:  $__keybinds
 }
-
-
-# Path Configuration
-source ~/.config/nushell/path.nu
 
