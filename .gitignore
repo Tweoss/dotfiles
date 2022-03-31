@@ -7,3 +7,8 @@ octave/octave-gui.ini.mLMAIo
 op/config
 spotify-tui
 karabiner
+helix/runtime/grammars
+helix/runtime/queries
+helix/runtime/runtime
+helix/runtime/themes
+helix/rust-analyzer/rust-analyzer

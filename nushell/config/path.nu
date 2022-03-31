@@ -5,6 +5,7 @@ let-env PATH = [
     # '/Users/francischua/Dropbox/My Mac (Francis-MBP.local)/Downloads/pngquant/',
     '/Applications/LilyPond.app/Contents/Resources/bin',
     '/Users/francischua/.cargo/bin',
+    '/Users/francischua/.config/helix/rust-analyzer',
     # '/Users/francischua/thomas_scripts',
     # '/Users/francischua/gitprojects/onos/tools/dev/bash_profile',
     # '/Users/francischua/go/bin',
