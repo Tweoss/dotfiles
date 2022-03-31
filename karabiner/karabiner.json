@@ -613,20 +613,6 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "b"
-          },
-          "to" : [ {
-            "key_code" : "n",
-            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
             "key_code" : "c"
           },
           "to" : [ {
@@ -671,6 +657,19 @@
           },
           "to" : [ {
             "shell_command" : "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "t"
+          },
+          "to" : [ {
+            "shell_command" : "osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",

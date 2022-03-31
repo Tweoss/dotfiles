@@ -18,13 +18,6 @@
     }
 
     :main [
-        {:des "get rid of chris"
-            :rules [
-                :brave
-                ;; [:!Cq :vk_none]
-                ;; [:!Cw :vk_none]
-            ]
-        }
         {:des "layers"
             :rules [
                 [:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]
@@ -73,6 +66,7 @@
                 [:##s :left_shift]
                 [:##delete_or_backspace :delete_forward]
                 [:##spacebar ["caps-mode" 0]]
+                ; one password
                 [:##p :!!backslash]
                 [:o "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"]
                 ; turning on yabai-layer
@@ -81,18 +75,16 @@
                 [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
                 [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
-                ; launch bunch
-                [:b :!!n]
                 ; clearing notifications
                 [:c "osascript ~/gitutils/executables/applescript/clear_notifs.scpt"]
-                ; moom window splitting
-                ; [:m :!!m]
                 ; word counter
                 [:i :!!c]
                 ; clicker
                 [:0 "/Users/francischua/gitprojects/click/target/debug/click 100 10 0 4 right"]
                 ; kill clicker
                 [:9 "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"]
+                ; toggle menu bar
+                [:t "osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"]
             ]
         }
         {:des "yabai layer"
