@@ -84,7 +84,9 @@
                 ; kill clicker
                 [:9 "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"]
                 ; toggle menu bar
-                [:t "osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"]
+                [:t "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0; osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"]
+                ; external_bar spacing
+                [:e "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0 >> /Users/francischua/temp.txt"]
             ]
         }
         {:des "yabai layer"

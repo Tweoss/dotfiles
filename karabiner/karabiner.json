@@ -669,7 +669,20 @@
             "key_code" : "t"
           },
           "to" : [ {
-            "shell_command" : "osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"
+            "shell_command" : "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0; osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "e"
+          },
+          "to" : [ {
+            "shell_command" : "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0 >> /Users/francischua/temp.txt"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",

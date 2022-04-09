@@ -19,3 +19,7 @@ yabai -m rule --add app="TextEdit" manage=off
 yabai -m rule --add app="Fantastical Helper" manage=off
 yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="Menubar Countdown" manage=off
+yabai -m rule --add app="System Information" manage=off
+yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
+
+yabai -m config layout stack
