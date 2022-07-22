@@ -11,6 +11,10 @@
             {:vendor_id 3469}
             {:product_id 5398}
         ]
+        :white_rk [
+            {:vendor_id 14}
+            {:product_id 13330}
+        ]
     } ;; devices
 
     :froms {
@@ -25,11 +29,12 @@
         }
         {:des "clicker mapping for google slides"
             :rules [
-                [:!Sf5 :left_arrow [:econ_clicker]]
-                [:escape :left_arrow [:econ_clicker]]
-                [:!STOp :vk_none [:econ_clicker]]
-                [:!COp :vk_none [:econ_clicker]]
-                [:b :right_arrow [:econ_clicker]]
+                :econ_clicker
+                [:!Sf5 :left_arrow]
+                [:escape :left_arrow]
+                [:!STOp :vk_none]
+                [:!COp :vk_none]
+                [:b :right_arrow]
             ]
         }
         {:des "pageupdown to parenthesesopenclose"
@@ -83,10 +88,6 @@
                 [:0 "/Users/francischua/gitprojects/click/target/debug/click 100 10 0 4 right"]
                 ; kill clicker
                 [:9 "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"]
-                ; toggle menu bar
-                [:t "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0; osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"]
-                ; external_bar spacing
-                [:e "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0 >> /Users/francischua/temp.txt"]
             ]
         }
         {:des "yabai layer"
@@ -129,6 +130,16 @@
                 [:x :!Ch]
                 [:##right_shift :x]
             ] 
+        }
+        {:des "royal kludge keyboard fixes"
+            :rules [
+                :white_rk
+                ; swap option and windows 
+                [:left_option :left_command]
+                [:left_command :left_option]
+                ; top left escape to backtick
+                [:##escape :grave_accent_and_tilde]
+            ]
         }
         {:des "Minimal menu"
             :rules [
