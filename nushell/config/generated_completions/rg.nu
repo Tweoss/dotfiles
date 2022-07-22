@@ -1,0 +1,121 @@
+extern "rg" [
+	--after-context(-A)		# Show NUM lines after each match.
+	--auto-hybrid-regex		# DEPRECATED. Use --engine instead.
+	--before-context(-B)		# Show NUM lines before each match.
+	--binary		# Enabling this flag will cause ripgrep to search binary files. By default,
+	--block-buffered		# When enabled, ripgrep will use block buffering. That is, whenever a matching
+	--byte-offset(-b)		# Print the 0-based byte offset within the input file before each line of output.
+	--case-sensitive(-s)		# Search case sensitively.
+	--color		# This flag controls when to use colors. The default setting is 'auto', which
+	--color		# flag changes to 'never'.
+	--colors		# ...                 
+	--column		# Show column numbers (1-based). This only shows the column numbers for the first
+	--context(-C)		# Show NUM lines before and after each match. This is equivalent to providing
+	--context-separator		# The string used to separate non-contiguous context lines in the output. This
+	--no-context-separator		# flag.
+	--count(-c)		# This flag suppresses normal output and shows the number of lines that match
+	--count-matches		# This flag suppresses normal output and shows the number of individual
+	--only-matching		# , then ripgrep behaves as if --count-matches was given.
+	--crlf		# When enabled, ripgrep will treat CRLF ('\r\n') as a line terminator instead
+	--debug		# Show debug messages. Please use this when filing a bug report.
+	--dfa-size-limit		# The upper size limit of the regex DFA. The default limit is 10M. This should
+	--max-filesize		# flag.
+	--encoding(-E)		# Specify the text encoding that ripgrep will use on all files searched. The
+	--engine		# Specify which regular expression engine to use. When you choose a regex engine,
+	--field-context-separator		# Set the field context separator, which is used to delimit file paths, line
+	--field-match-separator		# Set the field match separator, which is used to delimit file paths, line
+	--file(-f)		# ...                  
+	--files		# Print each file that would be searched without actually performing the search.
+	--files-with-matches(-l)		# Print the paths with at least one match and suppress match contents.
+	--files-without-match		# Print the paths that contain zero matches and suppress match contents. This
+	--fixed-strings(-F)		# Treat the pattern as a literal string instead of a regular expression. When
+	--follow(-L)		# When this flag is enabled, ripgrep will follow symbolic links while traversing
+	--glob(-g)		# ...                         
+	--glob-case-insensitive		# Process glob patterns given with the -g/--glob flag case insensitively. This
+	--help(-h)		# Prints help information. Use --help for more details.
+	--heading		# This flag prints the file path above clusters of matches from each file instead
+	--iglob		# ...                        
+	--ignore-case(-i)		# When this flag is provided, the given patterns will be searched case
+	--ignore-file		# ...                  
+	--ignore-file-case-insensitive		# Process ignore files (.gitignore, .ignore, etc.) case insensitively. Note that
+	--include-zero		# When used with --count or --count-matches, print the number of matches for
+	--invert-match(-v)		# Invert matching. Show lines that do not match the given patterns.
+	--json		# Enable printing results in a JSON Lines format.
+	--files-with-matches		# , --files-without-match, --count or --count-matches.
+	--only-matching		# , --heading, --replace, --max-columns, etc., have no effect
+	--line-buffered		# When enabled, ripgrep will use line buffering. That is, whenever a matching
+	--line-number(-n)		# Show line numbers (1-based). This is enabled by default when searching in a
+	--line-regexp(-x)		# Only show matches surrounded by line boundaries. This is equivalent to putting
+	--max-columns(-M)		# Don't print lines longer than this limit in bytes. Longer lines are omitted,
+	--max-columns-preview		# When the '--max-columns' flag is used, ripgrep will by default completely
+	--max-count(-m)		# Limit the number of matching lines per file searched to NUM.
+	--max-depth		# Limit the depth of directory traversal to NUM levels beyond the paths given. A
+	--max-filesize		# Ignore files larger than NUM in size. This does not apply to directories.
+	--mmap		# Search using memory maps when possible. This is enabled by default when ripgrep
+	--multiline(-U)		# Enable matching across multiple lines.
+	--multiline-dotall		# This flag enables "dot all" in your regex pattern, which causes '.' to match
+	--no-config		# Never read configuration files. When this flag is present, ripgrep will not
+	--no-filename(-I)		# Never print the file path with the matched lines. This is the default when
+	--no-heading		# Don't group matches by each file. If --no-heading is provided in addition to
+	--no-ignore		# Don't respect ignore files (.gitignore, .ignore, etc.). This implies
+	--no-ignore-dot		# , --no-ignore-exclude, --no-ignore-global, no-ignore-parent and
+	--no-ignore-vcs		# .
+	--no-ignore-dot		# Don't respect .ignore files.
+	--no-ignore-exclude		# Don't respect ignore files that are manually configured for the repository
+	--no-ignore-files		# When set, any --ignore-file flags, even ones that come after this flag, are
+	--no-ignore-global		# Don't respect ignore files that come from "global" sources such as git's
+	--no-ignore-messages		# Suppresses all error messages related to parsing ignore files such as .ignore
+	--no-ignore-parent		# Don't respect ignore files (.gitignore, .ignore, etc.) in parent directories.
+	--no-ignore-vcs		# Don't respect version control ignore files (.gitignore, etc.). This implies
+	--no-ignore-parent		# for VCS files. Note that .ignore files will continue to be
+	--no-line-number(-N)		# Suppress line numbers. This is enabled by default when not searching in a
+	--no-messages		# Suppress all error messages related to opening and reading files. Error
+	--no-mmap		# Never use memory maps, even when they might be faster.
+	--no-pcre2-unicode		# DEPRECATED. Use --no-unicode instead.
+	--no-require-git		# By default, ripgrep will only respect global gitignore rules, .gitignore rules
+	--no-unicode		# By default, ripgrep will enable "Unicode mode" in all of its regexes. This
+	--no-pcre2-unicode		# and --pcre2-unicode are aliases for --no-unicode and
+	--unicode		# , respectively.
+	--null(-0)		# Whenever a file path is printed, follow it with a NUL byte. This includes
+	--null-data		# Enabling this option causes ripgrep to use NUL as a line terminator instead of
+	--one-file-system		# When enabled, ripgrep will not cross file system boundaries relative to where
+	--only-matching(-o)		# Print only the matched (non-empty) parts of a matching line, with each such
+	--passthru		# Print both matching and non-matching lines.
+	--path-separator		# Set the path separator to use when printing file paths. This defaults to your
+	--pcre2(-P)		# When this flag is present, ripgrep will use the PCRE2 regex engine instead of
+	--pcre2-version		# When this flag is present, ripgrep will print the version of PCRE2 in use,
+	--pre		# For each input FILE, search the standard output of COMMAND FILE rather than the
+	--pre-glob		# ...
+	--pre-glob		# flags are given, then only files that match the given set of globs
+	--pretty(-p)		# This is a convenience alias for '--color always --heading --line-number'. This
+	--quiet(-q)		# Do not print anything to stdout. If a match is found in a file, then ripgrep
+	--regex-size-limit		# The upper size limit of the compiled regex. The default limit is 10M.
+	--regexp(-e)		# ...                    
+	--replace(-r)		# Replace every match with the text given when printing results. Neither this
+	--search-zip(-z)		# Search in compressed files. Currently gzip, bzip2, xz, LZ4, LZMA, Brotli and
+	--smart-case(-S)		# Searches case insensitively if the pattern is all lowercase. Search case
+	--sort		# This flag enables sorting of results in ascending order. The possible values
+	--sortr		# This flag enables sorting of results in descending order. The possible values
+	--stats		# Print aggregate statistics about this ripgrep search. When this flag is
+	--files-without-match		# is passed.
+	--text(-a)		# Search binary files as if they were text. When this flag is present, ripgrep's
+	--threads(-j)		# The approximate number of threads to use. A value of 0 (which is the default)
+	--trim		# When set, all ASCII whitespace at the beginning of each line printed will be
+	--type(-t)		# ...                         
+	--type-list		# flag to list all available types.
+	--type-add		# ...                
+	--type-add		# can also be used to include rules from other types with the special
+	--type-add		# 'src:include:cpp,py,md'
+	--type-add		# flag again:
+	--type-add		# 'src:include:cpp,py,md' --type-add 'src:*.foo'
+	--type-clear		# ...                   
+	--type-list		# Show all supported file types and their corresponding globs.
+	--type-not(-T)		# ...                     
+	--unrestricted(-u)		# Reduce the level of "smart" searching. A single -u won't respect .gitignore
+	--version(-V)		# Prints version information
+	--vimgrep		# Show results with every match on its own line, including line numbers and
+	--with-filename(-H)		# Display the file path for matches. This is the default when more than one
+	--word-regexp(-w)		# Only show matches surrounded by word boundaries. This is roughly equivalent to
+	...args
+]
+

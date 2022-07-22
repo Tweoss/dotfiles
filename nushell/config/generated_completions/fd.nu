@@ -1,0 +1,51 @@
+extern "fd" [
+	--hidden(-H)		# Include hidden directories and files in the search results (default: hidden files and directories are skipped). Files and directories are considered to be hidden if their name starts with a
+	--no-ignore(-I)		# Show search results from files and directories that would otherwise be ignored by '.gitignore', '.ignore', '.fdignore', or the global ignore file.
+	--no-ignore-vcs		# Show search results from files and directories that would otherwise be ignored by '.gitignore' files.
+	--unrestricted(-u)		# Alias for '--no-ignore'. Can be repeated. '-uu' is an alias for '--no-ignore --hidden'.
+	--case-sensitive(-s)		# Perform a case-sensitive search. By default, fd uses case-insensitive searches, unless the pattern contains an uppercase character (smart case).
+	--ignore-case(-i)		# Perform a case-insensitive search. By default, fd uses case-insensitive searches, unless the pattern contains an uppercase character (smart case).
+	--glob(-g)		# Perform a glob-based search instead of a regular expression search.
+	--regex		# Perform a regular-expression based search (default). This can be used to override --glob.
+	--fixed-strings(-F)		# Treat the pattern as a literal string instead of a regular expression. Note that this also performs substring comparison. If you want to match on an exact filename, consider using '--glob'.
+	--absolute-path(-a)		# Shows the full path starting from the root as opposed to relative paths.
+	--list-details(-l)		# Use a detailed listing format like 'ls -l'. This is basically an alias for '--exec-batch ls -l' with some additional 'ls' options. This can be used to see more metadata, to show symlink
+	--follow(-L)		# By default, fd does not descend into symlinked directories. Using this flag, symbolic links are also traversed.
+	--full-path(-p)		# By default, the search pattern is only matched against the filename (or directory name). Using this flag, the pattern is matched against the full path.
+	--print0(-0)		# Separate search results by the null character (instead of newlines). Useful for piping results to 'xargs'.
+	--prune		# Do not traverse into matching directories.
+	--show-errors		# Enable the display of filesystem errors for situations such as insufficient permissions or dead symlinks.
+	--one-file-system		# By default, fd will traverse the file system tree as far as other options dictate. With this flag, fd ensures that it does not descend into a different file system than the one it started
+	--help(-h)		# Prints help information
+	--version(-V)		# Prints version information
+	--max-depth(-d)		# Limit the directory traversal to a given depth. By default, there is no limit on the search depth.
+	--min-depth		# Only show search results starting at the given depth. See also: '--max-depth' and '--exact-depth'
+	--exact-depth		# Only show search results at the exact given depth. This is an alias for '--min-depth <depth> --max-depth <depth>'.
+	--type(-t)		# ...              
+	--extension(-e)		# ...              
+	--exec(-x)		# Execute a command for each search result.
+	--exec-batch(-X)		# Execute a command with all search results at once.
+	--exclude(-E)		# ...            
+	--exclude		# '*.pyc'
+	--exclude		# node_modules
+	--ignore-file		# ...           
+	--color(-c)		# Declare when to use color for the pattern match output:
+	--threads(-j)		# Set number of threads to use for searching & executing (default: number of available CPU cores)
+	--size(-S)		# ...                  
+	--changed-within		# Filter results based on the file modification time. The argument can be provided as a specific point in time (YYYY-MM-DD HH:MM:SS) or as a duration (10h, 1d, 35min). '--change-newer-than'
+	--changed-within		# 2weeks
+	--change-newer-than		# '2018-10-27 10:00:00'
+	--changed-before		# Filter results based on the file modification time. The argument can be provided as a specific point in time (YYYY-MM-DD HH:MM:SS) or as a duration (10h, 1d, 35min). '--change-older-than'
+	--changed-before		# '2018-10-27 10:00:00'
+	--change-older-than		# 2weeks
+	--max-results		# Limit the number of search results to 'count' and quit immediately.
+	--base-directory		# Change the current working directory of fd to the provided path. This means that search results will be shown with respect to the given base path. Note that relative paths which are passed
+	--path-separator		# Set the path separator to use when printing file paths. The default is the OS-specific separator ('/' on Unix, '\' on Windows).
+	--search-path		# ...    
+	--owner(-o)		# Filter files by their user and/or group. Format: [(user|uid)][:(group|gid)]. Either side is optional. Precede either side with a '!' to exclude files instead.
+	--owner		# john
+	--owner		# :students
+	--owner		# '!john:students'
+	...args
+]
+
