@@ -6,8 +6,6 @@ yabai -m config bottom_padding               	0
 yabai -m config left_padding                 	0
 yabai -m config right_padding                	0
 
-yabai -m config external_bar			all:33:0
-
 yabai -m config window_shadow 			off
 
 yabai -m rule --add app="Stats" layer=above manage=off
@@ -16,6 +14,8 @@ yabai -m rule --add app="Brave Browser" title="Messenger call - Camera or microp
 yabai -m rule --add app="minimal_menu" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="TextEdit" manage=off
+yabai -m rule --add app="Minecraft" manage=off
+yabai -m rule --add app="TextMate" manage=off
 yabai -m rule --add app="Fantastical Helper" manage=off
 yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="Menubar Countdown" manage=off
