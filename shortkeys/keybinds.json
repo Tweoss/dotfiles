@@ -1,0 +1,79 @@
+[
+    {
+        "key": "/",
+        "label": "Focus search (Stanford Course)",
+        "action": "javascript",
+        "blacklist": "whitelist",
+        "sites": "https://explorecourses.stanford.edu/search*",
+        "code": "(() => {\nconst __el = document.querySelector(\"#search_courses_input\");\n__el.focus();\n__el.selectionStart = 0;\n__el.selectionEnd = __el.value.length;\n})()\n",
+        "sitesArray": [
+            "https://explorecourses.stanford.edu/search*"
+        ]
+    },
+    {
+        "key": "h",
+        "label": "[H]ighlight WAY's (Stanford Course)",
+        "action": "javascript",
+        "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"WAY-\")) {\nconst new_text = e.innerText.replace(/.*UG Reqs: /, '');\n// e.parentElement.firstDescendant().style.backgroundColor = \"red\"; \ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\n}});\n})()",
+        "sites": "https://explorecourses.stanford.edu/search*",
+        "sitesArray": [
+            "https://explorecourses.stanford.edu/search*"
+        ],
+        "blacklist": "whitelist"
+    },
+    {
+        "sites": "https://explorecourses.stanford.edu/search*",
+        "sitesArray": [
+            "https://explorecourses.stanford.edu/search*"
+        ],
+        "label": "Locate [T]erm's (Stanford Course)",
+        "action": "javascript",
+        "key": "t",
+        "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"Terms:\")) {\nconst new_text = e.innerText.replace(/Terms: ([^\\|]+)\\|.*/, '$1');\ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\nnavigator.clipboard.writeText(new_text);\n}});\n})()",
+        "blacklist": "whitelist"
+    },
+    {
+        "key": "right",
+        "label": "Next Page (Stanford Course)",
+        "action": "javascript",
+        "blacklist": "whitelist",
+        "sites": "https://explorecourses.stanford.edu/search*",
+        "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"next »\")[0]?.click();",
+        "sitesArray": [
+            "https://explorecourses.stanford.edu/search*"
+        ]
+    },
+    {
+        "key": "left",
+        "label": "Previous Page (Stanford Course)",
+        "action": "javascript",
+        "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"« prev\")[0]?.click();",
+        "blacklist": "whitelist",
+        "sites": "https://explorecourses.stanford.edu/search*",
+        "sitesArray": [
+            "https://explorecourses.stanford.edu/search*"
+        ]
+    },
+    {
+        "key": "/",
+        "label": "Focus search (Oyez)",
+        "action": "javascript",
+        "blacklist": "whitelist",
+        "sites": "https://www.oyez.org*",
+        "code": "(() => {\nconst __el = document.querySelector(\"body > div > div > div.oy-overhead.ng-scope > div > div.search-wrapper > div > input\") || document.querySelector(\"body > div > div > div.oy-navigation.ng-scope > div.off-canvas-nav > div > section.fade.search-wrapper.ng-scope > div > input\");\n__el.focus();\n__el.selectionStart = __el.selectionEnd = __el.value.length;\n})()\n",
+        "sitesArray": [
+            "https://www.oyez.org*"
+        ]
+    },
+    {
+        "key": "/",
+        "label": "Focus search (Carta)",
+        "action": "javascript",
+        "blacklist": "whitelist",
+        "sites": "https://carta-beta.stanford.edu*",
+        "code": "(() => {\nconst __el = document.querySelector(\"#downshift-0-input\");\n__el.focus();\n__el.selectionStart = 0;\n__el.selectionEnd = __el.value.length;\n})()\n",
+        "sitesArray": [
+            "https://www.oyez.org*"
+        ]
+    }
+]
