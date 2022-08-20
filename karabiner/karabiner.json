@@ -189,6 +189,20 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "unbind delete/backspace",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "delete_or_backspace",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "vk_none"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "clicker mapping for google slides",
         "manipulators" : [ {
           "from" : {
@@ -382,7 +396,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus next"
+            "shell_command" : "/opt/homebrew/bin/yabai -m space --focus next"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -398,7 +412,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m space --focus prev"
+            "shell_command" : "/opt/homebrew/bin/yabai -m space --focus prev"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -488,7 +502,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "delete_or_backspace",
+            "key_code" : "right_command",
             "modifiers" : {
               "optional" : [ "any" ]
             }
@@ -638,58 +652,6 @@
             "type" : "variable_if"
           } ],
           "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "0"
-          },
-          "to" : [ {
-            "shell_command" : "/Users/francischua/gitprojects/click/target/debug/click 100 10 0 4 right"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "9"
-          },
-          "to" : [ {
-            "shell_command" : "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "t"
-          },
-          "to" : [ {
-            "shell_command" : "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0; osascript -e 'tell application \"System Events\" to tell dock preferences to set autohide menu bar to not autohide menu bar'"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "e"
-          },
-          "to" : [ {
-            "shell_command" : "[[ $(/usr/local/bin/yabai -m config external_bar) == 'all:33:0' ]] && /usr/local/bin/yabai -m config external_bar all:0:0 || /usr/local/bin/yabai -m config external_bar all:33:0 >> /Users/francischua/temp.txt"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
         } ]
       }, {
         "description" : "yabai layer",
@@ -714,7 +676,7 @@
             "key_code" : "f"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --toggle float"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --toggle float"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -727,7 +689,7 @@
             "key_code" : "spacebar"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 1:1:0:0:1:1"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -750,7 +712,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:0:1:1:2"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:1:2"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -773,7 +735,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:1"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -796,7 +758,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:1:1:2:2"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:1:1:2:2"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -819,7 +781,7 @@
             }
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:1"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:1"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -832,7 +794,7 @@
             "key_code" : "h"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:2"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:2"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -845,7 +807,7 @@
             "key_code" : "j"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:0:1:2:2"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -858,7 +820,7 @@
             "key_code" : "k"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:0:0:2:1"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -871,7 +833,7 @@
             "key_code" : "l"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:2"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -884,7 +846,7 @@
             "key_code" : "n"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --display recent"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --display recent"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -897,7 +859,7 @@
             "key_code" : "s"
           },
           "to" : [ {
-            "shell_command" : "/usr/local/bin/yabai -m window --toggle topmost"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --toggle topmost"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -907,7 +869,7 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "disable layer",
+        "description" : "disable yabai layer",
         "manipulators" : [ {
           "from" : {
             "simultaneous" : [ {
@@ -948,6 +910,23 @@
             "name" : "disable-layer",
             "value" : 1,
             "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "right command to backspace",
+        "manipulators" : [ {
+          "to_after_key_up" : [ {
+            "key_code" : "delete_or_backspace"
+          } ],
+          "from" : {
+            "key_code" : "right_command",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_command"
           } ],
           "type" : "basic"
         } ]

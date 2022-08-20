@@ -27,6 +27,11 @@
                 [:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]
             ]
         }
+        {:des "unbind delete/backspace"
+            :rules [
+                [:##delete_or_backspace :vk_none] 
+            ]
+        }
         {:des "clicker mapping for google slides"
             :rules [
                 :econ_clicker
@@ -62,14 +67,15 @@
                 :caps-mode
                 ; VIM MODE - hold caps and HJKL
                 ; home row computing
-                [:!Tl "/usr/local/bin/yabai -m space --focus next"]
-                [:!Th "/usr/local/bin/yabai -m space --focus prev"]
+                [:!Tl "/opt/homebrew/bin/yabai -m space --focus next"]
+                [:!Th "/opt/homebrew/bin/yabai -m space --focus prev"]
                 [:##h :left_arrow] ; even with f, still do left arrow
                 [:##k :up_arrow]
                 [:##j :down_arrow]
                 [:##l :right_arrow]
                 [:##s :left_shift]
-                [:##delete_or_backspace :delete_forward]
+                ; delete forward, but using right_command
+                [:##right_command :delete_forward]
                 [:##spacebar ["caps-mode" 0]]
                 ; one password
                 [:##p :!!backslash]
@@ -84,10 +90,6 @@
                 [:c "osascript ~/gitutils/executables/applescript/clear_notifs.scpt"]
                 ; word counter
                 [:i :!!c]
-                ; clicker
-                [:0 "/Users/francischua/gitprojects/click/target/debug/click 100 10 0 4 right"]
-                ; kill clicker
-                [:9 "kill `ps -e | grep 'target/debug/click 100' | grep -v grep | awk '{ print $1 }'`"]
             ]
         }
         {:des "yabai layer"
@@ -96,32 +98,39 @@
                 ; disabling yabai-layer
                 [:caps_lock ["yabai-layer" 0]]
                 ; toggle window float
-                [:f "/usr/local/bin/yabai -m window --toggle float"]
+                [:f "/opt/homebrew/bin/yabai -m window --toggle float"]
                 ; full screen like moom
-                [:spacebar "/usr/local/bin/yabai -m window --grid 1:1:0:0:1:1"]
+                [:spacebar "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"]
                 ; corner combos
-                [[:h :j] "/usr/local/bin/yabai -m window --grid 2:2:0:1:1:2"]
-                [[:h :k] "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:1"]
-                [[:l :j] "/usr/local/bin/yabai -m window --grid 2:2:1:1:2:2"]
-                [[:l :k] "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:1"]
+                [[:h :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:1:2"]
+                [[:h :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"]
+                [[:l :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:1:2:2"]
+                [[:l :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:1"]
                 ; half screens
-                [:h "/usr/local/bin/yabai -m window --grid 2:2:0:0:1:2"]
-                [:j "/usr/local/bin/yabai -m window --grid 2:2:0:1:2:2"]
-                [:k "/usr/local/bin/yabai -m window --grid 2:2:0:0:2:1"]
-                [:l "/usr/local/bin/yabai -m window --grid 2:2:1:0:2:2"]
+                [:h "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:2"]
+                [:j "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"]
+                [:k "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"]
+                [:l "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"]
                 ; move to display
-                [:n "/usr/local/bin/yabai -m window --display recent"]
+                [:n "/opt/homebrew/bin/yabai -m window --display recent"]
                 ; topmost
-                [:s "/usr/local/bin/yabai -m window --toggle topmost"]
+                [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]
             ]
         }
-        {:des "disable layer"
+        {:des "disable yabai layer"
             :rules [
                 [:condi :disable-layer]
                 ; disabling disable-layer
                 [[:caps_lock :l] ["disable-layer" 0]]
                 ; capture all keps
                 [:anykey :vk_none]
+            ]
+        }
+        ; must come after caps-lock layer. avoid capturing right_command too early
+        {:des "right command to backspace"
+            :rules [
+                ; [:##right_command :delete_or_backspace]
+                [:##right_command :right_command nil {:afterup :delete_or_backspace}]
             ]
         }
         {:des "cmd-H"
