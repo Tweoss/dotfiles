@@ -73,7 +73,7 @@
         "sites": "https://carta-beta.stanford.edu*",
         "code": "(() => {\nconst __el = document.querySelector(\"#downshift-0-input\");\n__el.focus();\n__el.selectionStart = 0;\n__el.selectionEnd = __el.value.length;\n})()\n",
         "sitesArray": [
-            "https://www.oyez.org*"
+            "https://carta-beta.stanford.edu*"
         ]
     }
 ]
