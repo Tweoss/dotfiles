@@ -75,5 +75,27 @@
         "sitesArray": [
             "https://carta-beta.stanford.edu*"
         ]
+    },
+    {
+        "key": "left",
+        "label": "Previous semester (Carta)",
+        "action": "javascript",
+        "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(1)\").click();})()",
+        "blacklist": "whitelist",
+        "sites": "https://carta-beta.stanford.edu*",
+        "sitesArray": [
+            "https://carta-beta.stanford.edu*"
+        ]
+    },
+    {
+        "key": "right",
+        "label": "Next semester (Carta)",
+        "action": "javascript",
+        "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(3)\").click();})()",
+        "blacklist": "whitelist",
+        "sites": "https://carta-beta.stanford.edu*",
+        "sitesArray": [
+            "https://carta-beta.stanford.edu*"
+        ]
     }
 ]
