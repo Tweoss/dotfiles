@@ -1,6 +1,8 @@
 
 [[language]]
 name = "rust"
-# default true anyway
-auto-format = true
 language-server = { command = "/Users/francischua/.config/helix/rust-analyzer/rust-analyzer" }
+
+[[language]]
+name = "typescript"
+indent = { tab-width = 4, unit = "    " }

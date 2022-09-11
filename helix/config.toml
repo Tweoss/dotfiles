@@ -1,3 +1,7 @@
-
 theme = "bogster"
 
+[editor]
+line-number = "relative"
+
+[keys.normal]
+X = "extend_line_above" # override capital X to expand selection to line above
