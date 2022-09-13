@@ -1,81 +1,81 @@
 [
-    {
-        "key": "h",
-        "label": "[H]ighlight WAY's (Stanford Course)",
-        "action": "javascript",
-        "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"WAY-\")) {\nconst new_text = e.innerText.replace(/.*UG Reqs: /, '');\n// e.parentElement.firstDescendant().style.backgroundColor = \"red\"; \ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\n}});\n})()",
-        "sites": "https://explorecourses.stanford.edu/search*",
-        "sitesArray": [
-            "https://explorecourses.stanford.edu/search*"
-        ],
-        "blacklist": "whitelist"
-    },
-    {
-        "sites": "https://explorecourses.stanford.edu/search*",
-        "sitesArray": [
-            "https://explorecourses.stanford.edu/search*"
-        ],
-        "label": "Locate [T]erm's (Stanford Course)",
-        "action": "javascript",
-        "key": "t",
-        "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"Terms:\")) {\nconst new_text = e.innerText.replace(/Terms: ([^\\|]+)\\|.*/, '$1');\ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\nnavigator.clipboard.writeText(new_text);\n}});\n})()",
-        "blacklist": "whitelist"
-    },
-    {
-        "key": "right",
-        "label": "Next Page (Stanford Course)",
-        "action": "javascript",
-        "blacklist": "whitelist",
-        "sites": "https://explorecourses.stanford.edu/search*",
-        "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"next »\")[0]?.click();",
-        "sitesArray": [
-            "https://explorecourses.stanford.edu/search*"
-        ]
-    },
-    {
-        "key": "left",
-        "label": "Previous Page (Stanford Course)",
-        "action": "javascript",
-        "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"« prev\")[0]?.click();",
-        "blacklist": "whitelist",
-        "sites": "https://explorecourses.stanford.edu/search*",
-        "sitesArray": [
-            "https://explorecourses.stanford.edu/search*"
-        ]
-    },
-    {
-        "key": "left",
-        "label": "Previous semester (Carta)",
-        "action": "javascript",
-        "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(1)\").click();})()",
-        "blacklist": "whitelist",
-        "sites": "https://carta-beta.stanford.edu*",
-        "sitesArray": [
-            "https://carta-beta.stanford.edu*"
-        ]
-    },
-    {
-        "key": "right",
-        "label": "Next semester (Carta)",
-        "action": "javascript",
-        "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(3)\").click();})()",
-        "blacklist": "whitelist",
-        "sites": "https://carta-beta.stanford.edu*",
-        "sitesArray": [
-            "https://carta-beta.stanford.edu*"
-        ]
-    },
-    {
-        "key": "s",
-        "label": "Focus search (All)",
-        "action": "javascript",
-        "code": "(() => {\n  const selectors = [\n    [\"https://explorecourses.stanford.edu/search.*\", \"#search_courses_input\"],\n    [\"https://carta-beta.stanford.edu.*\", \"#downshift-0-input\"],\n    [\"https://www.google.com/search.*\", \"input[aria-label=\\\"Search\\\"]\"],\n  ];\n  for ([url_regex, selector] of selectors) {\n    if (window.location.href.match(new RegExp(url_regex))) {\n      const el = document.querySelector(selector);\n      if (el) {\n        el.focus();\n        el.selectionStart = 0;\n        el.selectionEnd = el.value.length;\n        break;\n      }\n    }\n  }\n\n})()\n",
-        "blacklist": "whitelist",
-        "sites": "https://carta-beta.stanford.edu*\nhttps://explorecourses.stanford.edu/search*\nhttps://www.google.com/search?q=*",
-        "sitesArray": [
-            "https://carta-beta.stanford.edu*",
-            "https://explorecourses.stanford.edu/search*",
-            "https://www.google.com/search?q=*"
-        ]
-    }
+  {
+    "key": "h",
+    "label": "[H]ighlight WAY's (Stanford Course)",
+    "action": "javascript",
+    "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"WAY-\")) {\nconst new_text = e.innerText.replace(/.*UG Reqs: /, '');\n// e.parentElement.firstDescendant().style.backgroundColor = \"red\"; \ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\n}});\n})()",
+    "sites": "https://explorecourses.stanford.edu/search*",
+    "sitesArray": [
+      "https://explorecourses.stanford.edu/search*"
+    ],
+    "blacklist": "whitelist"
+  },
+  {
+    "sites": "https://explorecourses.stanford.edu/search*",
+    "sitesArray": [
+      "https://explorecourses.stanford.edu/search*"
+    ],
+    "label": "Locate [T]erm's (Stanford Course)",
+    "action": "javascript",
+    "key": "t",
+    "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"Terms:\")) {\nconst new_text = e.innerText.replace(/Terms: ([^\\|]+)\\|.*/, '$1');\ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\nnavigator.clipboard.writeText(new_text);\n}});\n})()",
+    "blacklist": "whitelist"
+  },
+  {
+    "key": "right",
+    "label": "Next Page (Stanford Course)",
+    "action": "javascript",
+    "blacklist": "whitelist",
+    "sites": "https://explorecourses.stanford.edu/search*",
+    "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"next »\")[0]?.click();",
+    "sitesArray": [
+      "https://explorecourses.stanford.edu/search*"
+    ]
+  },
+  {
+    "key": "left",
+    "label": "Previous Page (Stanford Course)",
+    "action": "javascript",
+    "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"« prev\")[0]?.click();",
+    "blacklist": "whitelist",
+    "sites": "https://explorecourses.stanford.edu/search*",
+    "sitesArray": [
+      "https://explorecourses.stanford.edu/search*"
+    ]
+  },
+  {
+    "key": "left",
+    "label": "Previous semester (Carta)",
+    "action": "javascript",
+    "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(1)\").click();})()",
+    "blacklist": "whitelist",
+    "sites": "https://carta-beta.stanford.edu*",
+    "sitesArray": [
+      "https://carta-beta.stanford.edu*"
+    ]
+  },
+  {
+    "key": "right",
+    "label": "Next semester (Carta)",
+    "action": "javascript",
+    "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(3)\").click();})()",
+    "blacklist": "whitelist",
+    "sites": "https://carta-beta.stanford.edu*",
+    "sitesArray": [
+      "https://carta-beta.stanford.edu*"
+    ]
+  },
+  {
+    "key": "s",
+    "label": "Focus search (All)",
+    "action": "javascript",
+    "code": "(() => {\n  const selectors = [\n    [\"https://explorecourses.stanford.edu/search.*\", \"#search_courses_input\"],\n    [\"https://carta-beta.stanford.edu.*\", \"#downshift-0-input\"],\n    [\"https://www.google.com/search.*\", \"input[aria-label=\\\"Search\\\"]\"],\n  ];\n  for ([url_regex, selector] of selectors) {\n    if (window.location.href.match(new RegExp(url_regex))) {\n      const el = document.querySelector(selector);\n      if (el) {\n        el.focus();\n        el.selectionStart = 0;\n        el.selectionEnd = el.value.length;\n        break;\n      }\n    }\n  }\n\n})()\n",
+    "blacklist": "whitelist",
+    "sites": "https://carta-beta.stanford.edu*\nhttps://explorecourses.stanford.edu/search*\nhttps://www.google.com/search?q=*",
+    "sitesArray": [
+      "https://carta-beta.stanford.edu*",
+      "https://explorecourses.stanford.edu/search*",
+      "https://www.google.com/search?q=*"
+    ]
+  }
 ]
