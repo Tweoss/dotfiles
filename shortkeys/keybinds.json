@@ -1,16 +1,5 @@
 [
     {
-        "key": "/",
-        "label": "Focus search (Stanford Course)",
-        "action": "javascript",
-        "blacklist": "whitelist",
-        "sites": "https://explorecourses.stanford.edu/search*",
-        "code": "(() => {\nconst __el = document.querySelector(\"#search_courses_input\");\n__el.focus();\n__el.selectionStart = 0;\n__el.selectionEnd = __el.value.length;\n})()\n",
-        "sitesArray": [
-            "https://explorecourses.stanford.edu/search*"
-        ]
-    },
-    {
         "key": "h",
         "label": "[H]ighlight WAY's (Stanford Course)",
         "action": "javascript",
@@ -55,28 +44,6 @@
         ]
     },
     {
-        "key": "/",
-        "label": "Focus search (Oyez)",
-        "action": "javascript",
-        "blacklist": "whitelist",
-        "sites": "https://www.oyez.org*",
-        "code": "(() => {\nconst __el = document.querySelector(\"body > div > div > div.oy-overhead.ng-scope > div > div.search-wrapper > div > input\") || document.querySelector(\"body > div > div > div.oy-navigation.ng-scope > div.off-canvas-nav > div > section.fade.search-wrapper.ng-scope > div > input\");\n__el.focus();\n__el.selectionStart = __el.selectionEnd = __el.value.length;\n})()\n",
-        "sitesArray": [
-            "https://www.oyez.org*"
-        ]
-    },
-    {
-        "key": "/",
-        "label": "Focus search (Carta)",
-        "action": "javascript",
-        "blacklist": "whitelist",
-        "sites": "https://carta-beta.stanford.edu*",
-        "code": "(() => {\nconst __el = document.querySelector(\"#downshift-0-input\");\n__el.focus();\n__el.selectionStart = 0;\n__el.selectionEnd = __el.value.length;\n})()\n",
-        "sitesArray": [
-            "https://carta-beta.stanford.edu*"
-        ]
-    },
-    {
         "key": "left",
         "label": "Previous semester (Carta)",
         "action": "javascript",
@@ -96,6 +63,19 @@
         "sites": "https://carta-beta.stanford.edu*",
         "sitesArray": [
             "https://carta-beta.stanford.edu*"
+        ]
+    },
+    {
+        "key": "s",
+        "label": "Focus search (All)",
+        "action": "javascript",
+        "code": "(() => {\n  const selectors = [\n    [\"https://explorecourses.stanford.edu/search.*\", \"#search_courses_input\"],\n    [\"https://carta-beta.stanford.edu.*\", \"#downshift-0-input\"],\n    [\"https://www.google.com/search.*\", \"input[aria-label=\\\"Search\\\"]\"],\n  ];\n  for ([url_regex, selector] of selectors) {\n    if (window.location.href.match(new RegExp(url_regex))) {\n      const el = document.querySelector(selector);\n      if (el) {\n        el.focus();\n        el.selectionStart = 0;\n        el.selectionEnd = el.value.length;\n        break;\n      }\n    }\n  }\n\n})()\n",
+        "blacklist": "whitelist",
+        "sites": "https://carta-beta.stanford.edu*\nhttps://explorecourses.stanford.edu/search*\nhttps://www.google.com/search?q=*",
+        "sitesArray": [
+            "https://carta-beta.stanford.edu*",
+            "https://explorecourses.stanford.edu/search*",
+            "https://www.google.com/search?q=*"
         ]
     }
 ]
