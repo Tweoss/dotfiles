@@ -31,3 +31,7 @@ let-env NU_LIB_DIRS = [
 let-env NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
+
+# Starship needs to be called apparently every startup
+mkdir ~/.cache/starship
+starship init nu | save ~/.cache/starship/init.nu

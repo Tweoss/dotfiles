@@ -1,10 +1,6 @@
 #!/usr/bin/env nu
 
-
-def create_left_prompt [] {
-    # starship
-    starship prompt --cmd-duration $env.CMD_DURATION_MS $'--status=($env.LAST_EXIT_CODE)'
-}
+source ~/.cache/starship/init.nu
 
 def create_right_prompt [] {
     let time_segment = ([
@@ -14,8 +10,7 @@ def create_right_prompt [] {
     $time_segment
 }
 
-# Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND = { create_left_prompt }
+# # Use nushell functions to define your right and left prompt
 let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
