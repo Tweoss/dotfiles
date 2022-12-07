@@ -10,8 +10,8 @@ def create_right_prompt [] {
     $time_segment
 }
 
-# # Use nushell functions to define your right and left prompt
-let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
+# Use nushell functions to define your right and left prompt
+# let-env PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
 # The prompt indicators are environmental variables that represent
 # the state of the prompt

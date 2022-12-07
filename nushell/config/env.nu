@@ -34,4 +34,5 @@ let-env NU_PLUGIN_DIRS = [
 
 # Starship needs to be called apparently every startup
 mkdir ~/.cache/starship
-starship init nu | save ~/.cache/starship/init.nu
+# starship did not update -c for nushell yet.
+# starship init nu | save ~/.cache/starship/init.nu
