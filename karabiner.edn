@@ -87,7 +87,8 @@
                 ; turning on screensaver
                 [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
                 ; clearing notifications
-                [:c "osascript ~/gitutils/executables/applescript/clear_notifs.scpt"]
+                ; [:c "osascript ~/gitutils/executables/applescript/clear_notifs.scpt"]
+                [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
                 ; word counter
                 [:i :!!c]
             ]
