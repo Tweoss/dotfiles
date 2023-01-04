@@ -1,5 +1,5 @@
 {
-  "settingsVersion": "1.67",
+  "settingsVersion": "1.67.4",
   "exclusionRules": [
     {
       "pattern": "https?://mail.google.com/*",
@@ -10,14 +10,58 @@
       "passKeys": "s"
     },
     {
-      "pattern": "https://bonk.io*",
+      "pattern": "https?://*.io/?",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.overleaf.com/project/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://explorecourses.stanford.edu/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://outlook.office.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://monkeytype.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://asciiflow.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.autopiano.cn/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://127.0.0.1:4000/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://linearity.typeform.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://www.onlinepianist.com/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://*.io/gameframe-release.html",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://krunker.io/*",
       "passKeys": ""
     }
   ],
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nunmap s\nmap <c-]> passNextKey\nunmap f\nunmap F\nmap a LinkHints.activateMode\nmap A LinkHints.activateModeToOpenInNewTab\nmap t createTab position=end about:blank",
+  "keyMappings": "# Insert your preferred key mappings here.\nunmap s\nmap <c-]> passNextKey\nunmap f\nunmap F\nmap a LinkHints.activateMode\nmap A LinkHints.activateModeToOpenInNewTab\n# map t createTab position=end about:blank\nmap J nextTab\nmap K previousTab",
   "linkHintCharacters": "aoeuhtns",
   "linkHintNumbers": "abcdefghij",
   "newTabUrl": "about:newtab",
