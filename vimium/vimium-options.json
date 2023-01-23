@@ -10,15 +10,7 @@
       "passKeys": "s"
     },
     {
-      "pattern": "https?://*.io/?",
-      "passKeys": ""
-    },
-    {
       "pattern": "https?://www.overleaf.com/project/*",
-      "passKeys": ""
-    },
-    {
-      "pattern": "https?://explorecourses.stanford.edu/*",
       "passKeys": ""
     },
     {
@@ -55,6 +47,14 @@
     },
     {
       "pattern": "https?://krunker.io/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://explorecourses.stanford.edu/*",
+      "passKeys": ""
+    },
+    {
+      "pattern": "https?://(?!cs107e)*.io/?",
       "passKeys": ""
     }
   ],
