@@ -17,6 +17,7 @@ let-env PATH = [
     '/Library/Frameworks/Maple.framework/Versions/2022/bin',
     '/usr/local/opt/ruby/bin',
     # '/Users/francischua/gitutils/executables/shellscript',
+    '/Users/francischua/gitprojects/cs107e.github.io/cs107e/bin',
     '/Users/francischua/Library/Python/3.9/bin',
     '/usr/local/texlive/2022/bin/universal-darwin',
     '/opt/homebrew/bin/',

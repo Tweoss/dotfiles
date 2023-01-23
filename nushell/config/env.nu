@@ -32,6 +32,9 @@ let-env NU_PLUGIN_DIRS = [
     ($nu.config-path | path dirname | path join 'plugins')
 ]
 
+# CS 107E
+let-env CS107E = "/Users/francischua/gitprojects/cs107e.github.io/cs107e"
+
 # Starship needs to be called apparently every startup
 mkdir ~/.cache/starship
 # starship did not update -c for nushell yet.

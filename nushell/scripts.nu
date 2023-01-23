@@ -3,3 +3,4 @@
 # use ~/.config/nushell/scripts/example.nu [greet]
 use ~/.config/nushell/scripts/sound.nu [s]
 use ~/.config/nushell/scripts/parse-help.nu [save-completion]
+use ~/.config/nushell/scripts/rpi-exec.nu [rpi-exec]
