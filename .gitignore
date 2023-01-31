@@ -1,12 +1,9 @@
 gh/hosts.yml
 iterm2/AppSupport
 menus
-octave/octave-gui.ini
-octave/octave-gui.ini.AHRTMz
-octave/octave-gui.ini.mLMAIo
+octave/octave-gui.ini*
 op/config
 spotify-tui
-karabiner
 helix/runtime/grammars
 helix/runtime/queries
 helix/runtime/runtime
@@ -15,3 +12,4 @@ helix/rust-analyzer/rust-analyzer
 QtProject
 Autodesk
 iterm/com.googlecode.iterm2.plist
+karabiner/automatic_backups

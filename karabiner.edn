@@ -175,7 +175,12 @@
         }
         {:des "Do not disturb without notification binding"
             :rules [
-                [:!OCd "osascript -l JavaScript /Users/francischua/gitprojects/dnd_script/toggle_dnd.jxa"]
+                [:!OCd "shortcuts run 'Toggle DnD Script'"]
+            ]
+        }
+        {:des "Open other Obsidian Vault Quickly"
+            :rules [
+                [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]               
             ]
         }
         {:des "Temporary Binding"
