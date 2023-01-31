@@ -132,8 +132,7 @@
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
             :rules [
-                ; [:##right_command :delete_or_backspace]
-                [:##right_command :right_command nil {:afterup :delete_or_backspace}]
+                [:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]
             ]
         }
         {:des "cmd-H"

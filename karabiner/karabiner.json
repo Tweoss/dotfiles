@@ -974,10 +974,10 @@
       }, {
         "description" : "right command to backspace",
         "manipulators" : [ {
-          "to_if_held_down" : [ {
+          "to_if_alone" : [ {
             "key_code" : "delete_or_backspace"
           } ],
-          "to_after_key_up" : [ {
+          "to_if_held_down" : [ {
             "key_code" : "delete_or_backspace"
           } ],
           "from" : {
