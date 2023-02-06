@@ -1,7 +1,7 @@
 {:layers {}
  :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"]
-                :brave ["^com\\.brave\\.Browser$"]
-                :mimestream ["^com\\.mimestream\\.Mimestream$"]}
+                :mimestream ["^com\\.mimestream\\.Mimestream$"]
+                :messages ["^com\\.apple\\.MobileSMS$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
            :white_rk [{:vendor_id 14}
@@ -61,6 +61,11 @@
                  [:i :!!c]
                 ; toggle left sidebar
                  [:a :!!a]]}
+        {:des "Messages Conversation Nav"
+         :rules [:messages :caps-mode
+                 [:!Rtab :!STtab]
+                 [:!Stab :!STtab]
+                 [:tab :!Ttab]]}
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
@@ -87,7 +92,7 @@
          :rules [[:condi :disable-layer]
                 ; disabling disable-layer
                  [[:caps_lock :l] ["disable-layer" 0]]
-                ; capture all keps
+                ; capture all keys
                  [:anykey :vk_none]]}
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
@@ -105,8 +110,8 @@
                  [:##escape :grave_accent_and_tilde]]}
         {:des "Minimal menu"
          :rules [[:escape "killall minimal_menu; open /Applications/minimal_menu.app/"]]}
-        {:des "Brave Nav"
-         :rules [:brave :caps-mode
+        {:des "General Nav"
+         :rules [:caps-mode
                  [:!Rtab :!COleft_arrow]
                  [:!Stab :!COleft_arrow]
                  [:tab :!COright_arrow]]}
