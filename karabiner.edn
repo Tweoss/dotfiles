@@ -1,192 +1,124 @@
-{
-     :layers {
-     }
-     :applications {
-         :chrome ["^net\\.java\\.openjdk\\.cmd$"]               
-         :brave ["^com\\.brave\\.Browser$"]
-         :mimestream ["^com\\.mimestream\\.Mimestream$"]
-     }
-    :devices {
-        :econ_clicker [
-            {:vendor_id 3469}
-            {:product_id 5398}
-        ]
-        :white_rk [
-            {:vendor_id 14}
-            {:product_id 13330}
-        ]
-    } ;; devices
+{:layers {}
+ :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"]
+                :brave ["^com\\.brave\\.Browser$"]
+                :mimestream ["^com\\.mimestream\\.Mimestream$"]}
+ :devices {:econ_clicker [{:vendor_id 3469}
+                          {:product_id 5398}]
+           :white_rk [{:vendor_id 14}
+                      {:product_id 13330}]} ;; devices
 
-    :froms {
-        :anykey {:any :key_code :modi {:optional [:any]}}
-    }
+ :froms {:anykey {:any :key_code :modi {:optional [:any]}}}
 
-    :main [
-        {:des "layers"
-            :rules [
-                [:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]
-            ]
-        }
+ :main [{:des "layers"
+         :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
         {:des "unbind delete/backspace"
-            :rules [
-                [:##delete_or_backspace :vk_none] 
-            ]
-        }
+         :rules [[:##delete_or_backspace :vk_none]]}
         {:des "clicker mapping for google slides"
-            :rules [
-                :econ_clicker
-                [:!Sf5 :left_arrow]
-                [:escape :left_arrow]
-                [:!STOp :vk_none]
-                [:!COp :vk_none]
-                [:b :right_arrow]
-            ]
-        }
+         :rules [:econ_clicker
+                 [:!Sf5 :left_arrow]
+                 [:escape :left_arrow]
+                 [:!STOp :vk_none]
+                 [:!COp :vk_none]
+                 [:b :right_arrow]]}
         {:des "pageupdown to parenthesesopenclose"
-            :rules [
-                [:page_up :!S9] 
-                [:page_down :!S0] 
-            ]
-        }
+         :rules [[:page_up :!S9]
+                 [:page_down :!S0]]}
         {:des "clearing notifications in vscode"
-            :rules [
-                [:!Scaps_lock :!Sescape] 
-            ]
-        }
-        {:des "Math Help" 
-            :rules [ 
-                [:f19 :!S6]
-                [:f18 [:semicolon :x :o :k :!S9]]
-                [:f17 :!Cright_arrow]
-                [:f16 :!Cleft_arrow]
-                [:keypad_num_lock :!Cdelete_or_backspace] 
-            ]
-        }
+         :rules [[:!Scaps_lock :!Sescape]]}
+        {:des "Math Help"
+         :rules [[:f19 :!S6]
+                 [:f18 [:semicolon :x :o :k :!S9]]
+                 [:f17 :!Cright_arrow]
+                 [:f16 :!Cleft_arrow]
+                 [:keypad_num_lock :!Cdelete_or_backspace]]}
         {:des "capslock layer"
-            :rules [
-                :caps-mode
+         :rules [:caps-mode
                 ; VIM MODE - hold caps and HJKL
                 ; home row computing
-                [:!Tl "/opt/homebrew/bin/yabai -m space --focus next"]
-                [:!Th "/opt/homebrew/bin/yabai -m space --focus prev"]
-                [:##h :left_arrow] ; even with f, still do left arrow
-                [:##k :up_arrow]
-                [:##j :down_arrow]
-                [:##l :right_arrow]
-                [:##s :left_shift]
+                 [:!Tl "/opt/homebrew/bin/yabai -m space --focus next"]
+                 [:!Th "/opt/homebrew/bin/yabai -m space --focus prev"]
+                 [:##h :left_arrow] ; even with f, still do left arrow
+                 [:##k :up_arrow]
+                 [:##j :down_arrow]
+                 [:##l :right_arrow]
+                 [:##s :left_shift]
                 ; delete forward, but using right_command
-                [:##right_command :delete_forward]
-                [:##spacebar ["caps-mode" 0]]
+                 [:##right_command :delete_forward]
+                 [:##spacebar ["caps-mode" 0]]
                 ; one password
-                [:##p :!!backslash]
-                [:o "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"]
+                 [:##p :!!backslash]
+                 [:o "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"]
                 ; turning on yabai-layer
-                [:m [["yabai-layer" 1] ["caps-mode" 0]]]
+                 [:m [["yabai-layer" 1] ["caps-mode" 0]]]
                 ; turning on disable-layer
-                [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
+                 [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
-                [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
+                 [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
                 ; word counter
-                [:i :!!c]
+                 [:i :!!c]
                 ; toggle left sidebar
-                [:a :!!a]
-            ]
-        }
+                 [:a :!!a]]}
         {:des "yabai layer"
-            :rules [
-                [:condi :yabai-layer]
+         :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
-                [:caps_lock ["yabai-layer" 0]]
+                 [:caps_lock ["yabai-layer" 0]]
                 ; toggle window float
-                [:f "/opt/homebrew/bin/yabai -m window --toggle float"]
+                 [:f "/opt/homebrew/bin/yabai -m window --toggle float"]
                 ; full screen like moom
-                [:spacebar "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"]
+                 [:spacebar "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"]
                 ; corner combos
-                [[:h :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:1:2"]
-                [[:h :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"]
-                [[:l :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:1:2:2"]
-                [[:l :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:1"]
+                 [[:h :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:1:2"]
+                 [[:h :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"]
+                 [[:l :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:1:2:2"]
+                 [[:l :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:1"]
                 ; half screens
-                [:h "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:2"]
-                [:j "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"]
-                [:k "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"]
-                [:l "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"]
+                 [:h "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:2"]
+                 [:j "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"]
+                 [:k "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"]
+                 [:l "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"]
                 ; move to display
-                [:n "/opt/homebrew/bin/yabai -m window --display recent"]
+                 [:n "/opt/homebrew/bin/yabai -m window --display recent"]
                 ; topmost
-                [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]
-            ]
-        }
+                 [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]]}
         {:des "disable yabai layer"
-            :rules [
-                [:condi :disable-layer]
+         :rules [[:condi :disable-layer]
                 ; disabling disable-layer
-                [[:caps_lock :l] ["disable-layer" 0]]
+                 [[:caps_lock :l] ["disable-layer" 0]]
                 ; capture all keps
-                [:anykey :vk_none]
-            ]
-        }
+                 [:anykey :vk_none]]}
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
-            :rules [
-                [:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]
-            ]
-        }
+         :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
         {:des "cmd-H"
-            :rules [
-                :chrome
-                [:x :!Ch]
-                [:##right_shift :x]
-            ] 
-        }
+         :rules [:chrome
+                 [:x :!Ch]
+                 [:##right_shift :x]]}
         {:des "royal kludge keyboard fixes"
-            :rules [
-                :white_rk
+         :rules [:white_rk
                 ; swap option and windows 
-                [:left_option :left_command]
-                [:left_command :left_option]
+                 [:left_option :left_command]
+                 [:left_command :left_option]
                 ; top left escape to backtick
-                [:##escape :grave_accent_and_tilde]
-            ]
-        }
+                 [:##escape :grave_accent_and_tilde]]}
         {:des "Minimal menu"
-            :rules [
-                [:escape "killall minimal_menu; open /Applications/minimal_menu.app/"]
-            ] 
-        }
-        {:des "Brave Nav" 
-            :rules [
-                :brave :caps-mode
-                [:!Rtab :!COleft_arrow]      
-                [:!Stab :!COleft_arrow]      
-                [:tab :!COright_arrow]
-            ] 
-        }
+         :rules [[:escape "killall minimal_menu; open /Applications/minimal_menu.app/"]]}
+        {:des "Brave Nav"
+         :rules [:brave :caps-mode
+                 [:!Rtab :!COleft_arrow]
+                 [:!Stab :!COleft_arrow]
+                 [:tab :!COright_arrow]]}
         {:des "Unbind sending key for mimestream"
-            :rules [
-                :mimestream
-                [:!C#S#Rreturn_or_enter :vk_none]
-                [:!Q#S#Rreturn_or_enter :vk_none]
-            ]
-        }
+         :rules [:mimestream
+                 [:!C#S#Rreturn_or_enter :vk_none]
+                 [:!Q#S#Rreturn_or_enter :vk_none]]}
         {:des "Do not disturb without notification binding"
-            :rules [
-                [:!OCd "shortcuts run 'Toggle DnD Script'"]
-            ]
-        }
+         :rules [[:!OCd "shortcuts run 'Toggle DnD Script'"]]}
         {:des "Open other Obsidian Vault Quickly"
-            :rules [
-                [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]               
-            ]
-        }
+         :rules [[:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
         {:des "Temporary Binding"
-            :rules [
-                ; :brave
+         :rules [; :brave
                 ; [:fn :!Ctab]
-            ]
-        }
-    ]
-}
+                 ]}]}
