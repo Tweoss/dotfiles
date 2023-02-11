@@ -1,7 +1,9 @@
 {:layers {}
  :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"]
                 :mimestream ["^com\\.mimestream\\.Mimestream$"]
-                :messages ["^com\\.apple\\.MobileSMS$"]}
+                :messages ["^com\\.apple\\.MobileSMS$"]
+                :forklift ["^com\\.binarynights\\.ForkLift-3$"]
+                :obsidian ["^md\\.obsidian$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
            :white_rk [{:vendor_id 14}
@@ -123,6 +125,8 @@
          :rules [[:!OCd "shortcuts run 'Toggle DnD Script'"]]}
         {:des "Open other Obsidian Vault Quickly"
          :rules [:obsidian [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
+        {:des "Open Forklift file in Arc"
+         :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
         {:des "Temporary Binding"
          :rules [; :brave
                 ; [:fn :!Ctab]

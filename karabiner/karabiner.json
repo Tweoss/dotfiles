@@ -1251,9 +1251,29 @@
             "shell_command" : "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"
           } ],
           "conditions" : [ {
-            "name" : "obsidian",
-            "value" : 1,
-            "type" : "variable_if"
+            "bundle_identifiers" : [ "^md\\.obsidian$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "Open Forklift file in Arc",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "o",
+            "modifiers" : {
+              "mandatory" : [ "left_command", "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "c",
+            "modifiers" : [ "left_command", "left_control" ]
+          }, {
+            "shell_command" : "/Users/francischua/.config/karabiner/forklift_open_file.nu"
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.binarynights\\.ForkLift-3$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
