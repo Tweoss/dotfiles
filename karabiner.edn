@@ -122,7 +122,7 @@
         {:des "Do not disturb without notification binding"
          :rules [[:!OCd "shortcuts run 'Toggle DnD Script'"]]}
         {:des "Open other Obsidian Vault Quickly"
-         :rules [[:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
+         :rules [:obsidian [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
         {:des "Temporary Binding"
          :rules [; :brave
                 ; [:fn :!Ctab]
