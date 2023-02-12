@@ -65,8 +65,8 @@
 
     // Operations
     //! TExt
-    { trigger: "te", replacement: "\\text{$0}", options: "m" },
-    { trigger: "text", replacement: "\\text{$0}", options: "mA" },
+    { trigger: "te", replacement: "\\text{$0}", options: "mA" },
+    // { trigger: "text", replacement: "\\text{$0}", options: "mA" },
     //! BoldFace
     { trigger: "bf", replacement: "\\mathbf{$0}", options: "mA" },
     //! SQuare
@@ -76,8 +76,8 @@
     //! Raise to Degree
     { trigger: "rd", replacement: "^{$0}$1", options: "mA" },
     { trigger: "_", replacement: "_{$0}$1", options: "mA" },
-    //! SubscripTS
-    { trigger: "sts", replacement: "_\\text{$0}", options: "rmA" },
+    //! Subscript TextS
+    { trigger: "sts", replacement: "_\\text{$0}$1", options: "rmA" },
     //! Square Root
     { trigger: "sr", replacement: "\\sqrt{ $0 }$1", options: "mA" },
     { trigger: "//", replacement: "\\frac{$0}{$1}$2", options: "mA" },
@@ -146,6 +146,7 @@
     { trigger: "and", replacement: "\\cap", options: "mA" },
     { trigger: "orr", replacement: "\\cup", options: "mA" },
     { trigger: "inn", replacement: "\\in", options: "mA" },
+    { trigger: "subset", replacement: "\\subset", options: "mA" },
     { trigger: "\\subset eq", replacement: "\\subseteq", options: "mA" },
     { trigger: "set", replacement: "\\{ $0 \\}$1", options: "mA" },
     { trigger: "=>", replacement: "\\implies", options: "mA" },
@@ -160,7 +161,8 @@
     { trigger: ">>", replacement: "\\gg", options: "mA" },
     { trigger: "<<", replacement: "\\ll", options: "mA" },
     { trigger: "~~", replacement: "\\sim", options: "mA" },
-    { trigger: "\\sim ~", replacement: "\\approx", options: "mA" },
+    // ~~= becomes approx
+    { trigger: "\\sim=", replacement: "\\approx", options: "mA" },
     // { trigger: "prop", replacement: "\\propto", options: "mA" },
     { trigger: "nabl", replacement: "\\nabla", options: "mA" },
     { trigger: "del", replacement: "\\nabla", options: "mA" },
