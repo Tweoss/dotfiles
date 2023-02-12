@@ -35,6 +35,14 @@ let-env NU_PLUGIN_DIRS = [
 # CS 107E
 let-env CS107E = "/Users/francischua/gitprojects/cs107e.github.io/cs107e"
 
+# Wasmedge
+let-env DYLD_LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
+let-env LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
+let-env C_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
+let-env CPLUS_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
+
+
+
 # Starship needs to be called apparently every startup
 mkdir ~/.cache/starship
 # starship did not update -c for nushell yet.
