@@ -2,8 +2,8 @@
     // Math mode
     //! MaKe math
     { trigger: "mk", replacement: "$$0$", options: "tA" },
-    //! Display Math
-    { trigger: "dm", replacement: "$$\n$0\n$$", options: "tAw" },
+    //! Display Print (large math mode)
+    { trigger: "dp", replacement: "$$\n$0\n$$", options: "tAw" },
     // ! BEGin
     { trigger: "beg", replacement: "\\begin{$0}\n$1\n\\end{$0}", options: "mA" },
 
@@ -46,12 +46,12 @@
     { trigger: "ome", replacement: "\\omega", options: "mA" },
     { trigger: "@o", replacement: "\\omega", options: "mA" },
     { trigger: "@O", replacement: "\\Omega", options: "mA" },
-    // { trigger: "([^\\\\])(${GREEK}|${SYMBOL})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before greek letters and symbols" },
-
+    // disables xi
+    { trigger: "([^\\\\])(alpha|beta|gamma|Gamma|delta|Delta|epsilon|varepsilon|zeta|eta|theta|Theta|iota|kappa|lambda|Lambda|mu|nu|pi|Pi|Xi|rho|sigma|Sigma|tau|upsilon|varphi|phi|Phi|chi|psi|Psi|omega|Omega|${SYMBOL})", replacement: "[[0]]\\[[1]]", options: "rmA", description: "Add backslash before greek letters and symbols" },
 
     // Insert space after greek letters and symbols, etc
     { trigger: "\\\\(${GREEK}|${SYMBOL}|${SHORT_SYMBOL})([A-Za-z])", replacement: "\\[[0]] [[1]]", options: "rmA" },
-    { trigger: "\\\\(${GREEK}|${SYMBOL}) sr", replacement: "\\[[0]]^{2}", options: "rmA" },
+    { trigger: "\\\\(${GREEK}|${SYMBOL}) sq", replacement: "\\[[0]]^{2}", options: "rmA" },
     { trigger: "\\\\(${GREEK}|${SYMBOL}) cb", replacement: "\\[[0]]^{3}", options: "rmA" },
     { trigger: "\\\\(${GREEK}|${SYMBOL}) rd", replacement: "\\[[0]]^{$0}$1", options: "rmA" },
     { trigger: "\\\\(${GREEK}|${SYMBOL}) hat", replacement: "\\hat{\\[[0]]}", options: "rmA" },
@@ -64,8 +64,8 @@
 
 
     // Operations
-    //! TExt
-    { trigger: "te", replacement: "\\text{$0}", options: "mA" },
+    //! Use TExt
+    { trigger: "ute", replacement: "\\text{$0}", options: "mA" },
     // { trigger: "text", replacement: "\\text{$0}", options: "mA" },
     //! BoldFace
     { trigger: "bf", replacement: "\\mathbf{$0}", options: "mA" },
@@ -120,11 +120,14 @@
 
 
     // Visual operations
+    // place underneath with brace
     { trigger: "U", replacement: "\\underbrace{ ${VISUAL} }_{ $0 }", options: "mA" },
+    // place underneath
     { trigger: "B", replacement: "\\underset{ $0 }{ ${VISUAL} }", options: "mA" },
     { trigger: "C", replacement: "\\cancel{ ${VISUAL} }", options: "mA" },
     { trigger: "K", replacement: "\\cancelto{ $0 }{ ${VISUAL} }", options: "mA" },
     { trigger: "S", replacement: "\\sqrt{ ${VISUAL} }", options: "mA" },
+    { trigger: "(", replacement: "\\left( ${VISUAL} \\right)", options: "mA" },
 
     // Symbols
     //! OOO is infinity
@@ -145,6 +148,7 @@
     { trigger: "||", replacement: "\\mid", options: "mA" },
     { trigger: "and", replacement: "\\cap", options: "mA" },
     { trigger: "orr", replacement: "\\cup", options: "mA" },
+    // in set
     { trigger: "inn", replacement: "\\in", options: "mA" },
     { trigger: "subset", replacement: "\\subset", options: "mA" },
     { trigger: "\\subset eq", replacement: "\\subseteq", options: "mA" },
@@ -152,12 +156,12 @@
     { trigger: "=>", replacement: "\\implies", options: "mA" },
     { trigger: "=<", replacement: "\\impliedby", options: "mA" },
     { trigger: "iff", replacement: "\\iff", options: "mA" },
-    { trigger: "e\\xi sts", replacement: "\\exists", options: "mA", priority: 1 },
+    { trigger: "exists", replacement: "\\exists", options: "mA", priority: 1 },
     { trigger: "===", replacement: "\\equiv", options: "mA" },
     // { trigger: "Sq", replacement: "\\square", options: "mA" },
-    { trigger: "!=", replacement: "\\neq", options: "mA" },
-    { trigger: ">=", replacement: "\\geq", options: "mA" },
-    { trigger: "<=", replacement: "\\leq", options: "mA" },
+    { trigger: "neq", replacement: "\\neq", options: "mA" },
+    { trigger: "geq", replacement: "\\geq", options: "mA" },
+    { trigger: "leq", replacement: "\\leq", options: "mA" },
     { trigger: ">>", replacement: "\\gg", options: "mA" },
     { trigger: "<<", replacement: "\\ll", options: "mA" },
     { trigger: "~~", replacement: "\\sim", options: "mA" },
@@ -252,6 +256,7 @@
     // { trigger: "dag", replacement: "^{\\dagger}", options: "mA" },
     { trigger: "o+", replacement: "\\oplus ", options: "mA" },
     { trigger: "ox", replacement: "\\otimes ", options: "mA" },
+    { trigger: "wedge", replacement: "\\wedge ", options: "mA" },
     // { trigger: "ot\\mathrm{Im}es", replacement: "\\otimes ", options: "mA" }, // Handle conflict with "im" snippet
     // { trigger: "bra", replacement: "\\bra{$0} $1", options: "mA" },
     // { trigger: "ket", replacement: "\\ket{$0} $1", options: "mA" },
@@ -296,6 +301,8 @@
     { trigger: "(", replacement: "($0)$1", options: "mAw" },
     { trigger: "{", replacement: "{$0}$1", options: "mAw" },
     { trigger: "[", replacement: "[$0]$1", options: "mAw" },
+    //! Bounds for integral evaluation 
+    { trigger: "l.r|", replacement: "\\left. $0 \\right| $1", options: "mA" },
     //! Left Right ( parentheses
     { trigger: "lr(", replacement: "\\left( $0 \\right) $1", options: "mA" },
     //! Left Right | pipes
