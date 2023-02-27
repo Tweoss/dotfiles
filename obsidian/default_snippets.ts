@@ -43,7 +43,6 @@
     { trigger: "@R", replacement: "\\rho", options: "mA" },
     { trigger: "@s", replacement: "\\sigma", options: "mA" },
     { trigger: "@S", replacement: "\\Sigma", options: "mA" },
-    { trigger: "ome", replacement: "\\omega", options: "mA" },
     { trigger: "@o", replacement: "\\omega", options: "mA" },
     { trigger: "@O", replacement: "\\Omega", options: "mA" },
     // disables xi
@@ -157,6 +156,7 @@
     { trigger: "=<", replacement: "\\impliedby", options: "mA" },
     { trigger: "iff", replacement: "\\iff", options: "mA" },
     { trigger: "exists", replacement: "\\exists", options: "mA", priority: 1 },
+    { trigger: "all", replacement: "\\forall", options: "mA", priority: 1 },
     { trigger: "===", replacement: "\\equiv", options: "mA" },
     // { trigger: "Sq", replacement: "\\square", options: "mA" },
     { trigger: "neq", replacement: "\\neq", options: "mA" },
