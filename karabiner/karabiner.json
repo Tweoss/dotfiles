@@ -1299,6 +1299,29 @@
             "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
+        }, {
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "m"
+            }, {
+              "key_code" : "v"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : false,
+              "key_down_order" : "insensitive",
+              "key_up_order" : "insensitive",
+              "key_up_when" : "any"
+            }
+          },
+          "to" : [ {
+            "key_code" : "4",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^company\\.thebrowser\\.Browser$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
         } ]
       } ]
     },

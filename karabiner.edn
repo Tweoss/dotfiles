@@ -129,8 +129,9 @@
         {:des "Open Forklift file in Arc"
          :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
         {:des "parentheses in Arc"
-         ; p, t are r, k for dvorak
+         ; p, t, k are r, k, v for dvorak
          :rules [:arc [[:r :k] :!S9]; open parentheses
+                      [[:m :v] :!S4]; open dollar sign
                  ]}
         {:des "Temporary Binding"
          :rules []}]}; :brave
