@@ -34,6 +34,11 @@
                  [:f17 :!Cright_arrow]
                  [:f16 :!Cleft_arrow]
                  [:keypad_num_lock :!Cdelete_or_backspace]]}
+        {:des "Messages Conversation Nav"
+         :rules [:caps-mode :messages
+                 [:!Rtab :!STtab]
+                 [:!Stab :!STtab]
+                 [:tab :!Ttab]]}
         {:des "General Nav"
          :rules [:caps-mode
                  [:!Rtab :!COleft_arrow]
@@ -69,11 +74,6 @@
                  [:i :!!c]
                 ; toggle left sidebar
                  [:a :!!a]]}
-        {:des "Messages Conversation Nav"
-         :rules [:messages :caps-mode
-                 [:!Rtab :!STtab]
-                 [:!Stab :!STtab]
-                 [:tab :!Ttab]]}
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
@@ -129,6 +129,6 @@
         {:des "Open Forklift file in Arc"
          :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
         {:des "Temporary Binding"
-         :rules [; :brave
+         :rules []}]}; :brave
                 ; [:fn :!Ctab]
-                 ]}]}
+

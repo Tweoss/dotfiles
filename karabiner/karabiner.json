@@ -444,6 +444,54 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "Messages Conversation Nav",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "right_shift" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_control", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_control", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "tab"
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "General Nav",
         "manipulators" : [ {
           "from" : {
@@ -754,57 +802,6 @@
           "to" : [ {
             "key_code" : "a",
             "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "Messages Conversation Nav",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "mandatory" : [ "right_shift" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_control", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "mandatory" : [ "left_shift" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_control", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "tab"
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
