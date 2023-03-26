@@ -128,6 +128,10 @@
          :rules [:obsidian [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
         {:des "Open Forklift file in Arc"
          :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
+        {:des "parentheses in Arc"
+         ; p, t are r, k for dvorak
+         :rules [:arc [[:r :k] :!S9]; open parentheses
+                 ]}
         {:des "Temporary Binding"
          :rules []}]}; :brave
                 ; [:fn :!Ctab]
