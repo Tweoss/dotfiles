@@ -17,15 +17,6 @@
          :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
         {:des "bind delete/backspace to end"
          :rules [[:##delete_or_backspace :button3]]}
-        {:des "tab to control"
-         :rules [; cmd+tab should never be modified
-                 [:!C##tab :!Ctab]
-                 ; anything else will be ctrl
-                 ; or tab if (alone or held)
-                 [:##tab :left_control nil {:alone :tab :held :tab}]
-                 ; unbind ctrl for learning's sake
-                 [:##left_control :vk_none]
-                 ]}
         {:des "clicker mapping for google slides"
          :rules [:econ_clicker
                  [:!Sf5 :left_arrow]
@@ -123,10 +114,16 @@
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
-        {:des "cmd-H"
-         :rules [:chrome
-                 [:x :!Ch]
-                 [:##right_shift :x]]}
+        {:des "tab to control"
+         :rules [; cmd+tab should never be modified
+                 [:!C##tab :!Ctab]
+                 ; ctrl+tab should never be modified
+                 [:!T##tab :!Ttab]
+                 ; anything else will be ctrl
+                 ; or tab if (alone or held)
+                 [:##tab :left_control nil {:alone :tab :held :tab}]
+                 ; unbind ctrl for learning's sake
+                 [:##left_control :vk_none]]}
         {:des "royal kludge keyboard fixes"
          :rules [:white_rk
                 ; swap option and windows 

@@ -260,50 +260,6 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "tab to control",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "mandatory" : [ "left_command" ],
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_command" ]
-          } ],
-          "type" : "basic"
-        }, {
-          "to_if_alone" : [ {
-            "key_code" : "tab"
-          } ],
-          "to_if_held_down" : [ {
-            "key_code" : "tab"
-          } ],
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "left_control"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "left_control",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "vk_none"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
         "description" : "clicker mapping for google slides",
         "manipulators" : [ {
           "from" : {
@@ -1189,33 +1145,59 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "cmd-H",
+        "description" : "tab to control",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "x"
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ],
+              "optional" : [ "any" ]
+            }
           },
           "to" : [ {
-            "key_code" : "h",
+            "key_code" : "tab",
             "modifiers" : [ "left_command" ]
-          } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
-            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "right_shift",
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_control" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
+            "key_code" : "tab"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "tab"
+          } ],
+          "from" : {
+            "key_code" : "tab",
             "modifiers" : {
               "optional" : [ "any" ]
             }
           },
           "to" : [ {
-            "key_code" : "x"
+            "key_code" : "left_control"
           } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
-            "type" : "frontmost_application_if"
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_control",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "vk_none"
           } ],
           "type" : "basic"
         } ]
