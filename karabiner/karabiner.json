@@ -246,10 +246,54 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "unbind delete/backspace",
+        "description" : "bind delete/backspace to end",
         "manipulators" : [ {
           "from" : {
             "key_code" : "delete_or_backspace",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "pointing_button" : "button3"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "tab to control",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_command" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
+            "key_code" : "tab"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "tab"
+          } ],
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_control"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_control",
             "modifiers" : {
               "optional" : [ "any" ]
             }
@@ -783,6 +827,32 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "9"
+          },
+          "to" : [ {
+            "shell_command" : "/Users/francischua/gitprojects/click/target/release/click 1 99999 1 2"
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "0"
+          },
+          "to" : [ {
+            "shell_command" : "/Users/francischua/.cargo/bin/nu 'kill (ps | where name =~ '/Users/francischua/gitprojects/click/target/release/click' | get 0.pid)'/Users/francischua/.cargo/bin/nu -c 'kill (ps | where name =~ "
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "i"
           },
           "to" : [ {
@@ -802,6 +872,34 @@
           "to" : [ {
             "key_code" : "a",
             "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "key_code" : "y",
+            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "y"
+          },
+          "to" : [ {
+            "key_code" : "period",
+            "modifiers" : [ "left_command" ]
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -1125,7 +1223,10 @@
         "description" : "royal kludge keyboard fixes",
         "manipulators" : [ {
           "from" : {
-            "key_code" : "left_option"
+            "key_code" : "left_option",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
           },
           "to" : [ {
             "key_code" : "left_command"
@@ -1141,7 +1242,10 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "left_command"
+            "key_code" : "left_command",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
           },
           "to" : [ {
             "key_code" : "left_option"
@@ -1174,6 +1278,25 @@
             "type" : "device_if"
           } ],
           "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "right_option",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "delete_or_backspace"
+          } ],
+          "conditions" : [ {
+            "identifiers" : [ {
+              "vendor_id" : 14
+            }, {
+              "product_id" : 13330
+            } ],
+            "type" : "device_if"
+          } ],
+          "type" : "basic"
         } ]
       }, {
         "description" : "Minimal menu",
@@ -1182,7 +1305,7 @@
             "key_code" : "escape"
           },
           "to" : [ {
-            "shell_command" : "killall minimal_menu; open /Applications/minimal_menu.app/"
+            "shell_command" : "killall minmenu; open /Applications/minmenu.app/"
           } ],
           "type" : "basic"
         } ]
@@ -1319,6 +1442,55 @@
           } ],
           "conditions" : [ {
             "bundle_identifiers" : [ "^company\\.thebrowser\\.Browser$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "parentheses in vscode",
+        "manipulators" : [ {
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "r"
+            }, {
+              "key_code" : "k"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : false,
+              "key_down_order" : "insensitive",
+              "key_up_order" : "insensitive",
+              "key_up_when" : "any"
+            }
+          },
+          "to" : [ {
+            "key_code" : "9",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.microsoft\\.VSCode$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "m"
+            }, {
+              "key_code" : "v"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : false,
+              "key_down_order" : "insensitive",
+              "key_up_order" : "insensitive",
+              "key_up_when" : "any"
+            }
+          },
+          "to" : [ {
+            "key_code" : "4",
+            "modifiers" : [ "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^com\\.microsoft\\.VSCode$" ],
             "type" : "frontmost_application_if"
           } ],
           "type" : "basic"

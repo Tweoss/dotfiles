@@ -4,6 +4,7 @@
                 :messages ["^com\\.apple\\.MobileSMS$"]
                 :forklift ["^com\\.binarynights\\.ForkLift-3$"]
                 :obsidian ["^md\\.obsidian$"]
+                :code ["^com\\.microsoft\\.VSCode$"]
                 :arc ["^company\\.thebrowser\\.Browser$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
@@ -151,7 +152,12 @@
         {:des "parentheses in Arc"
          ; p, t, k are r, k, v for dvorak
          :rules [:arc [[:r :k] :!S9]; open parentheses
-                      [[:m :v] :!S4]; open dollar sign
+                 [[:m :v] :!S4]; open dollar sign
+                 ]}
+        {:des "parentheses in vscode"
+         ; p, t, k are r, k, v for dvorak
+         :rules [:code [[:r :k] :!S9]; open parentheses
+                 [[:m :v] :!S4]; open dollar sign
                  ]}
         {:des "Temporary Binding"
          :rules []}]}; :brave
