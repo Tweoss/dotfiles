@@ -1,5 +1,5 @@
 {
-  "active_profile": 0,
+  "active_profile": 1,
   "active_modpack": 0,
   "profiles": [
     {
@@ -15,6 +15,116 @@
               "CaffeineMC",
               "sodium-fabric"
             ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "wynn",
+      "output_dir": "/Applications/MultiMC.app/Data/instances/1.19.4/.minecraft/mods",
+      "game_version": "1.19.4",
+      "mod_loader": "Fabric",
+      "mods": [
+        {
+          "name": "Camera Utils",
+          "identifier": {
+            "CurseForgeProject": 510234
+          }
+        },
+        {
+          "name": "Controlling",
+          "identifier": {
+            "CurseForgeProject": 250398
+          }
+        },
+        {
+          "name": "Fabric API",
+          "identifier": {
+            "CurseForgeProject": 306612
+          }
+        },
+        {
+          "name": "FerriteCore",
+          "identifier": {
+            "ModrinthProject": "uXXizFIs"
+          }
+        },
+        {
+          "name": "Freecam (Modrinth Edition)",
+          "identifier": {
+            "ModrinthProject": "XeEZ3fK2"
+          }
+        },
+        {
+          "name": "In-Game Account Switcher",
+          "identifier": {
+            "ModrinthProject": "cudtvDnd"
+          }
+        },
+        {
+          "name": "Iris Shaders",
+          "identifier": {
+            "ModrinthProject": "YL57xq9U"
+          }
+        },
+        {
+          "name": "Krypton",
+          "identifier": {
+            "ModrinthProject": "fQEb0iXm"
+          }
+        },
+        {
+          "name": "Lithium",
+          "identifier": {
+            "ModrinthProject": "gvQqBUqZ"
+          }
+        },
+        {
+          "name": "Mod Menu",
+          "identifier": {
+            "ModrinthProject": "mOgUt4GM"
+          }
+        },
+        {
+          "name": "Phosphor",
+          "identifier": {
+            "ModrinthProject": "hEOCdOgW"
+          }
+        },
+        {
+          "name": "Reese's Sodium Options",
+          "identifier": {
+            "ModrinthProject": "Bh37bMuy"
+          }
+        },
+        {
+          "name": "Smooth Boot (Fabric)",
+          "identifier": {
+            "CurseForgeProject": 415758
+          }
+        },
+        {
+          "name": "Sodium",
+          "identifier": {
+            "ModrinthProject": "AANobbMI"
+          }
+        },
+        {
+          "name": "Sodium Extra",
+          "identifier": {
+            "ModrinthProject": "PtjYWJkn"
+          }
+        },
+        {
+          "name": "Visible Barriers",
+          "identifier": {
+            "ModrinthProject": "ajdfGxGU"
+          }
+        },
+        {
+          "name": "Wynntils",
+          "identifier": {
+            "CurseForgeProject": 303451
           }
         }
       ]
