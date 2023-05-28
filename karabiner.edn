@@ -67,13 +67,21 @@
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
                  [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
+                ; start clicking
+                 [:9 "/Users/francischua/gitprojects/click/target/release/click 1 99999 1 2"]
+                ; stopart clicking
+                 [:0 "/Users/francischua/.cargo/bin/nu 'kill (ps | where name =~ '/Users/francischua/gitprojects/click/target/release/click' | get 0.pid)'/Users/francischua/.cargo/bin/nu -c 'kill (ps | where name =~ " 1 99999 1 10 " | get 0.pid)'"]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
                 ; word counter
                  [:i :!!c]
                 ; toggle left sidebar
-                 [:a :!!a]]}
+                 [:a :!!a]
+                ; open quick fix in vscode
+                 [:f :!!y]
+                ; format in vscode 
+                 [:y :!Cperiod]]}
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
