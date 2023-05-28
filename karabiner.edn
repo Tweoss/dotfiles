@@ -14,8 +14,17 @@
 
  :main [{:des "layers"
          :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
-        {:des "unbind delete/backspace"
-         :rules [[:##delete_or_backspace :vk_none]]}
+        {:des "bind delete/backspace to end"
+         :rules [[:##delete_or_backspace :button3]]}
+        {:des "tab to control"
+         :rules [; cmd+tab should never be modified
+                 [:!C##tab :!Ctab]
+                 ; anything else will be ctrl
+                 ; or tab if (alone or held)
+                 [:##tab :left_control nil {:alone :tab :held :tab}]
+                 ; unbind ctrl for learning's sake
+                 [:##left_control :vk_none]
+                 ]}
         {:des "clicker mapping for google slides"
          :rules [:econ_clicker
                  [:!Sf5 :left_arrow]
@@ -120,12 +129,15 @@
         {:des "royal kludge keyboard fixes"
          :rules [:white_rk
                 ; swap option and windows 
-                 [:left_option :left_command]
-                 [:left_command :left_option]
-                ; top left escape to backtick
-                 [:##escape :grave_accent_and_tilde]]}
+                 [:##left_option :left_command]
+                 [:##left_command :left_option]
+                 ; top left escape to backtick
+                 [:##escape :grave_accent_and_tilde]
+                 ; left arrow to backspace
+                 [:##right_option :delete_or_backspace]]}
+
         {:des "Minimal menu"
-         :rules [[:escape "killall minimal_menu; open /Applications/minimal_menu.app/"]]}
+         :rules [[:escape "killall minmenu; open /Applications/minmenu.app/"]]}
         {:des "Unbind sending key for mimestream"
          :rules [:mimestream
                  [:!C#S#Rreturn_or_enter :vk_none]
