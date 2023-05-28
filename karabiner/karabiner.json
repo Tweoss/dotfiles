@@ -352,27 +352,6 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "pageupdown to parenthesesopenclose",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "page_up"
-          },
-          "to" : [ {
-            "key_code" : "9",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "page_down"
-          },
-          "to" : [ {
-            "key_code" : "0",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
         "description" : "clearing notifications in vscode",
         "manipulators" : [ {
           "from" : {
@@ -670,6 +649,29 @@
             "name" : "caps-mode",
             "value" : 1,
             "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "right_option",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "delete_forward"
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          }, {
+            "identifiers" : [ {
+              "vendor_id" : 14
+            }, {
+              "product_id" : 13330
+            } ],
+            "type" : "device_if"
           } ],
           "type" : "basic"
         }, {
@@ -1125,83 +1127,6 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "right command to backspace",
-        "manipulators" : [ {
-          "to_if_alone" : [ {
-            "key_code" : "delete_or_backspace"
-          } ],
-          "to_if_held_down" : [ {
-            "key_code" : "delete_or_backspace"
-          } ],
-          "from" : {
-            "key_code" : "right_command",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "right_command"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "tab to control",
-        "manipulators" : [ {
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "mandatory" : [ "left_command" ],
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_command" ]
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "mandatory" : [ "left_control" ],
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "tab",
-            "modifiers" : [ "left_control" ]
-          } ],
-          "type" : "basic"
-        }, {
-          "to_if_alone" : [ {
-            "key_code" : "tab"
-          } ],
-          "to_if_held_down" : [ {
-            "key_code" : "tab"
-          } ],
-          "from" : {
-            "key_code" : "tab",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "left_control"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "left_control",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "vk_none"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
         "description" : "royal kludge keyboard fixes",
         "manipulators" : [ {
           "from" : {
@@ -1277,6 +1202,83 @@
               "product_id" : 13330
             } ],
             "type" : "device_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "right command to backspace",
+        "manipulators" : [ {
+          "to_if_alone" : [ {
+            "key_code" : "delete_or_backspace"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "delete_or_backspace"
+          } ],
+          "from" : {
+            "key_code" : "right_command",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "right_command"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "tab to control",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_command" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "mandatory" : [ "left_control" ],
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "tab",
+            "modifiers" : [ "left_control" ]
+          } ],
+          "type" : "basic"
+        }, {
+          "to_if_alone" : [ {
+            "key_code" : "tab"
+          } ],
+          "to_if_held_down" : [ {
+            "key_code" : "tab"
+          } ],
+          "from" : {
+            "key_code" : "tab",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "left_control"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_control",
+            "modifiers" : {
+              "optional" : [ "any" ]
+            }
+          },
+          "to" : [ {
+            "key_code" : "vk_none"
           } ],
           "type" : "basic"
         } ]

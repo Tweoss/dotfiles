@@ -1,5 +1,5 @@
 {:layers {}
- :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"]
+ :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"] 
                 :mimestream ["^com\\.mimestream\\.Mimestream$"]
                 :messages ["^com\\.apple\\.MobileSMS$"]
                 :forklift ["^com\\.binarynights\\.ForkLift-3$"]
@@ -24,9 +24,6 @@
                  [:!STOp :vk_none]
                  [:!COp :vk_none]
                  [:b :right_arrow]]}
-        {:des "pageupdown to parenthesesopenclose"
-         :rules [[:page_up :!S9]
-                 [:page_down :!S0]]}
         {:des "clearing notifications in vscode"
          :rules [[:!Scaps_lock :!Sescape]]}
         {:des "Math Help"
@@ -58,6 +55,8 @@
                  [:##s :left_shift]
                 ; delete forward, but using right_command
                  [:##right_command :delete_forward]
+                ; also for royal kludge keyboard
+                 [:##right_option :delete_forward :white_rk]
                  [:##spacebar ["caps-mode" 0]]
                 ; one password
                  [:##p :!!backslash]
@@ -111,6 +110,15 @@
                  [[:caps_lock :l] ["disable-layer" 0]]
                 ; capture all keys
                  [:anykey :vk_none]]}
+        {:des "royal kludge keyboard fixes"
+         :rules [:white_rk
+                ; swap option and windows 
+                 [:##left_option :left_command]
+                 [:##left_command :left_option]
+                 ; top left escape to backtick
+                 [:##escape :grave_accent_and_tilde]
+                 ; left arrow to backspace
+                 [:##right_option :delete_or_backspace]]}
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
@@ -124,16 +132,6 @@
                  [:##tab :left_control nil {:alone :tab :held :tab}]
                  ; unbind ctrl for learning's sake
                  [:##left_control :vk_none]]}
-        {:des "royal kludge keyboard fixes"
-         :rules [:white_rk
-                ; swap option and windows 
-                 [:##left_option :left_command]
-                 [:##left_command :left_option]
-                 ; top left escape to backtick
-                 [:##escape :grave_accent_and_tilde]
-                 ; left arrow to backspace
-                 [:##right_option :delete_or_backspace]]}
-
         {:des "Minimal menu"
          :rules [[:escape "killall minmenu; open /Applications/minmenu.app/"]]}
         {:des "Unbind sending key for mimestream"
