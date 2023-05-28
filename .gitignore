@@ -13,3 +13,5 @@ QtProject
 Autodesk
 iterm/com.googlecode.iterm2.plist
 karabiner/automatic_backups
+.clj-kondo
+.lsp
