@@ -34,9 +34,8 @@
                  [:keypad_num_lock :!Cdelete_or_backspace]]}
         {:des "Messages Conversation Nav"
          :rules [:caps-mode :messages
-                 [:!Rtab :!STtab]
-                 [:!Stab :!STtab]
-                 [:tab :!Ttab]]}
+                 [:tab :!Ttab]
+                 [:!Stab :!STtab]]}
         {:des "General Nav"
          :rules [:caps-mode
                  [:!Rtab :!COleft_arrow]
@@ -149,10 +148,12 @@
          :rules [:arc [[:r :k] :!S9]; open parentheses
                  [[:m :v] :!S4]; open dollar sign
                  ]}
-        {:des "parentheses in vscode"
+        {:des "parentheses, dollar signs, and carets in obsidian"
          ; p, t, k are r, k, v for dvorak
-         :rules [:code [[:r :k] :!S9]; open parentheses
-                 [[:m :v] :!S4]; open dollar sign
+         :rules [:obsidian 
+                 [[:r :k] :!S9]; open parentheses
+                 [[:m :v] [:!S4 :!S4 :left_arrow]]; open dollar sign
+                 [[:r :comma] [:!S6]]; caret
                  ]}
         {:des "Temporary Binding"
          :rules []}]}; :brave
