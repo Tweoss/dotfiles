@@ -25,5 +25,5 @@ def make-completion [command_name: string] {
                 build-string "\t\t# " $it.description
             }
         )
-    } | str collect "\n") "\n\t...args\n]\n"
+    } | str join "\n") "\n\t...args\n]\n"
 }
