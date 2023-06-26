@@ -1,15 +1,8 @@
-sudo yabai --load-sa
-yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-
-yabai -m config top_padding                  	0
-yabai -m config bottom_padding               	0
-yabai -m config left_padding                 	0
-yabai -m config right_padding                	0
+yabai -m space 1 --label native
 
 yabai -m config window_shadow 			off
 
 yabai -m rule --add app="Stats" layer=above manage=off
-yabai -m rule --add app="Brave Browser" title="Messenger call - Camera or microphone recording - Brave" layer=above manage=off
 
 yabai -m rule --add app="minimal_menu" manage=off
 yabai -m rule --add app="Messages" manage=off
@@ -20,6 +13,17 @@ yabai -m rule --add app="Fantastical Helper" manage=off
 yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="Menubar Countdown" manage=off
 yabai -m rule --add app="System Information" manage=off
+yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
 
 yabai -m config layout stack
+
+yabai -m config focus_follows_mouse off
+
+MONITOR_ID=$(yabai -m query --spaces | jq '.[] | select( .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B") | .index');
+
+if [ -n "$MONITOR_ID" ]; then
+	yabai -m space $MONITOR_ID --label monitor
+	yabai -m space monitor --layout bsp
+fi
+

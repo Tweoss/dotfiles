@@ -14,7 +14,7 @@
  :froms {:anykey {:any :key_code :modi {:optional [:any]}}}
 
  :main [{:des "layers"
-         :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
+         :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer :!window-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
         {:des "bind delete/backspace to end"
          :rules [[:##delete_or_backspace :button3]]}
         {:des "clicker mapping for google slides"
@@ -59,17 +59,14 @@
                  [:##spacebar ["caps-mode" 0]]
                 ; one password
                  [:##p :!!backslash]
-                 [:o "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"]
                 ; turning on yabai-layer
                  [:m [["yabai-layer" 1] ["caps-mode" 0]]]
+                ; turning on window-layer
+                 [:comma [["window-layer" 1] ["caps-mode" 0]]]
                 ; turning on disable-layer
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
                  [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
-                ; start clicking
-                 [:9 "/Users/francischua/gitprojects/click/target/release/click 1 99999 1 2"]
-                ; stopart clicking
-                 [:0 "/Users/francischua/.cargo/bin/nu 'kill (ps | where name =~ '/Users/francischua/gitprojects/click/target/release/click' | get 0.pid)'/Users/francischua/.cargo/bin/nu -c 'kill (ps | where name =~ " 1 99999 1 10 " | get 0.pid)'"]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
@@ -103,10 +100,26 @@
                  [:n "/opt/homebrew/bin/yabai -m window --display recent"]
                 ; topmost
                  [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]]}
-        {:des "disable yabai layer"
+        {:des "disable layer"
          :rules [[:condi :disable-layer]
                 ; disabling disable-layer
                  [[:caps_lock :l] ["disable-layer" 0]]
+                ; capture all keys
+                 [:anykey :vk_none]]}
+        {:des "window layer"
+         :rules [[:condi :window-layer]
+                ; disabling layer
+                 [:caps_lock ["window-layer" 0]]
+                ; focus window
+                 [:h "/opt/homebrew/bin/yabai -m window --focus west"]
+                 [:j "/opt/homebrew/bin/yabai -m window --focus south"]
+                 [:k "/opt/homebrew/bin/yabai -m window --focus north"]
+                 [:l "/opt/homebrew/bin/yabai -m window --focus east"]
+                ; move window
+                 [:a "/opt/homebrew/bin/yabai -m window --swap west"]
+                 [:s "/opt/homebrew/bin/yabai -m window --swap south"]
+                 [:d "/opt/homebrew/bin/yabai -m window --swap north"]
+                 [:f "/opt/homebrew/bin/yabai -m window --swap east"]
                 ; capture all keys
                  [:anykey :vk_none]]}
         {:des "royal kludge keyboard fixes"
