@@ -1,6 +1,28 @@
-theme = "bogster"
+theme = "sonokai_default"
+
 
 [editor]
+bufferline = "always" # shows buffers on top of screen
+
+[editor.gutters]
+layout = ["diagnostics", "spacer",  "diff"] # remove line numbers
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "╎" # character every indent
+skip-levels = 0
 
 [keys.normal]
 X = "extend_line_above" # override capital X to expand selection to line above
+
+[keys.normal.space]
+"," = ":write" # saves changes
+
+[keys.normal.space.c]
+c = ":buffer-close" # close buffer
+
