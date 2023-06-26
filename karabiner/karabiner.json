@@ -242,6 +242,10 @@
             "name" : "disable-layer",
             "value" : 1,
             "type" : "variable_unless"
+          }, {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_unless"
           } ],
           "type" : "basic"
         } ]
@@ -696,10 +700,25 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "o"
+            "key_code" : "9"
           },
           "to" : [ {
-            "shell_command" : "kill `ps -e | grep 'click.applescript' | grep -v grep | awk '{ print $1 }'`"
+            "key_code" : "9",
+            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "0"
+          },
+          "to" : [ {
+            "key_code" : "0",
+            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -714,6 +733,27 @@
           "to" : [ {
             "set_variable" : {
               "name" : "yabai-layer",
+              "value" : 1
+            }
+          }, {
+            "set_variable" : {
+              "name" : "caps-mode",
+              "value" : 0
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "comma"
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "window-layer",
               "value" : 1
             }
           }, {
@@ -760,32 +800,6 @@
           },
           "to" : [ {
             "shell_command" : "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "9"
-          },
-          "to" : [ {
-            "shell_command" : "/Users/francischua/gitprojects/click/target/release/click 1 99999 1 2"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "0"
-          },
-          "to" : [ {
-            "shell_command" : "/Users/francischua/.cargo/bin/nu 'kill (ps | where name =~ '/Users/francischua/gitprojects/click/target/release/click' | get 0.pid)'/Users/francischua/.cargo/bin/nu -c 'kill (ps | where name =~ "
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -1066,6 +1080,190 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "disable layer",
+        "manipulators" : [ {
+          "from" : {
+            "simultaneous" : [ {
+              "key_code" : "caps_lock"
+            }, {
+              "key_code" : "l"
+            } ],
+            "simultaneous_options" : {
+              "detect_key_down_uninterruptedly" : false,
+              "key_down_order" : "insensitive",
+              "key_up_order" : "insensitive",
+              "key_up_when" : "any"
+            }
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "disable-layer",
+              "value" : 0
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "disable-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "optional" : [ "any" ]
+            },
+            "any" : "key_code"
+          },
+          "to" : [ {
+            "key_code" : "vk_none"
+          } ],
+          "conditions" : [ {
+            "name" : "disable-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
+        "description" : "window layer",
+        "manipulators" : [ {
+          "from" : {
+            "key_code" : "caps_lock"
+          },
+          "to" : [ {
+            "set_variable" : {
+              "name" : "window-layer",
+              "value" : 0
+            }
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "h"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus west"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "j"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus south"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus north"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus east"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "a"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap west"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "s"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap south"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "d"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap north"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap east"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "modifiers" : {
+              "optional" : [ "any" ]
+            },
+            "any" : "key_code"
+          },
+          "to" : [ {
+            "key_code" : "vk_none"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "disable yabai layer",
         "manipulators" : [ {
           "from" : {
@@ -1210,6 +1408,60 @@
           "type" : "basic"
         } ]
       }, {
+        "description" : "click fast",
+        "manipulators" : [ {
+          "from" : {
+            "modifiers" : {
+              "mandatory" : [ "command" ]
+            },
+            "pointing_button" : "button2"
+          },
+          "to" : [ {
+            "shell_command" : "killall -9 click &> /dev/null"
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "b"
+          },
+          "to" : [ {
+            "shell_command" : "pgrep click"
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "f"
+          },
+          "to" : [ {
+            "shell_command" : "/Users/francischua/gitprojects/click/target/release/click 20 100 27 20 right"
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "v"
+          },
+          "to" : [ {
+            "shell_command" : "killall -9 click"
+          } ],
+          "conditions" : [ {
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
+          } ],
+          "type" : "basic"
+        } ]
+      }, {
         "description" : "tab to control",
         "manipulators" : [ {
           "from" : {
@@ -1239,9 +1491,6 @@
           "type" : "basic"
         }, {
           "to_if_alone" : [ {
-            "key_code" : "tab"
-          } ],
-          "to_if_held_down" : [ {
             "key_code" : "tab"
           } ],
           "from" : {
@@ -1366,55 +1615,6 @@
           "type" : "basic"
         } ]
       }, {
-        "description" : "parentheses in Arc",
-        "manipulators" : [ {
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "r"
-            }, {
-              "key_code" : "k"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : false,
-              "key_down_order" : "insensitive",
-              "key_up_order" : "insensitive",
-              "key_up_when" : "any"
-            }
-          },
-          "to" : [ {
-            "key_code" : "9",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^company\\.thebrowser\\.Browser$" ],
-            "type" : "frontmost_application_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "m"
-            }, {
-              "key_code" : "v"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : false,
-              "key_down_order" : "insensitive",
-              "key_up_order" : "insensitive",
-              "key_up_when" : "any"
-            }
-          },
-          "to" : [ {
-            "key_code" : "4",
-            "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^company\\.thebrowser\\.Browser$" ],
-            "type" : "frontmost_application_if"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
         "description" : "parentheses, dollar signs, and carets in obsidian",
         "manipulators" : [ {
           "from" : {
@@ -1433,10 +1633,11 @@
           "to" : [ {
             "key_code" : "9",
             "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^md\\.obsidian$" ],
-            "type" : "frontmost_application_if"
+          }, {
+            "key_code" : "0",
+            "modifiers" : [ "left_shift" ]
+          }, {
+            "key_code" : "left_arrow"
           } ],
           "type" : "basic"
         }, {
@@ -1462,10 +1663,6 @@
           }, {
             "key_code" : "left_arrow"
           } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^md\\.obsidian$" ],
-            "type" : "frontmost_application_if"
-          } ],
           "type" : "basic"
         }, {
           "from" : {
@@ -1484,10 +1681,6 @@
           "to" : [ {
             "key_code" : "6",
             "modifiers" : [ "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "bundle_identifiers" : [ "^md\\.obsidian$" ],
-            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
@@ -1608,6 +1801,45 @@
       },
       "ignore" : true,
       "manipulate_caps_lock_led" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : false,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : false,
+        "is_pointing_device" : true,
+        "product_id" : 45108,
+        "vendor_id" : 1133
+      },
+      "ignore" : false,
+      "manipulate_caps_lock_led" : false,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : false,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : true,
+        "is_pointing_device" : false,
+        "product_id" : 13330,
+        "vendor_id" : 14
+      },
+      "ignore" : false,
+      "manipulate_caps_lock_led" : true,
+      "simple_modifications" : [ ],
+      "treat_as_built_in_keyboard" : false
+    }, {
+      "disable_built_in_keyboard_if_exists" : false,
+      "fn_function_keys" : [ ],
+      "identifiers" : {
+        "is_keyboard" : true,
+        "is_pointing_device" : false,
+        "product_id" : 34304,
+        "vendor_id" : 1452
+      },
+      "ignore" : false,
+      "manipulate_caps_lock_led" : true,
       "simple_modifications" : [ ],
       "treat_as_built_in_keyboard" : false
     } ],

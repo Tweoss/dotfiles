@@ -1,5 +1,5 @@
 {:layers {}
- :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"] 
+ :applications {:chrome ["^net\\.java\\.openjdk\\.cmd$"]
                 :mimestream ["^com\\.mimestream\\.Mimestream$"]
                 :messages ["^com\\.apple\\.MobileSMS$"]
                 :forklift ["^com\\.binarynights\\.ForkLift-3$"]
@@ -134,6 +134,15 @@
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
+        {:des "click fast"
+         :rules [
+                 :chrome
+                 [{:pkey :button2 :modi :command} "killall -9 click &> /dev/null"]
+                ;;  [{:pkey :button1 :modi :any :lazy true} [{:pkey :button1} "killall -9 click &> /dev/null"]]
+                 [:b ["pgrep click"]]
+                 [:f ["/Users/francischua/gitprojects/click/target/release/click 20 100 27 20 right"]]
+                 [:v ["killall -9 click"]]]}
+                ;;  ; stop clicking
         {:des "tab to control"
          :rules [; cmd+tab should never be modified
                  [:!C##tab :!Ctab]
@@ -141,7 +150,7 @@
                  [:!T##tab :!Ttab]
                  ; anything else will be ctrl
                  ; or tab if (alone or held)
-                 [:##tab :left_control nil {:alone :tab :held :tab}]
+                 [:##tab :left_control nil {:alone :tab}]
                  ; unbind ctrl for learning's sake
                  [:##left_control :vk_none]]}
         {:des "Minimal menu"
@@ -156,15 +165,9 @@
          :rules [:obsidian [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
         {:des "Open Forklift file in Arc"
          :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
-        {:des "parentheses in Arc"
-         ; p, t, k are r, k, v for dvorak
-         :rules [:arc [[:r :k] :!S9]; open parentheses
-                 [[:m :v] :!S4]; open dollar sign
-                 ]}
         {:des "parentheses, dollar signs, and carets in obsidian"
-         ; p, t, k are r, k, v for dvorak
-         :rules [:obsidian 
-                 [[:r :k] :!S9]; open parentheses
+         ; typst convenience bindings. made global (for use in Arc, obsidian, and iterm)
+         :rules [[[:r :k] [:!S9 :!S0 :left_arrow]]; open parentheses
                  [[:m :v] [:!S4 :!S4 :left_arrow]]; open dollar sign
                  [[:r :comma] [:!S6]]; caret
                  ]}
