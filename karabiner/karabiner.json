@@ -700,34 +700,6 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "9"
-          },
-          "to" : [ {
-            "key_code" : "9",
-            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "0"
-          },
-          "to" : [ {
-            "key_code" : "0",
-            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
             "key_code" : "m"
           },
           "to" : [ {
@@ -740,6 +712,8 @@
               "name" : "caps-mode",
               "value" : 0
             }
+          }, {
+            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF9925bE"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -761,6 +735,8 @@
               "name" : "caps-mode",
               "value" : 0
             }
+          }, {
+            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF31BA64"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -875,6 +851,8 @@
               "name" : "yabai-layer",
               "value" : 0
             }
+          }, {
+            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -1135,6 +1113,8 @@
               "name" : "window-layer",
               "value" : 0
             }
+          }, {
+            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1258,51 +1238,6 @@
           } ],
           "conditions" : [ {
             "name" : "window-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        } ]
-      }, {
-        "description" : "disable yabai layer",
-        "manipulators" : [ {
-          "from" : {
-            "simultaneous" : [ {
-              "key_code" : "caps_lock"
-            }, {
-              "key_code" : "l"
-            } ],
-            "simultaneous_options" : {
-              "detect_key_down_uninterruptedly" : false,
-              "key_down_order" : "insensitive",
-              "key_up_order" : "insensitive",
-              "key_up_when" : "any"
-            }
-          },
-          "to" : [ {
-            "set_variable" : {
-              "name" : "disable-layer",
-              "value" : 0
-            }
-          } ],
-          "conditions" : [ {
-            "name" : "disable-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "modifiers" : {
-              "optional" : [ "any" ]
-            },
-            "any" : "key_code"
-          },
-          "to" : [ {
-            "key_code" : "vk_none"
-          } ],
-          "conditions" : [ {
-            "name" : "disable-layer",
             "value" : 1,
             "type" : "variable_if"
           } ],

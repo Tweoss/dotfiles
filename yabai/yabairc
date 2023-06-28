@@ -1,9 +1,12 @@
-yabai -m space 1 --label native
+yabai -m signal --add event=display_added   action="yabai --restart-service"
+yabai -m signal --add event=display_removed action="yabai --restart-service"
 
-yabai -m config window_shadow 			off
+yabai -m config focus_follows_mouse off
+yabai -m config mouse_follows_focus on
+
+yabai -m config window_shadow off
 
 yabai -m rule --add app="Stats" layer=above manage=off
-
 yabai -m rule --add app="minimal_menu" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="TextEdit" manage=off
@@ -15,15 +18,20 @@ yabai -m rule --add app="Menubar Countdown" manage=off
 yabai -m rule --add app="System Information" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
+yabai -m rule --add app="Digital Color Meter" manage=off
 
-yabai -m config layout stack
+yabai -m config window_border_width 4
+yabai -m config active_window_border_color 0xFF4F4FFF
+yabai -m config normal_window_border_color 0xFF3E3E3E
+yabai -m config window_border on
 
-yabai -m config focus_follows_mouse off
+yabai -m space 1 --label native
+yabai -m space native --layout stack
 
 MONITOR_ID=$(yabai -m query --spaces | jq '.[] | select( .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B") | .index');
-
 if [ -n "$MONITOR_ID" ]; then
 	yabai -m space $MONITOR_ID --label monitor
 	yabai -m space monitor --layout bsp
+	yabai -m space monitor --padding abs:-2:2:-2:1
 fi
 
