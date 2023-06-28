@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-source ~/.cache/starship/init.nu
+source ~/.config/nushell/config/starship_init.nu
 
 def create_right_prompt [] {
     let time_segment = ([
