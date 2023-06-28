@@ -1032,19 +1032,6 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "n"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --display recent"
-          } ],
-          "conditions" : [ {
-            "name" : "yabai-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
             "key_code" : "s"
           },
           "to" : [ {
@@ -1309,6 +1296,19 @@
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m display --focus recent"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "m"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --display recent"
           } ],
           "conditions" : [ {
             "name" : "window-layer",

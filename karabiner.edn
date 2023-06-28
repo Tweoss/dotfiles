@@ -96,8 +96,6 @@
                  [:j "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"]
                  [:k "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"]
                  [:l "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"]
-                ; move to display
-                 [:n "/opt/homebrew/bin/yabai -m window --display recent"]
                 ; topmost
                  [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]]}
         {:des "disable layer"
@@ -129,6 +127,8 @@
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
                 ; focus next display
                  [:n "/opt/homebrew/bin/yabai -m display --focus recent"]
+                ; move to display
+                 [:m "/opt/homebrew/bin/yabai -m window --display recent"]
                 ; capture all keys
                  [:anykey :vk_none]]}
         {:des "royal kludge keyboard fixes"
