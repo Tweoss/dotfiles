@@ -1,6 +1,6 @@
 let-env STARSHIP_SHELL = "nu"
 let-env STARSHIP_SESSION_KEY = (random chars -l 16)
-let-env PROMPT_MULTILINE_INDICATOR = (^/Users/francischua/.cargo/bin/starship prompt --continuation)
+let-env PROMPT_MULTILINE_INDICATOR = (~/.cargo/bin/starship prompt --continuation)
 
 # Does not play well with default character module.
 # TODO: Also Use starship vi mode indicators?
