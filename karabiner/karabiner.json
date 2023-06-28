@@ -1305,10 +1305,10 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "left_shift"
+            "key_code" : "n"
           },
           "to" : [ {
-            "key_code" : "left_shift"
+            "shell_command" : "/opt/homebrew/bin/yabai -m display --focus recent"
           } ],
           "conditions" : [ {
             "name" : "window-layer",

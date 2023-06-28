@@ -127,7 +127,8 @@
                  [:!Sl "/opt/homebrew/bin/yabai -m window --warp east"]
                 ; toggle split direction
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
-                 [:left_shift :left_shift]
+                ; focus next display
+                 [:n "/opt/homebrew/bin/yabai -m display --focus recent"]
                 ; capture all keys
                  [:anykey :vk_none]]}
         {:des "royal kludge keyboard fixes"
