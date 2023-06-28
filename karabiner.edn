@@ -111,15 +111,23 @@
                 ; disabling layer
                  [:caps_lock [["window-layer" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"]]
                 ; focus window
-                 [:h "/opt/homebrew/bin/yabai -m window --focus west"]
-                 [:j "/opt/homebrew/bin/yabai -m window --focus south"]
-                 [:k "/opt/homebrew/bin/yabai -m window --focus north"]
-                 [:l "/opt/homebrew/bin/yabai -m window --focus east"]
-                ; move window
-                 [:a "/opt/homebrew/bin/yabai -m window --swap west"]
-                 [:s "/opt/homebrew/bin/yabai -m window --swap south"]
-                 [:d "/opt/homebrew/bin/yabai -m window --swap north"]
-                 [:f "/opt/homebrew/bin/yabai -m window --swap east"]
+                 [:a "/opt/homebrew/bin/yabai -m window --focus west"]
+                 [:s "/opt/homebrew/bin/yabai -m window --focus south"]
+                 [:d "/opt/homebrew/bin/yabai -m window --focus north"]
+                 [:f "/opt/homebrew/bin/yabai -m window --focus east"]
+                ; swap window
+                 [:h "/opt/homebrew/bin/yabai -m window --swap west"]
+                 [:j "/opt/homebrew/bin/yabai -m window --swap south"]
+                 [:k "/opt/homebrew/bin/yabai -m window --swap north"]
+                 [:l "/opt/homebrew/bin/yabai -m window --swap east"]
+                ; warp window
+                 [:!Sh "/opt/homebrew/bin/yabai -m window --warp west"]
+                 [:!Sj "/opt/homebrew/bin/yabai -m window --warp south"]
+                 [:!Sk "/opt/homebrew/bin/yabai -m window --warp north"]
+                 [:!Sl "/opt/homebrew/bin/yabai -m window --warp east"]
+                ; toggle split direction
+                 [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
+                 [:left_shift :left_shift]
                 ; capture all keys
                  [:anykey :vk_none]]}
         {:des "royal kludge keyboard fixes"

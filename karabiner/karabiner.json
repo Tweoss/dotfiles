@@ -736,7 +736,7 @@
               "value" : 0
             }
           }, {
-            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF31BA64"
+            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF058510"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -1124,7 +1124,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "h"
+            "key_code" : "a"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --focus west"
@@ -1137,7 +1137,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "j"
+            "key_code" : "s"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --focus south"
@@ -1150,7 +1150,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "k"
+            "key_code" : "d"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --focus north"
@@ -1163,7 +1163,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "l"
+            "key_code" : "f"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --focus east"
@@ -1176,7 +1176,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "a"
+            "key_code" : "h"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --swap west"
@@ -1189,7 +1189,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "s"
+            "key_code" : "j"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --swap south"
@@ -1202,7 +1202,7 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "d"
+            "key_code" : "k"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --swap north"
@@ -1215,10 +1215,100 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "f"
+            "key_code" : "l"
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --swap east"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "h",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --warp west"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "j",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --warp south"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "k",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --warp north"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "l",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --warp east"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "semicolon"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --toggle split"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_shift"
+          },
+          "to" : [ {
+            "key_code" : "left_shift"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
