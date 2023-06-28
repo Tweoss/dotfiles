@@ -9,7 +9,7 @@ let-env PROMPT_INDICATOR = ""
 let-env PROMPT_COMMAND = {
     # jobs are not supported
     let width = (term size | get columns | into string)
-    ^/Users/francischua/.cargo/bin/starship prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
+    ~/.cargo/bin/starship prompt $"--cmd-duration=($env.CMD_DURATION_MS)" $"--status=($env.LAST_EXIT_CODE)" $"--terminal-width=($width)"
 }
 
 # Not well-suited for `starship prompt --right`.
