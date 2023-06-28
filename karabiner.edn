@@ -62,7 +62,7 @@
                 ; turning on yabai-layer
                  [:m [["yabai-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF9925bE"]]
                 ; turning on window-layer
-                 [:comma [["window-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF31BA64"]]
+                 [:comma [["window-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF058510"]]
                 ; turning on disable-layer
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
