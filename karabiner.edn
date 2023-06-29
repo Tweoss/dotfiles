@@ -15,8 +15,6 @@
 
  :main [{:des "layers"
          :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer :!window-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
-        {:des "bind delete/backspace to end"
-         :rules [[:##delete_or_backspace :button3]]}
         {:des "clicker mapping for google slides"
          :rules [:econ_clicker
                  [:!Sf5 :left_arrow]
@@ -26,12 +24,6 @@
                  [:b :right_arrow]]}
         {:des "clearing notifications in vscode"
          :rules [[:!Scaps_lock :!Sescape]]}
-        {:des "Math Help"
-         :rules [[:f19 :!S6]
-                 [:f18 [:semicolon :x :o :k :!S9]]
-                 [:f17 :!Cright_arrow]
-                 [:f16 :!Cleft_arrow]
-                 [:keypad_num_lock :!Cdelete_or_backspace]]}
         {:des "Messages Conversation Nav"
          :rules [:caps-mode :messages
                  [:tab :!Ttab]
@@ -97,7 +89,9 @@
                  [:k "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:2:1"]
                  [:l "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:2"]
                 ; topmost
-                 [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]]}
+                 [:s "/opt/homebrew/bin/yabai -m window --toggle topmost"]
+                ; disable other keys
+                 [:anykey :vk_none]]}
         {:des "disable layer"
          :rules [[:condi :disable-layer]
                 ; disabling disable-layer
@@ -113,24 +107,29 @@
                  [:s "/opt/homebrew/bin/yabai -m window --focus south"]
                  [:d "/opt/homebrew/bin/yabai -m window --focus north"]
                  [:f "/opt/homebrew/bin/yabai -m window --focus east"]
+                ; warp window
+                ; we must preserve the left_shift key so it is not
+                ; captured by anykey->vk_none
+                 [:left_shift :left_shift]
+                 [:!Sh "/opt/homebrew/bin/yabai -m window --warp west"]
+                 [:!Sj "/opt/homebrew/bin/yabai -m window --warp south"]
+                 [:!Sk "/opt/homebrew/bin/yabai -m window --warp north"]
+                 [:!Sl "/opt/homebrew/bin/yabai -m window --warp east"]
                 ; swap window
                  [:h "/opt/homebrew/bin/yabai -m window --swap west"]
                  [:j "/opt/homebrew/bin/yabai -m window --swap south"]
                  [:k "/opt/homebrew/bin/yabai -m window --swap north"]
                  [:l "/opt/homebrew/bin/yabai -m window --swap east"]
-                ; warp window
-                 [:!Sh "/opt/homebrew/bin/yabai -m window --warp west"]
-                 [:!Sj "/opt/homebrew/bin/yabai -m window --warp south"]
-                 [:!Sk "/opt/homebrew/bin/yabai -m window --warp north"]
-                 [:!Sl "/opt/homebrew/bin/yabai -m window --warp east"]
                 ; toggle split direction
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
                 ; focus next display
                  [:n "/opt/homebrew/bin/yabai -m display --focus recent"]
                 ; move to display
-                 [:m "/opt/homebrew/bin/yabai -m window --display recent"]
+                 [:m "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
                 ; capture all keys
                  [:anykey :vk_none]]}
+        {:des "bind delete/backspace to button3"
+         :rules [[:##delete_or_backspace :button3]]}
         {:des "royal kludge keyboard fixes"
          :rules [:white_rk
                 ; swap option and windows 
