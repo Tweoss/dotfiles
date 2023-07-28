@@ -123,7 +123,7 @@
                 ; toggle split direction
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
                 ; focus next display
-                 [:n "/opt/homebrew/bin/yabai -m display --focus recent"]
+                 [:n "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"]
                 ; move to display
                  [:m "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
                 ; capture all keys

@@ -17,6 +17,7 @@ let-env PATH = [
     '/Library/Frameworks/Maple.framework/Versions/2022/bin',
     '/usr/local/opt/ruby/bin',
     # '/Users/francischua/gitutils/executables/shellscript',
+    '/opt/homebrew/Cellar/llvm/16.0.6/bin',
     '/Users/francischua/.ghcup/bin',
     '/Users/francischua/gitutils/executables',
     '/Users/francischua/.wasmedge/bin',

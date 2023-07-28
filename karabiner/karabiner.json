@@ -1254,7 +1254,7 @@
             "key_code" : "n"
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m display --focus recent"
+            "shell_command" : "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"
           } ],
           "conditions" : [ {
             "name" : "window-layer",

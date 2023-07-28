@@ -167,3 +167,7 @@ let-env config = {
   keybindings:  $__keybinds
 }
 
+# atuin history. must be after
+# declaration of $env.config
+source ~/.local/share/atuin/init.nu
+

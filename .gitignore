@@ -16,3 +16,5 @@ karabiner/automatic_backups
 .clj-kondo
 .lsp
 helix
+broot/skins
+himalaya

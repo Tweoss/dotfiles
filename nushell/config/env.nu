@@ -41,6 +41,7 @@ let-env LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
 let-env C_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
 let-env CPLUS_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
 
+let-env EDITOR = "/Users/francischua/.cargo/bin/hx"
 
 
 # Starship needs to be called apparently every startup

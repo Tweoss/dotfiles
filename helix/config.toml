@@ -3,6 +3,8 @@ theme = "sonokai_default"
 
 [editor]
 bufferline = "always" # shows buffers on top of screen
+true-color = true
+color-modes = true
 
 [editor.gutters]
 layout = ["diagnostics", "spacer",  "diff"] # remove line numbers
@@ -19,9 +21,13 @@ skip-levels = 0
 
 [keys.normal]
 X = "extend_line_above" # override capital X to expand selection to line above
+C-i = "no_op"
+"tab" = "jump_forward"
+"S-tab" = "jump_backward"
 
 [keys.normal.space]
 "," = ":write" # saves changes
+q = ":quit"
 
 [keys.normal.space.c]
 c = ":buffer-close" # close buffer
