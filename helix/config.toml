@@ -1,6 +1,5 @@
 theme = "sonokai_default"
 
-
 [editor]
 bufferline = "always" # shows buffers on top of screen
 true-color = true
@@ -22,6 +21,7 @@ skip-levels = 0
 [keys.normal]
 X = "extend_line_above" # override capital X to expand selection to line above
 C-i = "no_op"
+C-o = "no_op"
 "tab" = "jump_forward"
 "S-tab" = "jump_backward"
 
