@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-let-env PATH = [
+$env.PATH = [
     # '/usr/local/Caskroom/miniforge/base/condabin',
     # '/Users/francischua/Dropbox/My Mac (Francis-MBP.local)/Downloads/pngquant/',
     '/Applications/LilyPond.app/Contents/Resources/bin',
