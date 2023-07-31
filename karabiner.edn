@@ -126,6 +126,8 @@
                  [:n "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"]
                 ; move to display
                  [:m "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
+                ; restart yabai
+                 [:o "/opt/homebrew/bin/yabai --restart-service"]
                 ; capture all keys
                  [:anykey :vk_none]]}
         {:des "bind delete/backspace to button3"

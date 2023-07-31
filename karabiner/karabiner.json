@@ -1277,6 +1277,19 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "o"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai --restart-service"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "modifiers" : {
               "optional" : [ "any" ]
             },
