@@ -172,3 +172,6 @@ $env.config = {
 # atuin init nu --disable-up-arrow | save ~/.local/share/atuin/init.nu -f
 source ~/.local/share/atuin/init.nu
 
+# zoxide init nushell | save -f ~/.zoxide.nu
+source ~/.zoxide.nu
+
