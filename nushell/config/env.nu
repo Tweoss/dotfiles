@@ -41,7 +41,7 @@ $env.LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
 $env.C_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
 $env.CPLUS_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
 
-$env.EDITOR = "/Users/francischua/.cargo/bin/hx"
+$env.EDITOR = $"($env.HOME)/.cargo/bin/hx"
 
 
 # Starship needs to be called apparently every startup
