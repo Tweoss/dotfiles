@@ -715,7 +715,10 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "return_or_enter"
+            "key_code" : "return_or_enter",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
             "key_code" : "i",
