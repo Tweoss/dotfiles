@@ -59,6 +59,8 @@
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
                  [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
+                ; killing process (ctrl+c), going up to previous
+                 [:return_or_enter [:!Ti :up_arrow]]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
