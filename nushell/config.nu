@@ -175,3 +175,5 @@ source ~/.local/share/atuin/init.nu
 # zoxide init nushell | save -f ~/.zoxide.nu
 source ~/.zoxide.nu
 
+# broot --install
+source /home/fchua/.config/broot/launcher/nushell/br
