@@ -28,7 +28,5 @@ C-o = "no_op"
 [keys.normal.space]
 "," = ":write" # saves changes
 q = ":quit"
-
-[keys.normal.space]
 c = ":buffer-close" # close buffer
 
