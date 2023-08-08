@@ -5,3 +5,5 @@ alias open = open
 alias opem = ^open
 
 alias hu = ls
+alias c = z
+
