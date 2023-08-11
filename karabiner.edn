@@ -48,7 +48,8 @@
                  [:##right_command :delete_forward]
                 ; also for royal kludge keyboard
                  [:##right_option :delete_forward :white_rk]
-                 [:##spacebar ["caps-mode" 0]]
+                ; allow space to pass through
+                 [:spacebar [:escape :spacebar]]
                 ; one password
                  [:##p :!!backslash]
                 ; turning on yabai-layer
