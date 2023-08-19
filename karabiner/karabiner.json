@@ -367,8 +367,8 @@
             "modifiers" : [ "left_control" ]
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ]
+            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
@@ -383,8 +383,8 @@
             "modifiers" : [ "left_control", "left_shift" ]
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ]
+            "bundle_identifiers" : [ "^com\\.apple\\.MobileSMS$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
@@ -594,16 +594,12 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "spacebar",
-            "modifiers" : {
-              "optional" : [ "any" ]
-            }
+            "key_code" : "spacebar"
           },
           "to" : [ {
-            "set_variable" : {
-              "name" : "caps-mode",
-              "value" : 0
-            }
+            "key_code" : "escape"
+          }, {
+            "key_code" : "spacebar"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -1450,8 +1446,8 @@
             "shell_command" : "killall -9 click &> /dev/null"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ]
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
@@ -1462,8 +1458,8 @@
             "shell_command" : "pgrep click"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ]
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
@@ -1474,8 +1470,8 @@
             "shell_command" : "/Users/francischua/gitprojects/click/target/release/click 20 100 27 20 right"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ]
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
@@ -1486,8 +1482,8 @@
             "shell_command" : "killall -9 click"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ]
+            "bundle_identifiers" : [ "^net\\.java\\.openjdk\\.cmd$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
@@ -1570,8 +1566,8 @@
             "key_code" : "vk_none"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com\\.mimestream\\.Mimestream$" ]
+            "bundle_identifiers" : [ "^com\\.mimestream\\.Mimestream$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         }, {
@@ -1586,8 +1582,8 @@
             "key_code" : "vk_none"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com\\.mimestream\\.Mimestream$" ]
+            "bundle_identifiers" : [ "^com\\.mimestream\\.Mimestream$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
@@ -1618,8 +1614,8 @@
             "shell_command" : "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^md\\.obsidian$" ]
+            "bundle_identifiers" : [ "^md\\.obsidian$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
@@ -1639,8 +1635,8 @@
             "shell_command" : "/Users/francischua/.config/karabiner/forklift_open_file.nu"
           } ],
           "conditions" : [ {
-            "type" : "frontmost_application_if",
-            "bundle_identifiers" : [ "^com\\.binarynights\\.ForkLift-3$" ]
+            "bundle_identifiers" : [ "^com\\.binarynights\\.ForkLift-3$" ],
+            "type" : "frontmost_application_if"
           } ],
           "type" : "basic"
         } ]
