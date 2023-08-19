@@ -4,9 +4,14 @@ theme = "sonokai_default"
 bufferline = "always" # shows buffers on top of screen
 true-color = true
 color-modes = true
+idle-timeout = 0
 
 [editor.gutters]
 layout = ["diagnostics", "spacer",  "diff"] # remove line numbers
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -17,6 +22,16 @@ select = "underline"
 render = true
 character = "╎" # character every indent
 skip-levels = 0
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+right = ["diagnostics", "version-control", "position"]
+
+[editor.whitespace.render]
+space = "all"
+
+[editor.whitespace.characters]
+space = "·"
 
 [keys.normal]
 X = "extend_line_above" # override capital X to expand selection to line above
