@@ -24,7 +24,7 @@ character = "╎" # character every indent
 skip-levels = 0
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name"]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
 right = ["diagnostics", "version-control", "position"]
 
 [editor.whitespace.render]
