@@ -730,6 +730,20 @@
           "type" : "basic"
         }, {
           "from" : {
+            "key_code" : "f3"
+          },
+          "to" : [ {
+            "key_code" : "f3",
+            "modifiers" : [ "left_command", "left_control", "left_option", "left_shift" ]
+          } ],
+          "conditions" : [ {
+            "name" : "caps-mode",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
             "key_code" : "i"
           },
           "to" : [ {

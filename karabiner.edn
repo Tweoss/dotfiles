@@ -62,6 +62,8 @@
                  [:escape "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
                 ; killing process (ctrl+c), going up to previous
                  [:!Creturn_or_enter [:!Ti :up_arrow]]
+                ; open iterm visor
+                [:f3 :!!f3]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
