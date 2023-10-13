@@ -1,0 +1,157 @@
+[tabs]
+active    = { fg = "#1E2031", bg = "#80AEFA" }
+inactive  = { fg = "#C8D3F8", bg = "#484D66" }
+max_width = 1
+
+[status]
+plain     = { fg = "#FFFFFF" }
+fancy     = { bg = "#45475D" }
+separator = { opening = "", closing = "" }
+
+# Mode
+mode_normal = { fg = "#181827", bg = "#7DB5FF", bold = true }
+mode_select = { fg = "#1E1E30", bg = "#D2A4FE", bold = true }
+mode_unset  = { fg = "#1E1E30", bg = "#FFAF80", bold = true }
+
+# Progress
+progress_label  = { fg = "#FFFFFF", bold = true }
+progress_normal = { fg = "#FFA577", bg = "#484D66" }
+progress_error  = { fg = "#FF84A9", bg = "#484D66" }
+
+# Permissions
+permissions_t = { fg = "#97DC8D" }
+permissions_r = { fg = "#F3D398" }
+permissions_w = { fg = "#FA7F94" }
+permissions_x = { fg = "#7AD9E5" }
+permissions_s = { fg = "#6D738F" }
+
+[files]
+hovered = { fg = "#1E2031", bg = "#80AEFA" }
+
+[marker]
+selected = { fg = "#97DC8D", bg = "#97DC8D" }
+copied   = { fg = "#F3D398", bg = "#F3D398" }
+cut      = { fg = "#FF84A9", bg = "#FF84A9" }
+
+[preview]
+hovered       = { underline = true }
+syntect_theme = "~/.config/bat/themes/Catppuccin-macchiato.tmTheme"
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#7AD9E5" },
+
+	# Videos
+	{ mime = "video/*", fg = "#F3D398" },
+	{ mime = "audio/*", fg = "#F3D398" },
+
+	# Archives
+	{ mime = "application/zip", fg = "#CD9EFC" },
+	{ mime = "application/gzip", fg = "#CD9EFC" },
+	{ mime = "application/x-tar", fg = "#CD9EFC" },
+	{ mime = "application/x-bzip", fg = "#CD9EFC" },
+	{ mime = "application/x-bzip2", fg = "#CD9EFC" },
+	{ mime = "application/x-7z-compressed", fg = "#CD9EFC" },
+	{ mime = "application/x-rar", fg = "#CD9EFC" },
+
+	# Fallback
+	{ name = "*", fg = "#C8D3F8" },
+	{ name = "*/", fg = "#80AEFA" }
+]
+
+[icons]
+
+"Desktop/"     = ""
+"Documents/"   = ""
+"Downloads/"   = ""
+"Pictures/"    = ""
+"Music/"       = ""
+"Movies/"      = ""
+"Videos/"      = ""
+"Public/"      = ""
+"Library/"     = ""
+"Development/" = ""
+".config/"     = ""
+
+# Git
+".git/"          = ""
+".gitignore"     = ""
+".gitmodules"    = ""
+".gitattributes" = ""
+
+# Dotfiles
+".DS_Store"    = ""
+".bashrc"      = ""
+".bashprofile" = ""
+".zshrc"       = ""
+".zshenv"      = ""
+".zprofile"    = ""
+".vimrc"       = ""
+
+# Text
+"*.txt" = ""
+"*.md"  = ""
+
+# Archives
+"*.zip" = ""
+"*.tar" = ""
+"*.gz"  = ""
+"*.7z"  = ""
+
+# Audio
+"*.mp3"  = ""
+"*.flac" = ""
+"*.wav"  = ""
+
+# Movies
+"*.mp4" = ""
+"*.mkv" = ""
+"*.avi" = ""
+"*.mov" = ""
+
+# Images
+"*.jpg"  = ""
+"*.jpeg" = ""
+"*.png"  = ""
+"*.gif"  = ""
+"*.webp" = ""
+"*.avif" = ""
+"*.bmp"  = ""
+"*.ico"  = ""
+"*.svg"  = ""
+
+# Programming
+"*.c"     = ""
+"*.cpp"   = ""
+"*.h"     = ""
+"*.hpp"   = ""
+"*.rs"    = ""
+"*.go"    = ""
+"*.py"    = ""
+"*.js"    = ""
+"*.ts"    = ""
+"*.tsx"   = ""
+"*.jsx"   = ""
+"*.rb"    = ""
+"*.php"   = ""
+"*.java"  = ""
+"*.sh"    = ""
+"*.fish"  = ""
+"*.swift" = ""
+"*.vim"   = ""
+"*.lua"   = ""
+"*.html"  = ""
+"*.css"   = ""
+"*.scss"  = ""
+"*.json"  = ""
+"*.toml"  = ""
+"*.yml"   = ""
+"*.yaml"  = ""
+"*.ini"   = ""
+"*.conf"  = ""
+
+# Default
+"*"  = ""
+"*/" = ""
