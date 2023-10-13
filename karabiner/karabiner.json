@@ -991,7 +991,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
+                                        "shell_command": "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
                                     }
                                 ],
                                 "type": "basic"
