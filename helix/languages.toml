@@ -1,7 +1,11 @@
 [[language]]
 name = "rust"
+language-servers = [ "ra-multiplex" ]
 
-[language-server.rust-analyzer.config.check]
+[language-server.ra-multiplex]
+command = "ra-multiplex"
+
+[language-server.ra-multiplex.config.check]
 command = "clippy"
 
 [[language]]
