@@ -1,4 +1,4 @@
-theme = "sonokai_default"
+theme = "tokyonight_storm"
 
 [editor]
 bufferline = "always" # shows buffers on top of screen
