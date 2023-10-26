@@ -50,8 +50,10 @@
                  [:##right_option :delete_forward :white_rk]
                 ; allow space to pass through
                  [:spacebar [:escape :spacebar]]
+                ; switching to most recent tab in Arc
+                 [:!Cp :!!p :arc]
                 ; one password
-                 [:##p :!!backslash]
+                 [:p :!!backslash]
                 ; turning on yabai-layer
                  [:m [["yabai-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF9925bE"]]
                 ; turning on window-layer
