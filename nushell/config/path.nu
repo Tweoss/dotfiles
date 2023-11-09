@@ -18,6 +18,7 @@ $env.PATH = [
     '/Users/francischua/.wasmedge/bin',
     # '/Users/francischua/Library/Python/3.9/bin',
     # '/usr/local/texlive/2022/bin/universal-darwin',
+    $"($env.HOME)/bin",
     '/opt/homebrew/bin/',
     '/usr/local/bin',
     '/usr/bin',
