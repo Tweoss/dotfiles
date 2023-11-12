@@ -27,7 +27,7 @@ yabai -m config window_border_width 6
 yabai -m config active_window_border_color 0xFF4F4FFF
 yabai -m config normal_window_border_color 0xFF3E3E3E
 yabai -m config window_border on
-
+yabai -m config window_border_blur off
 
 MONITOR_ID=$(yabai -m query --spaces | jq '.[] | select( .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B" or .uuid == "547DD562-0B67-4D2C-822A-D4110F27A10E" or .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B") | .index');
 if [ -n "$MONITOR_ID" ]; then
