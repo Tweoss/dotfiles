@@ -23,12 +23,8 @@ yabai -m rule --add app="ripdrag" title="ripdrag" manage=off
 
 yabai -m space 1 --label native
 yabai -m space native --layout stack
-yabai -m config window_border_width 6
 
-yabai -m config active_window_border_color 0xFF4F4FFF
-yabai -m config normal_window_border_color 0xFF3E3E3E
-yabai -m config window_border on
-yabai -m config window_border_blur off
+yabai -m space 2 --layout bsp
 
 MONITOR_ID=$(yabai -m query --spaces | jq '.[] | select( .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B" or .uuid == "547DD562-0B67-4D2C-822A-D4110F27A10E" or .uuid == "194CFF3B-FEEE-4848-A990-4A468926D24B") | .index');
 if [ -n "$MONITOR_ID" ]; then
@@ -36,4 +32,12 @@ if [ -n "$MONITOR_ID" ]; then
 	yabai -m space monitor --layout bsp
 	yabai -m space monitor --padding abs:-2:2:-2:1
 fi
+
+# Uses https://github.com/FelixKratz/JankyBorders
+yabai -m config top_padding    6
+yabai -m config bottom_padding 6
+yabai -m config left_padding   6
+yabai -m config right_padding  6
+yabai -m config window_gap     12
+borders width=12.0 style=round inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF 2>/dev/null 1>&2 &
 

@@ -656,7 +656,7 @@
               "value" : 0
             }
           }, {
-            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF9925bE"
+            "shell_command" : "/opt/homebrew/bin/borders inactive_color=0xFF9925bE active_color=0xFF0F0FFF"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -679,7 +679,7 @@
               "value" : 0
             }
           }, {
-            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF058510"
+            "shell_command" : "/opt/homebrew/bin/borders inactive_color=0xFF058510 active_color=0xFF0F0FFF"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -719,25 +719,6 @@
           },
           "to" : [ {
             "shell_command" : "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"
-          } ],
-          "conditions" : [ {
-            "name" : "caps-mode",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "return_or_enter",
-            "modifiers" : {
-              "mandatory" : [ "left_command" ]
-            }
-          },
-          "to" : [ {
-            "key_code" : "i",
-            "modifiers" : [ "left_control" ]
-          }, {
-            "key_code" : "up_arrow"
           } ],
           "conditions" : [ {
             "name" : "caps-mode",
@@ -828,7 +809,7 @@
               "value" : 0
             }
           }, {
-            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"
+            "shell_command" : "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -842,19 +823,6 @@
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --toggle float"
-          } ],
-          "conditions" : [ {
-            "name" : "yabai-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "spacebar"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"
           } ],
           "conditions" : [ {
             "name" : "yabai-layer",
@@ -1093,7 +1061,7 @@
               "value" : 0
             }
           }, {
-            "shell_command" : "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"
+            "shell_command" : "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1103,10 +1071,13 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "a"
+            "key_code" : "h",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus west"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap west"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1116,10 +1087,13 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "s"
+            "key_code" : "j",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus south"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap south"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1129,10 +1103,13 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "d"
+            "key_code" : "k",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus north"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap north"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1142,10 +1119,13 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "f"
+            "key_code" : "l",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus east"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap east"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1159,6 +1139,19 @@
           },
           "to" : [ {
             "key_code" : "left_shift"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "left_command"
+          },
+          "to" : [ {
+            "key_code" : "left_command"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1232,58 +1225,6 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "h"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap west"
-          } ],
-          "conditions" : [ {
-            "name" : "window-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "j"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap south"
-          } ],
-          "conditions" : [ {
-            "name" : "window-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "k"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap north"
-          } ],
-          "conditions" : [ {
-            "name" : "window-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
-            "key_code" : "l"
-          },
-          "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --swap east"
-          } ],
-          "conditions" : [ {
-            "name" : "window-layer",
-            "value" : 1,
-            "type" : "variable_if"
-          } ],
-          "type" : "basic"
-        }, {
-          "from" : {
             "key_code" : "semicolon"
           },
           "to" : [ {
@@ -1297,7 +1238,10 @@
           "type" : "basic"
         }, {
           "from" : {
-            "key_code" : "n"
+            "key_code" : "n",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"
@@ -1311,6 +1255,38 @@
         }, {
           "from" : {
             "key_code" : "m"
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --space next --focus"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "m",
+            "modifiers" : {
+              "mandatory" : [ "left_shift" ]
+            }
+          },
+          "to" : [ {
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --space prev --focus"
+          } ],
+          "conditions" : [ {
+            "name" : "window-layer",
+            "value" : 1,
+            "type" : "variable_if"
+          } ],
+          "type" : "basic"
+        }, {
+          "from" : {
+            "key_code" : "m",
+            "modifiers" : {
+              "mandatory" : [ "left_command" ]
+            }
           },
           "to" : [ {
             "shell_command" : "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"

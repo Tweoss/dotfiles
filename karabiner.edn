@@ -55,15 +55,15 @@
                 ; one password
                  [:p :!!backslash]
                 ; turning on yabai-layer
-                 [:m [["yabai-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF9925bE"]]
+                 [:m [["yabai-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/borders inactive_color=0xFF9925bE active_color=0xFF0F0FFF"]]
                 ; turning on window-layer
-                 [:comma [["window-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF058510"]]
+                 [:comma [["window-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/borders inactive_color=0xFF058510 active_color=0xFF0F0FFF"]]
                 ; turning on disable-layer
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
                  [:escape "open -a /System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine"]
-                ; killing process (ctrl+c), going up to previous
-                 [:!Creturn_or_enter [:!Ti :up_arrow]]
+                ; ; killing process (ctrl+c), going up to previous
+                ;  [:!Creturn_or_enter [:!Ti :up_arrow]]
                 ; open iterm visor
                 [:f3 :!!f3]
                 ; clearing notifications
@@ -80,11 +80,11 @@
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
-                 [:caps_lock [["yabai-layer" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"]]
+                 [:caps_lock [["yabai-layer" 0] "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"]]
                 ; toggle window float
                  [:f "/opt/homebrew/bin/yabai -m window --toggle float"]
-                ; full screen like moom
-                 [:spacebar "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"]
+                ; ; full screen like moom
+                ;  [:spacebar "/opt/homebrew/bin/yabai -m window --grid 1:1:0:0:1:1"]
                 ; corner combos
                  [[:h :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:1:2"]
                  [[:h :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"]
@@ -108,31 +108,36 @@
         {:des "window layer"
          :rules [[:condi :window-layer]
                 ; disabling layer
-                 [:caps_lock [["window-layer" 0] "/opt/homebrew/bin/yabai -m config normal_window_border_color 0xFF3E3E3E"]]
-                ; focus window
-                 [:a "/opt/homebrew/bin/yabai -m window --focus west"]
-                 [:s "/opt/homebrew/bin/yabai -m window --focus south"]
-                 [:d "/opt/homebrew/bin/yabai -m window --focus north"]
-                 [:f "/opt/homebrew/bin/yabai -m window --focus east"]
+                 [:caps_lock [["window-layer" 0] "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"]]
+                ; swap window
+                 [:!Ch "/opt/homebrew/bin/yabai -m window --swap west"]
+                 [:!Cj "/opt/homebrew/bin/yabai -m window --swap south"]
+                 [:!Ck "/opt/homebrew/bin/yabai -m window --swap north"]
+                 [:!Cl "/opt/homebrew/bin/yabai -m window --swap east"]
                 ; warp window
-                ; we must preserve the left_shift key so it is not
-                ; captured by anykey->vk_none
+                ; we must preserve the left_shift and left_command keys so 
+                ; they are not captured by anykey->vk_none
                  [:left_shift :left_shift]
+                 [:left_command :left_command]
                  [:!Sh "/opt/homebrew/bin/yabai -m window --warp west"]
                  [:!Sj "/opt/homebrew/bin/yabai -m window --warp south"]
                  [:!Sk "/opt/homebrew/bin/yabai -m window --warp north"]
                  [:!Sl "/opt/homebrew/bin/yabai -m window --warp east"]
-                ; swap window
-                 [:h "/opt/homebrew/bin/yabai -m window --swap west"]
-                 [:j "/opt/homebrew/bin/yabai -m window --swap south"]
-                 [:k "/opt/homebrew/bin/yabai -m window --swap north"]
-                 [:l "/opt/homebrew/bin/yabai -m window --swap east"]
+                ; focus window
+                 [:h "/opt/homebrew/bin/yabai -m window --focus west"]
+                 [:j "/opt/homebrew/bin/yabai -m window --focus south"]
+                 [:k "/opt/homebrew/bin/yabai -m window --focus north"]
+                 [:l "/opt/homebrew/bin/yabai -m window --focus east"]
                 ; toggle split direction
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
                 ; focus next display
-                 [:n "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"]
+                 [:!Cn "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"]
+                ; move to next space
+                 [:m "/opt/homebrew/bin/yabai -m window --space next --focus"]
+                ; move to prev space
+                 [:!Sm "/opt/homebrew/bin/yabai -m window --space prev --focus"]
                 ; move to display
-                 [:m "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
+                 [:!Cm "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
                 ; restart yabai
                  [:o "/opt/homebrew/bin/yabai --restart-service"]
                 ; capture all keys
