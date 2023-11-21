@@ -19,6 +19,7 @@ yabai -m rule --add app="System Information" manage=off
 yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
 yabai -m rule --add app="Digital Color Meter" manage=off
+yabai -m rule --add app="ripdrag" title="ripdrag" manage=off
 
 yabai -m space 1 --label native
 yabai -m space native --layout stack
