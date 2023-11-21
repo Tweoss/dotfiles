@@ -24,6 +24,7 @@ scope = "source.typst"
 injection-regex = "^typ(st)?$"
 file-types = ["typ"]
 comment-token = "//"
+roots = []
 language-servers = ["typst"]
 indent = { tab-width = 2, unit = "  " }
 
