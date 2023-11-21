@@ -16,14 +16,13 @@ indent = { tab-width = 4, unit = "    " }
 command = "typst-lsp"
 
 [language-server.typst.config]
-exportPdf = "onType"
+exportPdf = "never"
 
 [[language]]
 name = "typst"
 scope = "source.typst"
 injection-regex = "^typ(st)?$"
 file-types = ["typ"]
-roots = []
 comment-token = "//"
 language-servers = ["typst"]
 indent = { tab-width = 2, unit = "  " }
@@ -36,11 +35,4 @@ indent = { tab-width = 2, unit = "  " }
 '`' = '`'
 '$' = '$'
 
-[[grammar]]
-name = "typst"
-source = { git = "https://github.com/frozolotl/tree-sitter-typst.git", rev = "68f60ff8941474f22fe7dc725af846f5c20a5b06" }
-# source = { path = "/Users/francischua/gitutils/tree-sitter-typst" }
-
-# [[language-servers.typst-lsp]]
-# command = "typst-lsp"
 
