@@ -13,6 +13,10 @@
 
  :froms {:anykey {:any :key_code :modi {:optional [:any]}}}
 
+ :templates {:border-default "/opt/homebrew/bin/borders width=12.0 inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"
+             :border-window "/opt/homebrew/bin/borders width=12.0 inactive_color=0xFF058510 active_color=0xFF0F0FFF"
+             :border-yabai "/opt/homebrew/bin/borders width=12.0 inactive_color=0xFF9925bE active_color=0xFF0F0FFF"}
+
  :main [{:des "layers"
          :rules [[:caps_lock ["caps-mode" 1] [:!yabai-layer :!disable-layer :!window-layer] {:alone :escape :afterup ["caps-mode" 0]}]]}
         {:des "clicker mapping for google slides"
@@ -55,9 +59,9 @@
                 ; one password
                  [:p :!!backslash]
                 ; turning on yabai-layer
-                 [:m [["yabai-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/borders inactive_color=0xFF9925bE active_color=0xFF0F0FFF"]]
+                 [:m [["yabai-layer" 1] ["caps-mode" 0] [:border-yabai]]]
                 ; turning on window-layer
-                 [:comma [["window-layer" 1] ["caps-mode" 0] "/opt/homebrew/bin/borders inactive_color=0xFF058510 active_color=0xFF0F0FFF"]]
+                 [:comma [["window-layer" 1] ["caps-mode" 0] [:border-window]]]
                 ; turning on disable-layer
                  [:d [["disable-layer" 1] ["caps-mode" 0] ["yabai-layer" 0]]]
                 ; turning on screensaver
@@ -80,7 +84,7 @@
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
-                 [:caps_lock [["yabai-layer" 0] "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"]]
+                 [:caps_lock [["yabai-layer" 0] [:border-default]]]
                 ; toggle window float
                  [:f "/opt/homebrew/bin/yabai -m window --toggle float"]
                 ; ; full screen like moom
@@ -108,7 +112,7 @@
         {:des "window layer"
          :rules [[:condi :window-layer]
                 ; disabling layer
-                 [:caps_lock [["window-layer" 0] "/opt/homebrew/bin/borders inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF"]]
+                 [:caps_lock [["window-layer" 0] [:border-default]]]
                 ; swap window
                  [:!Ch "/opt/homebrew/bin/yabai -m window --swap west"]
                  [:!Cj "/opt/homebrew/bin/yabai -m window --swap south"]
