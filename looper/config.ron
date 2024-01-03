@@ -1,0 +1,82 @@
+#![enable(unwrap_newtypes)]
+
+(
+  expose_router: true,
+  measure_tick_count: 64,
+  measure_bpm: 139,
+  controller_token: "123123",
+  controllers: [
+    (
+      variables: {
+        "buttons": Bool,
+      },
+      view: List(
+        direction: Down,
+        items: [
+          (
+            fr_weight: 1,
+            inner: Metronome,  
+          ),
+          (
+            fr_weight: 12,
+            inner: List(
+              direction: Right,
+              items: [
+                (
+                  fr_weight: 1,
+                  inner: Toggle(
+                    keycode: Some("ShiftLeft"),
+                    toggle_variable: "buttons",
+                  ),
+                ),
+                (
+                  fr_weight: 8,
+                  inner: Grid(
+                    column_count: 3,
+                    visible_row_count: 3,
+                    items: [
+                      Button(
+                        primary_action: ScheduleTogglePlay(0),
+                        secondary_action: ToggleRecord(0),
+                        toggle_variable: "buttons",
+                      ),
+                      Button(
+                        primary_action: ScheduleTogglePlay(1),
+                        secondary_action: ToggleRecord(1),
+                        toggle_variable: "buttons",
+                      ),
+                      Button(
+                        primary_action: ScheduleTogglePlay(2),
+                        secondary_action: ToggleRecord(2),
+                        toggle_variable: "buttons",
+                      ),
+                      Button(
+                        primary_action: ToggleRecord(0),
+                        secondary_action: ScheduleTogglePlay(0),
+                        toggle_variable: "buttons",
+                      ),
+                      Button(
+                        primary_action: ToggleRecord(1),
+                        secondary_action: ScheduleTogglePlay(1),
+                        toggle_variable: "buttons",
+                      ),
+                      Button(
+                        primary_action: ToggleRecord(2),
+                        secondary_action: ScheduleTogglePlay(2),
+                        toggle_variable: "buttons",
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    ),
+    (
+      variables: {},
+      view: Metronome,
+    ),
+  ],
+)
