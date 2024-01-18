@@ -46,7 +46,7 @@ keymap = [
 	# Operation
 	{ on = [ "o" ],         exec = "open",                   desc = "Open the selected files" },
 	{ on = [ "O" ],         exec = "open --interactive",     desc = "Open the selected files interactively" },
-	{ on = [ "<Enter>" ],   exec = '''shell "ripdrag $1" --confirm''', desc = "Use ripdrag to open the file drag and drop" },
+	{ on = [ "<Enter>" ],   exec = '''shell "ripdrag \"$1\"" --confirm''', desc = "Use ripdrag to open the file drag and drop" },
 	{ on = [ "<C-Enter>" ], exec = "open --interactive",     desc = "Open the selected files interactively" },  # It's cool if you're using a terminal that supports CSI u
 	{ on = [ "y" ],         exec = "yank",                   desc = "Copy the selected files" },
 	{ on = [ "x" ],         exec = "yank --cut",             desc = "Cut the selected files" },
