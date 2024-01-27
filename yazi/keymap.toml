@@ -48,16 +48,16 @@ keymap = [
 	{ on = [ "O" ],         exec = "open --interactive",     desc = "Open the selected files interactively" },
 	{ on = [ "<Enter>" ],   exec = '''shell "ripdrag \"$1\"" --confirm''', desc = "Use ripdrag to open the file drag and drop" },
 	{ on = [ "<C-Enter>" ], exec = "open --interactive",     desc = "Open the selected files interactively" },  # It's cool if you're using a terminal that supports CSI u
-	{ on = [ "y" ],         exec = "yank",                   desc = "Copy the selected files" },
-	{ on = [ "x" ],         exec = "yank --cut",             desc = "Cut the selected files" },
+	{ on = [ "y" ],         exec = [ "yank", "escape --visual --select" ], desc = "Copy the selected files" },
+	{ on = [ "x" ],         exec = [ "yank --cut", "escape --visual --select" ], desc = "Cut the selected files" },
 	{ on = [ "p" ],         exec = "paste",                  desc = "Paste the files" },
 	{ on = [ "P" ],         exec = "paste --force",          desc = "Paste the files (overwrite if the destination exists)" },
 	{ on = [ "-" ],         exec = "link",                   desc = "Symlink the absolute path of files" },
 	{ on = [ "_" ],         exec = "link --relative",        desc = "Symlink the relative path of files" },
-	{ on = [ "d" ],         exec = "remove",                 desc = "Move the files to the trash" },
-	{ on = [ "D" ],         exec = "remove --permanently",   desc = "Permanently delete the files" },
+	{ on = [ "d" ],         exec = [ "remove", "escape --visual --select" ], desc = "Move the files to the trash" },
+	{ on = [ "D" ],         exec = [ "remove --permanently", "escape --visual --select" ], desc = "Permanently delete the files" },
 	{ on = [ "a" ],         exec = "create",                 desc = "Create a file or directory (ends with / for directories)" },
-	{ on = [ "r" ],         exec = "rename",                 desc = "Rename a file or directory" },
+	{ on = [ "r" ],         exec = "rename --cursor=before_ext", desc = "Rename a file or directory" },
 	{ on = [ ";" ],         exec = "shell",                  desc = "Run a shell command" },
 	{ on = [ ":" ],         exec = "shell --block",          desc = "Run a shell command (block the UI until the command finishes)" },
 	{ on = [ "." ],         exec = "hidden toggle",          desc = "Toggle the visibility of hidden files" },
@@ -67,11 +67,20 @@ keymap = [
 	{ on = [ "z" ],         exec = "jump zoxide",            desc = "Jump to a directory using zoxide" },
 	{ on = [ "Z" ],         exec = "jump fzf",               desc = "Jump to a directory, or reveal a file using fzf" },
 
+	# Linemode
+	{ on = [ "m", "s" ], exec = "linemode size",        desc = "Set linemode to size" },
+	{ on = [ "m", "p" ], exec = "linemode permissions", desc = "Set linemode to permissions" },
+	{ on = [ "m", "m" ], exec = "linemode mtime",       desc = "Set linemode to mtime" },
+	{ on = [ "m", "n" ], exec = "linemode none",        desc = "Set linemode to none" },
+
 	# Copy
 	{ on = [ "c", "c" ], exec = "copy path",             desc = "Copy the absolute path" },
 	{ on = [ "c", "d" ], exec = "copy dirname",          desc = "Copy the path of the parent directory" },
 	{ on = [ "c", "f" ], exec = "copy filename",         desc = "Copy the name of the file" },
 	{ on = [ "c", "n" ], exec = "copy name_without_ext", desc = "Copy the name of the file without the extension" },
+
+	# Filter
+	{ on = [ "f" ], exec = "filter --smart", desc = "Filter the files" },
 
 	# Find
 	{ on = [ "/" ], exec = "find --smart" },
@@ -180,7 +189,9 @@ keymap = [
 	{ on = [ "l" ], exec = "move 1",  desc = "Move cursor right" },
 
 	{ on = [ "0" ], exec = "move -999",                       desc = "Move to the BOL" },
+	{ on = [ "<C-a>" ], exec = "move -999", desc = "Move to the BOL" },
 	{ on = [ "$" ], exec = "move 999",                        desc = "Move to the EOL" },
+	{ on = [ "<C-e>" ], exec = "move 999",  desc = "Move to the EOL" },
 	{ on = [ "I" ], exec = [ "move -999", "insert" ],         desc = "Move to the BOL, and enter insert mode" },
 	{ on = [ "A" ], exec = [ "move 999", "insert --append" ], desc = "Move to the EOL, and enter append mode" },
 
@@ -190,6 +201,8 @@ keymap = [
 	{ on = [ "b" ], exec = "backward",              desc = "Move to the beginning of the previous word" },
 	{ on = [ "w" ], exec = "forward",               desc = "Move to the beginning of the next word" },
 	{ on = [ "e" ], exec = "forward --end-of-word", desc = "Move to the end of the next word" },
+	{ on = [ "<A-b>" ], exec = "backward",          desc = "Move back to the start of the current or previous word" },
+	{ on = [ "<A-f>" ], exec = "forward --end-of-word", desc = "Move forward to the end of the current or next word" },
 
 	# Deletion
 	{ on = [ "d" ], exec = "delete --cut",                              desc = "Cut the selected characters" },
