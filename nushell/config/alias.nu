@@ -6,3 +6,4 @@ alias opem = ^open
 
 alias hu = ls
 
+alias pu = pueue
