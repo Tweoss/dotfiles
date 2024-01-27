@@ -107,9 +107,6 @@ $env.config = {
   rm: {
     always_trash: true
   }
-  cd: {
-    abbreviations: false  # allows `cd s/o/f` to expand to `cd some/other/folder`
-  }
   table: {
     mode: heavy # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
     index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
@@ -176,5 +173,3 @@ source ~/.local/share/atuin/init.nu
 source ~/.zoxide.nu
 alias c = z
 
-# broot --install
-source ~/.config/broot/launcher/nushell/br

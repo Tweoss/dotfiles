@@ -2,14 +2,6 @@
 
 source ~/.config/nushell/config/starship_init.nu
 
-def create_right_prompt [] {
-    let time_segment = ([
-        (date now | date format '%m/%d/%Y %r' | ansi gradient --fgstart 0xffffff --fgend 0xffffff --bgstart 0x4673b3 --bgend 0xb84467)
-    ] | str collect)
-
-    $time_segment
-}
-
 # Use nushell functions to define your right and left prompt
 # $env.PROMPT_COMMAND_RIGHT = { create_right_prompt }
 
