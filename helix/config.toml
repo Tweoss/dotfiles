@@ -1,4 +1,5 @@
 theme = "tokyonight_storm"
+# theme = "catpuccin_latte"
 
 [editor]
 bufferline = "always" # shows buffers on top of screen
