@@ -211,6 +211,10 @@ keymap = [
 	{ on = [ "C" ], exec = [ "delete --cut --insert", "move 999" ],     desc = "Cut until the EOL, and enter insert mode" },
 	{ on = [ "x" ], exec = [ "delete --cut", "move 1 --in-operating" ], desc = "Cut the current character" },
 	{ on = [ "<Backspace>" ], exec = "backspace" },
+	{ on = [ "<C-u>" ], exec = "kill bol" },
+	{ on = [ "<Delete>" ], exec = "kill eol" },
+	{ on = [ "<A-Backspace>" ], exec = "kill backward" },
+	{ on = [ "<A-d>" ], exec = "kill forward" },
 
 	# Yank/Paste
 	{ on = [ "y" ], exec = "yank",           desc = "Copy the selected characters" },
