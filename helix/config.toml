@@ -47,5 +47,5 @@ q = ":quit"
 c = ":buffer-close" # close buffer
 f = "file_picker_in_current_directory" # open current directory's file picker
 F = "file_picker" # open project's file picker
-E = ':pipe sed "s/dot/*/g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | kalker'
+E = ':pipe sed "s/dot/*/g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | kalker | tr -d "\n"' # evaluate a typst expression
 
