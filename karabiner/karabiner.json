@@ -1228,7 +1228,7 @@
             "key_code" : "h"
           },
           "to" : [ {
-            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus west; /opt/homebrew/bin/borders"
+            "shell_command" : "/opt/homebrew/bin/yabai -m window --focus west"
           } ],
           "conditions" : [ {
             "name" : "window-layer",
@@ -1742,11 +1742,6 @@
           "to" : [ {
             "key_code" : "4",
             "modifiers" : [ "left_shift" ]
-          }, {
-            "key_code" : "4",
-            "modifiers" : [ "left_shift" ]
-          }, {
-            "key_code" : "left_arrow"
           } ],
           "type" : "basic"
         }, {

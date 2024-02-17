@@ -194,7 +194,7 @@
         {:des "parentheses, dollar signs, and carets in obsidian"
          ; typst convenience bindings. made global (for use in Arc, obsidian, and iterm)
          :rules [[[:r :k] [:!S9 :!S0 :left_arrow]]; open parentheses
-                 [[:m :v] [:!S4 :!S4 :left_arrow]]; open dollar sign
+                 [[:m :v] [:!S4]]; open dollar sign
                  [[:r :comma] [:!S6]]; caret
                  ]}
         {:des "Temporary Binding"
