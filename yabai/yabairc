@@ -34,7 +34,7 @@ if [ -n "$MONITOR_ID" ]; then
 fi
 
 # Uses https://github.com/FelixKratz/JankyBorders
-yabai -m config top_padding    6
+yabai -m config top_padding    5
 yabai -m config bottom_padding 6
 yabai -m config left_padding   6
 yabai -m config right_padding  6
