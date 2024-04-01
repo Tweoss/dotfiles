@@ -173,3 +173,6 @@ source ~/.local/share/atuin/init.nu
 source ~/.zoxide.nu
 alias c = z
 
+# carapace completion
+source ~/.cache/carapace/init.nu
+
