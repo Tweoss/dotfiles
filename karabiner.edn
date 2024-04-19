@@ -198,6 +198,6 @@
                  [[:r :comma] [:!S6]]; caret
                  ]}
         {:des "Temporary Binding"
-         :rules []}]}; :brave
+         :rules [[:!SCf12 ["osascript -e 'tell application \"System Events\"\nkeystroke the clipboard\nend tell'"]]]}]}; :brave
                 ; [:fn :!Ctab]
 
