@@ -1,5 +1,12 @@
 format = "$status$all$character"
 
+[custom.shpool]
+command = 'echo "$SHPOOL_SESSION_NAME "' # shows output of command
+shell = ['bash']
+description = "shpool current session"
+format = "[$symbol($output)]($style)"
+when = true
+style = 'purple'
 
 [status]
 style = "fg:27"
