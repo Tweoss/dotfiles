@@ -13,10 +13,12 @@ name = "typescript"
 indent = { tab-width = 4, unit = "    " }
 
 [language-server.typst]
-command = "typst-lsp"
+command = "tinymist"
+# command = "typst-lsp"
+config = { formatterMode = "typstyle", formatterPrintWidth = 80, exportPdf = "never" }
 
-[language-server.typst.config]
-exportPdf = "never"
+# [language-server.typst.config]
+# exportPdf = "never"
 
 [[language]]
 name = "typst"
@@ -27,6 +29,8 @@ comment-token = "//"
 roots = []
 language-servers = ["typst"]
 indent = { tab-width = 2, unit = "  " }
+# formatter = { command = "typstfmt", args = ["--output", "-"] }
+auto-format = true
 
 [language.auto-pairs]
 '(' = ')'
@@ -35,5 +39,4 @@ indent = { tab-width = 2, unit = "  " }
 '"' = '"'
 '`' = '`'
 '$' = '$'
-
 
