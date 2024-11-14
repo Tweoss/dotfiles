@@ -178,7 +178,8 @@
                  ; or tab if (alone or held)
                  [:##tab :left_control nil {:alone :tab}]
                  ; unbind ctrl for learning's sake
-                 [:##left_control :vk_none]]}
+                 ; [:##left_control :vk_none]
+                 ]}
         {:des "Minimal menu"
          :rules [[:escape "killall minmenu; open /Applications/minmenu.app/"]]}
         {:des "Unbind sending key for mimestream"
