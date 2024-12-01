@@ -146,8 +146,8 @@
                  [:o "/opt/homebrew/bin/yabai --restart-service"]
                 ; capture all keys
                  [:anykey :vk_none]]}
-        {:des "bind delete/backspace to button3"
-         :rules [[:##delete_or_backspace :button3]]}
+        {:des "bind delete/backspace to button1"
+         :rules [[:##delete_or_backspace :button1]]}
         {:des "royal kludge keyboard fixes"
          :rules [:white_rk
                 ; swap option and windows 
@@ -192,9 +192,10 @@
          :rules [:obsidian [:!SCo "/Users/francischua/.config/karabiner/obsidian_open_vault.nu"]]}
         {:des "Open Forklift file in Arc"
          :rules [:forklift [:!SCo [:!TCc "/Users/francischua/.config/karabiner/forklift_open_file.nu"]]]}
-        {:des "parentheses, dollar signs, and carets in obsidian"
+        {:des "dollar signs, and carets in obsidian"
          ; typst convenience bindings. made global (for use in Arc, obsidian, and iterm)
-         :rules [[[:r :k] [:!S9 :!S0 :left_arrow]]; open parentheses
+         :rules [
+                 ; [[:r :k] [:!S9 :!S0 :left_arrow]]; open parentheses
                  [[:m :v] [:!S4]]; open dollar sign
                  [[:r :comma] [:!S6]]; caret
                  ]}
