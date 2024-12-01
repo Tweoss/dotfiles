@@ -135,13 +135,13 @@
                 ; toggle split direction
                  [:semicolon "/opt/homebrew/bin/yabai -m window --toggle split"]
                 ; focus next display
-                 [:!Cn "/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev"]
+                 [:n ["bash -c '/opt/homebrew/bin/yabai -m display --focus recent || /opt/homebrew/bin/yabai -m display --focus prev && /opt/homebrew/bin/borders width=12.0 inactive_color=0xFF058510 active_color=0xFF0F0FFF'"]]
                 ; move to next space
-                 [:m "/opt/homebrew/bin/yabai -m window --space next --focus"]
+                 [:!Cm "/opt/homebrew/bin/yabai -m window --space next --focus"]
                 ; move to prev space
-                 [:!Sm "/opt/homebrew/bin/yabai -m window --space prev --focus"]
+                 [:!CSm "/opt/homebrew/bin/yabai -m window --space prev --focus"]
                 ; move to display
-                 [:!Cm "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
+                 [:m "/opt/homebrew/bin/yabai -m window --display recent || /opt/homebrew/bin/yabai -m window --space prev"]
                 ; restart yabai
                  [:o "/opt/homebrew/bin/yabai --restart-service"]
                 ; capture all keys
@@ -201,4 +201,3 @@
         {:des "Temporary Binding"
          :rules [[:!SCf12 ["osascript -e 'tell application \"System Events\"\nkeystroke the clipboard\nend tell'"]]]}]}; :brave
                 ; [:fn :!Ctab]
-
