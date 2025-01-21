@@ -4,6 +4,7 @@
                 :messages ["^com\\.apple\\.MobileSMS$"]
                 :forklift ["^com\\.binarynights\\.ForkLift-3$"]
                 :obsidian ["^md\\.obsidian$"]
+                :ghostty ["^com\\.mitchellh\\.ghostty$"]
                 :code ["^com\\.microsoft\\.VSCode$"]
                 :arc ["^company\\.thebrowser\\.Browser$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
@@ -69,7 +70,7 @@
                 ; ; killing process (ctrl+c), going up to previous
                 ;  [:!Creturn_or_enter [:!Ti :up_arrow]]
                 ; open iterm visor
-                [:f3 :!!f3]
+                 [:f3 :!!f3]
                 ; clearing notifications
                 ; [:c "osascript -l JavaScript /Users/francischua/gitutils/executables/applescript/clear.scpt"]
                 ; [:c "osascript -L Javascript ~/gitutils/executables/applescript/temp.scpt"]
@@ -158,6 +159,8 @@
                  ; left arrow to backspace
                  [:##right_option :delete_or_backspace]]}
         ; must come after caps-lock layer. avoid capturing right_command too early
+        {:des "left+right command to clear line in ghostty"
+         :rules [:ghostty [:!Cright_command :!Tf]]}
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
         {:des "click fast"
@@ -200,5 +203,5 @@
                  [[:r :comma] [:!S6]]; caret
                  ]}
         {:des "Temporary Binding"
-         :rules [[:!SCf12 ["osascript -e 'tell application \"System Events\"\nkeystroke the clipboard\nend tell'"]]]}]}; :brave
+         :rules [[:!SCf12 ["osascript /Users/francischua/temp/temp.osascript"]]]}]}; :brave
                 ; [:fn :!Ctab]
