@@ -35,101 +35,21 @@ source ~/.config/nushell/config/menus.nu
 source ~/.config/nushell/config/hooks.nu
 
 # combine default and custom keybinds
-let __keybinds = ([
-    {
-      name: completion_menu
-      modifier: none
-      keycode: tab
-      mode: emacs # Options: emacs vi_normal vi_insert
-      event: {
-        until: [
-          { send: menu name: completion_menu }
-          { send: menunext }
-        ]
-      }
-    }
-    {
-      name: completion_previous
-      modifier: shift
-      keycode: backtab
-      mode: [emacs, vi_normal, vi_insert] # Note: You can add the same keybinding to all modes by using a list
-      event: { send: menuprevious }
-    }
-    {
-      name: history_menu
-      modifier: control
-      keycode: char_r
-      mode: emacs
-      event: { send: menu name: history_menu }
-    }
-    {
-      name: next_page
-      modifier: control
-      keycode: char_x
-      mode: emacs
-      event: { send: menupagenext }
-    }
-    {
-      name: undo_or_previous_page
-      modifier: control
-      keycode: char_z
-      mode: emacs
-      event: {
-        until: [
-          { send: menupageprevious }
-          { edit: undo }
-        ]
-       }
-    }
-    # Keybindings used to trigger the user defined menus
-    {
-      name: commands_menu
-      modifier: control
-      keycode: char_t
-      mode: [emacs, vi_normal, vi_insert]
-      event: { send: menu name: commands_menu }
-    }
-    {
-      name: vars_menu
-      modifier: control
-      keycode: char_y
-      mode: [emacs, vi_normal, vi_insert]
-      event: { send: menu name: vars_menu }
-    }
-  ] | append $__custom_keybinds);
+let __keybinds = ([] | append $__custom_keybinds);
 
 # The default config record. This is where much of your global configuration is setup.
 $env.config = {
-  ls: {
-    use_ls_colors: true # use the LS_COLORS environment variable to colorize output
-    clickable_links: true # enable or disable clickable links. Your terminal has to support links.
-  }
   rm: {
     always_trash: true
   }
   table: {
     mode: heavy # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-    index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
     trim: {
       methodology: wrapping # wrapping or truncating
       wrapping_try_keep_words: true # A strategy used by the 'wrapping' methodology
       truncating_suffix: "..." # A suffix used by the 'truncating' methodology
     }
   }
-  # explore_config: {
-  #   highlight: { bg: 'yellow', fg: 'black' }
-  #   status_bar: { bg: '#C4C9C6', fg: '#1D1F21' }
-  #   command_bar: { fg: '#C4C9C6' }
-  #   split_line: '#404040'
-  #   cursor: true
-  #   # selected_column: 'blue'
-  #   # selected_row: { fg: 'yellow', bg: '#C1C2A3' }
-  #   # selected_cell: { fg: 'white', bg: '#777777' }
-  #   # line_shift: false,
-  #   # line_index: false,
-  #   # line_head_top: false,
-  #   # line_head_bottom: false,
-  # }
   history: {
     max_size: 10000 # Session has to be reloaded for this to take effect
     sync_on_enter: true # Enable to share history between multiple sessions, else you have to close the session to write history to file
@@ -146,17 +66,8 @@ $env.config = {
       completer: null # check 'carapace_completer' above as an example
     }
   }
-  filesize: {
-    metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-    format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, zb, zib, auto
-  }
   color_config: $default_theme
-  use_grid_icons: true
-  footer_mode: "25" # always, never, number_of_rows, auto
-  float_precision: 2
-  use_ansi_coloring: true
-  edit_mode: emacs # emacs, vi
-  shell_integration: true # enables terminal markers and a workaround to arrow keys stop working issue
+  footer_mode: 25 # always, never, number_of_rows, auto
   show_banner: false
   render_right_prompt_on_last_line: false
   hooks: $hooks
