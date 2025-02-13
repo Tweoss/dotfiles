@@ -1,11 +1,17 @@
 theme = "tokyonight_storm"
 # theme = "catpuccin_latte"
+# theme = "papercolor-light"
+# theme = "base16_transparent"
+# theme = "emacs"
+# theme = "flatwhite"
 
 [editor]
 bufferline = "always" # shows buffers on top of screen
 true-color = true
 color-modes = true
 idle-timeout = 0
+cursorline = true
+cursorcolumn = true
 
 [editor.gutters]
 layout = ["diagnostics", "line-numbers",  "diff"] # remove line numbers
@@ -34,6 +40,10 @@ space = "all"
 [editor.whitespace.characters]
 space = "·"
 
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
 [keys.normal]
 X = "extend_line_above" # override capital X to expand selection to line above
 C-i = "no_op"
@@ -47,7 +57,7 @@ q = ":quit"
 c = ":buffer-close" # close buffer
 f = "file_picker_in_current_directory" # open current directory's file picker
 F = "file_picker" # open project's file picker
-N = ':pipe sed "s/dot/*/g" | sed "s/\\\\\\//\\//g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | xargs -I "{}" -0 -n 1 numbat -e "{}" | sed "s/·/ dot /g"' # evaluate a typst expression in numbat
+N = ':pipe sed "s/dot/*/g" | sed "s/\\\\\\//\\//g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | gsed -E "s/#(\w+)/\1/g" | xargs -I "{}" -0 -n 1 numbat -e "{}" | sed "s/·/ dot /g"' # evaluate a typst expression in numbat
 E = ':pipe sed "s/dot/*/g" | sed "s/\\\\\\//\\//g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | kalker | tr -d "\n"' # evaluate a typst expression
 
 [keys.normal.g]
