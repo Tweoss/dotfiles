@@ -6,6 +6,7 @@
                 :obsidian ["^md\\.obsidian$"]
                 :ghostty ["^com\\.mitchellh\\.ghostty$"]
                 :code ["^com\\.microsoft\\.VSCode$"]
+                :iterm ["^com\\.googlecode\\.iterm2$"]
                 :arc ["^company\\.thebrowser\\.Browser$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
@@ -33,6 +34,12 @@
          :rules [:caps-mode :messages
                  [:tab :!Ttab]
                  [:!Stab :!STtab]]}
+        {:des "Run just in iterm"
+         :rules [:iterm
+                 ; binds cmd+r to [cmd+2, ctrl+a, space, #, enter, "just", enter]
+                 ; spacebar at front so atuin doesn't keep in shell history
+                 ; pound sign at end so existing text isn't deleted but also not run
+                 [:!Cr [:!C2 :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]]}
         {:des "General Nav"
          :rules [:caps-mode
                  [:!Rtab :!COleft_arrow]
