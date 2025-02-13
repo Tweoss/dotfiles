@@ -8,6 +8,7 @@ helix/runtime/grammars
 helix/runtime/queries
 helix/runtime/runtime
 helix/runtime/themes
+helix/themes
 helix/rust-analyzer/rust-analyzer
 QtProject
 Autodesk
@@ -15,7 +16,6 @@ iterm/com.googlecode.iterm2.plist
 karabiner/automatic_backups
 .clj-kondo
 .lsp
-helix
 broot/skins
 himalaya
 nushell/history.txt
