@@ -1,0 +1,53 @@
+theme = "catppuccin_frappe"
+
+[editor]
+bufferline = "always" # shows buffers on top of screen
+true-color = true
+color-modes = true
+idle-timeout = 0
+line-number = "relative"
+auto-info = false
+
+[editor.gutters]
+layout = ["diagnostics", "line-numbers"] # remove line numbers
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "╎" # character every indent
+skip-levels = 0
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name", "file-modification-indicator"]
+right = ["diagnostics", "version-control", "position"]
+
+[editor.whitespace.render]
+space = "all"
+
+[editor.whitespace.characters]
+space = "·"
+
+[keys.normal]
+X = "extend_line_above" # override capital X to expand selection to line above
+C-i = "no_op"
+C-o = "no_op"
+"tab" = "jump_forward"
+"S-tab" = "jump_backward"
+
+[keys.normal.space]
+"," = ":write" # saves changes
+q = ":quit"
+c = ":buffer-close" # close buffer
+f = "file_picker_in_current_directory" # open current directory's file picker
+F = "file_picker" # open project's file picker
+N = ':pipe sed "s/dot/*/g" | sed "s/\\\\\\//\\//g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | gsed -E "s/#(\w+)/\1/g" | xargs -I "{}" -0 -n 1 numbat -e "{}" | sed "s/·/ dot /g"' # evaluate a typst expression in numbat
+E = ':pipe sed "s/dot/*/g" | sed "s/\\\\\\//\\//g" | sed "s/\!plus\.minus/-/g" | sed "s/plus\.minus/+/g" | kalker | tr -d "\n"' # evaluate a typst expression
+
+[keys.normal.g]
+"," = "goto_word" # open project's file picker
+w = "no_op"
+
