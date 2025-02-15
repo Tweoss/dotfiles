@@ -9,7 +9,7 @@ line-number = "relative"
 auto-info = false
 
 [editor.gutters]
-layout = ["diagnostics", "line-numbers"] # remove line numbers
+layout = ["line-numbers", "spacer"] # remove line numbers
 
 [editor.cursor-shape]
 insert = "bar"
