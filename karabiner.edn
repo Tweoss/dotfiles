@@ -102,6 +102,13 @@
                  [[:h :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:1"]
                  [[:l :j] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:1:2:2"]
                  [[:l :k] "/opt/homebrew/bin/yabai -m window --grid 2:2:1:0:2:1"]
+                ; move window
+                 [:left_shift :left_shift]
+                 ; TODO investigate repeating
+                 [:!Sh "/opt/homebrew/bin/yabai -m window --move rel:-40:0"]
+                 [:!Sj "/opt/homebrew/bin/yabai -m window --move rel:0:40"]
+                 [:!Sk "/opt/homebrew/bin/yabai -m window --move rel:0:-40"]
+                 [:!Sl "/opt/homebrew/bin/yabai -m window --move rel:40:0"]
                 ; half screens
                  [:h "/opt/homebrew/bin/yabai -m window --grid 2:2:0:0:1:2"]
                  [:j "/opt/homebrew/bin/yabai -m window --grid 2:2:0:1:2:2"]
@@ -127,7 +134,7 @@
                  [:!Ck "/opt/homebrew/bin/yabai -m window --swap north"]
                  [:!Cl "/opt/homebrew/bin/yabai -m window --swap east"]
                 ; warp window
-                ; we must preserve the left_shift and left_command keys so 
+                ; we must preserve the modifier keys so 
                 ; they are not captured by anykey->vk_none
                  [:left_shift :left_shift]
                  [:left_command :left_command]
