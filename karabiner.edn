@@ -31,9 +31,9 @@
         {:des "clearing notifications in vscode"
          :rules [[:!Scaps_lock :!Sescape]]}
         {:des "Messages Conversation Nav"
-         :rules [:caps-mode :messages
-                 [:tab :!Ttab]
-                 [:!Stab :!STtab]]}
+         :rules [:caps-mode
+                 [:tab :!Ttab [:messages]]
+                 [:!Stab :!STtab [:messages]]]}
         {:des "Run just in iterm"
          :rules [:iterm
                  ; binds cmd+r to [cmd+2, ctrl+a, space, #, enter, "just", enter]
