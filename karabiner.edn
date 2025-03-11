@@ -175,6 +175,10 @@
         ; must come after caps-lock layer. avoid capturing right_command too early
         {:des "left+right command to clear line in ghostty"
          :rules [:ghostty [:!Cright_command :!Tf]]}
+         ; I use ghostty only for editing text in helix and only want to exit
+         ; if I exit helix (otherwise losing unsaved changes).
+        {:des "disable cmd+q, cmd+w in ghostty"
+         :rules [:ghostty [:!Cw :vk_none] [:!Cq :vk_none]]}
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
         {:des "click fast"
