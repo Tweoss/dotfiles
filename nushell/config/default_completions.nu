@@ -7,7 +7,7 @@ module default_completions {
   #
   # This is a simplified version of completions for git branches and git remotes
   def "nu-complete git branches" [] {
-    ^git branch | lines | each { |line| $line | str replace '[\*\+] ' '' | str trim }
+    ^git branch -a | lines | each { |line| $line | str replace '[\*\+] ' '' | str replace 'remotes/' '' | str trim }
   }
 
   def "nu-complete git remotes" [] {
