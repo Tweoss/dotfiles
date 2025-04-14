@@ -20,6 +20,10 @@ config = { formatterMode = "typstyle", formatterPrintWidth = 80, exportPdf = "ne
 # [language-server.typst.config]
 # exportPdf = "never"
 
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
 [[language]]
 name = "typst"
 scope = "source.typst"
@@ -27,7 +31,7 @@ injection-regex = "^typ(st)?$"
 file-types = ["typ"]
 comment-token = "//"
 roots = []
-language-servers = ["typst"]
+language-servers = ["harper-ls", "typst"]
 indent = { tab-width = 2, unit = "  " }
 # formatter = { command = "typstfmt", args = ["--output", "-"] }
 auto-format = true

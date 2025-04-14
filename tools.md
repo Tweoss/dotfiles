@@ -72,3 +72,7 @@ https://github.com/koekeishiya/yabai
 
 https://github.com/sxyazi/yazi
 
+# harper
+
+grammar checker
+https://github.com/Automattic/harper
