@@ -20,6 +20,10 @@ yabai -m rule --add app="System Settings" manage=off
 yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
 yabai -m rule --add app="Digital Color Meter" manage=off
 yabai -m rule --add app="ripdrag" title="ripdrag" manage=off
+yabai -m rule --add app="lorenz" manage=off
+yabai -m rule --add app="Microsoft Word" title="MathType" manage=off
+yabai -m rule --add app="iTerm2" title="Text Editor" manage=off
+yabai -m rule --add title="ghostty-from-alfred" manage=off
 
 yabai -m space 1 --label native
 yabai -m space native --layout stack
@@ -40,4 +44,3 @@ yabai -m config left_padding   6
 yabai -m config right_padding  6
 yabai -m config window_gap     12
 borders width=12.0 style=round inactive_color=0xFF3E3E3E active_color=0xFF4F4FFF 2>/dev/null 1>&2 &
-
