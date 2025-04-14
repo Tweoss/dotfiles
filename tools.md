@@ -72,7 +72,13 @@ https://github.com/koekeishiya/yabai
 
 https://github.com/sxyazi/yazi
 
+# tocgen
+
+generate/annotate pdf with table of contents
+https://github.com/Krasjet/pdf.tocgen
+
 # harper
 
 grammar checker
 https://github.com/Automattic/harper
+
