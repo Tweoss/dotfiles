@@ -1,0 +1,51 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Francis Chua
+	email = francischua689@gmail.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[core]
+	excludesFile = ~/.gitignore
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[url "https://"]
+	insteadOf = git://
+[credential]
+	helper = osxkeychain
+# [credential "https://dev.azure.com"]
+# 	useHttpPath = true
+[commit]
+	gpgsign = false
+	verbose = true
+[init]
+	defaultBranch = main
+[http]
+	postBuffer = 157286400
+[pull]
+	rebase = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[diff]
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[push]
+	default = simple
+	autoSetupRemote = true
+	followTags = true
+[help]
+	autocorrect = prompt
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
+
