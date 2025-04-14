@@ -40,3 +40,13 @@ auto-format = true
 '`' = '`'
 '$' = '$'
 
+[[language]]
+name = "numbat"
+scope = "source.numbat"
+file-types = ["numbat"]
+comment-token = "#"
+grammar = "numbat"
+
+[[grammar]]
+name = "numbat"
+source = { git = "https://github.com/irevoire/tree-sitter-numbat", rev = "b4dd180397cad0638abbf18b54e354ea43276f46" }
