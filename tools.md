@@ -10,6 +10,11 @@ https://github.com/FelixKratz/JankyBorders
 
 https://github.com/yqrashawn/GokuRakuJoudo
 
+# harper
+
+grammar checker
+https://github.com/Automattic/harper
+
 # Helix
 
 https://github.com/helix-editor/helix
@@ -21,6 +26,10 @@ https://github.com/PaddiM8/kalker
 # Karabiner
 
 https://github.com/pqrs-org/Karabiner-Elements
+
+# Menubar Countdown
+
+https://github.com/kristopherjohnson/MenubarCountdown
 
 # Nushell
 
@@ -41,6 +50,11 @@ https://shortcat.app/
 # shortkeys
 
 https://github.com/crittermike/shortkeys
+
+# tocgen
+
+generate/annotate pdf with table of contents
+https://github.com/Krasjet/pdf.tocgen
 
 # typst
 
@@ -66,19 +80,15 @@ https://github.com/hrsh7th/vscode-langservers-extracted
 
 # Yabai
 
+window manager
 https://github.com/koekeishiya/yabai
 
 # Yazi
 
+terminal file manager
 https://github.com/sxyazi/yazi
 
-# tocgen
+# zoxide
 
-generate/annotate pdf with table of contents
-https://github.com/Krasjet/pdf.tocgen
-
-# harper
-
-grammar checker
-https://github.com/Automattic/harper
-
+jumping to directories based on score and fuzzy matching on name
+https://github.com/ajeetdsouza/zoxide
