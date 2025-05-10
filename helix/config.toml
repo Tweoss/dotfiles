@@ -50,6 +50,7 @@ C-i = "no_op"
 C-o = "no_op"
 "tab" = "jump_forward"
 "S-tab" = "jump_backward"
+C-r = "tinymist_scroll_preview"
 
 [keys.normal.space]
 "," = ":write" # saves changes
