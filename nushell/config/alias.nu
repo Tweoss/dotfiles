@@ -7,3 +7,5 @@ alias opem = ^open
 alias hu = ls
 
 alias pu = pueue
+
+alias ta = tasks
