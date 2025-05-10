@@ -7,7 +7,8 @@
                 :ghostty ["^com\\.mitchellh\\.ghostty$"]
                 :code ["^com\\.microsoft\\.VSCode$"]
                 :iterm ["^com\\.googlecode\\.iterm2$"]
-                :arc ["^company\\.thebrowser\\.Browser$"]}
+                :arc ["^company\\.thebrowser\\.Browser$"]
+                :zen ["^app\\.zen-browser\\.zen$"]}
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
            :white_rk [{:vendor_id 14}
@@ -36,12 +37,18 @@
                  [:!Stab :!STtab [:messages]]]}
         {:des "Run just in iterm"
          :rules [:iterm
+                 ; binds cmd+r to [cmd+2, ctrl+c, space, q, enter, space, "just", enter]
                  ; binds cmd+r to [cmd+2, ctrl+a, space, #, enter, "just", enter]
                  ; spacebar at front so atuin doesn't keep in shell history
                  ; pound sign at end so existing text isn't deleted but also not run
+                 ; [:!Cr [:!C2 :!Ti :spacebar :x :return_or_enter :spacebar :spacebar :spacebar :c :f :semicolon :k :spacebar :return_or_enter]]]}
+                 ; [:!Cr [:!C2 :return_or_enter :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]]}
                  [:!Cr [:!C2 :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]]}
         {:des "General Nav"
          :rules [:caps-mode
+                 [:!Rtab :!COup_arrow :zen]
+                 [:!Stab :!COup_arrow :zen]
+                 [:tab :!COdown_arrow :zen]
                  [:!Rtab :!COleft_arrow]
                  [:!Stab :!COleft_arrow]
                  [:tab :!COright_arrow]]}
@@ -195,12 +202,19 @@
                  [:!C##tab :!Ctab]
                  ; ctrl+tab should never be modified
                  [:!T##tab :!Ttab]
+                 ; ctrl+space to ctrl+tab in zen
+                 [:!Tspacebar :!Ttab :zen]
+                 [:!TSspacebar :!TStab :zen]
+                 [:!TRspacebar :!TRtab :zen]
                  ; anything else will be ctrl
                  ; or tab if (alone or held)
                  [:##tab :left_control nil {:alone :tab}]
                  ; unbind ctrl for learning's sake
                  ; [:##left_control :vk_none]
                  ]}
+        {:des "unbind ctrl+space"
+         :rules [
+                 [:!Tspacebar :vk_none]]}
         {:des "Minimal menu"
          :rules [[:escape "killall minmenu; open /Applications/minmenu.app/"]]}
         {:des "Unbind sending key for mimestream"
