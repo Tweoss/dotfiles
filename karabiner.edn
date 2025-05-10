@@ -185,7 +185,12 @@
          ; I use ghostty only for editing text in helix and only want to exit
          ; if I exit helix (otherwise losing unsaved changes).
         {:des "disable cmd+q, cmd+w in ghostty"
-         :rules [:ghostty [:!Cw :vk_none] [:!Cq :vk_none]]}
+         :rules [:ghostty
+         [:!Cw :vk_none]
+         [:!Cq :vk_none]
+         ; fix ghostty not respect dvorak+cmd-qwerty
+         [:!Cv :!Cperiod]
+        ]}
         {:des "right command to backspace"
          :rules [[:##right_command :right_command nil {:held [:delete_or_backspace] :alone :delete_or_backspace}]]}
         {:des "click fast"
