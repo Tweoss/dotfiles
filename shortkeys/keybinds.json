@@ -8,7 +8,8 @@
     "sitesArray": [
       "https://explorecourses.stanford.edu/search*"
     ],
-    "blacklist": "whitelist"
+    "blacklist": "whitelist",
+    "id": "c9548bc1-2c07-4175-9bb9-33dbe48bd4e1"
   },
   {
     "sites": "https://explorecourses.stanford.edu/search*",
@@ -18,8 +19,9 @@
     "label": "Locate [T]erm's (Stanford Course)",
     "action": "javascript",
     "key": "t",
-    "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"Terms:\")) {\nconst new_text = e.innerText.replace(/Terms: ([^\\|]+)\\|.*/, '$1');\ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\nnavigator.clipboard.writeText(new_text);\n}});\n})()",
-    "blacklist": "whitelist"
+    "code": "(() => {\nconst search = document.querySelector(\"#search_courses_input\").value;\ndocument.querySelectorAll(\"div.courseInfo\").forEach((e) => { if (!e.firstDescendant().firstDescendant().innerText.includes(search + \":\")) {e.parentElement.remove()}});\n\ndocument.querySelectorAll(\"div.courseAttributes\").forEach((e) => { if (e.innerText.includes(\"Terms:\")) {\nconst new_text = e.innerText.replace(/Terms: ([^\\|]+)\\|.*/, '$1');\ne.parentElement.firstDescendant().firstDescendant().insertAdjacentHTML( 'afterend', `<span style=\"background-color: red;\" class=\"courseNumber\"> ${new_text} </span>` );\nnavigator.clipboard.writeText(new_text);\n}});\n\n\nwindow.data = [...document.querySelectorAll(\".courseInfo\")].map(info => {\nconst sectionContainerSel = \".sectionContainer\";\nconst sectionContainerTermSel = \".sectionContainerTerm\";\nconst sectionDetailsSel = \".sectionDetails\";\n\nreturn [...info.querySelectorAll(sectionContainerSel)].map(container => {\n  const term = container.querySelector(sectionContainerTermSel).innerText;\n  const details = container.querySelector(sectionDetailsSel);\n  const yearRange = new RegExp(/\\d{4}-\\d{4}/);\n  const dateRange = new RegExp(/\\d\\d\\/\\d\\d\\/\\d\\d\\d\\d - \\d\\d\\/\\d\\d\\/\\d\\d\\d\\d /);\n  const instructors = new RegExp(\"with ([^;]+);([^;]+;)+\")\n  const no_schedule = new RegExp(/^-$/)\n  const schedule = details.innerHTML.split(\"<br>\")[1].trim().replace(dateRange, \"\").trim().replace(instructors, \"with $1 ...\").replace(no_schedule, \"no schedule\");\n\n  \n  return {element: info, term: term.replace(yearRange, \"\"), schedule};\n})\n})\n\nfor (const course of data) {\n  for (const {element, term, schedule} of course) {\n    const text = document.createElement(\"h2\");\n    text.style[\"font-size\"] = \"16px\";\n    text.style[\"background\"] = \"yellow\";\n    \n    text.innerHTML = `${term}: ${schedule}`;\n    element.firstChild.nextSibling.after(text);\n  }\n}\n\n})()",
+    "blacklist": "whitelist",
+    "id": "c8731344-5595-4b5c-873e-23aefb7a9200"
   },
   {
     "key": "right",
@@ -30,7 +32,8 @@
     "code": "[...document.querySelectorAll(\"#pagination > a\")].filter((e) => e.innerText == \"next »\")[0]?.click();",
     "sitesArray": [
       "https://explorecourses.stanford.edu/search*"
-    ]
+    ],
+    "id": "0b1220d6-a0cf-4864-898e-068dc00fb560"
   },
   {
     "key": "left",
@@ -41,29 +44,8 @@
     "sites": "https://explorecourses.stanford.edu/search*",
     "sitesArray": [
       "https://explorecourses.stanford.edu/search*"
-    ]
-  },
-  {
-    "key": "left",
-    "label": "Previous semester (Carta)",
-    "action": "javascript",
-    "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(1)\").click();})()",
-    "blacklist": "whitelist",
-    "sites": "https://carta-beta.stanford.edu*",
-    "sitesArray": [
-      "https://carta-beta.stanford.edu*"
-    ]
-  },
-  {
-    "key": "right",
-    "label": "Next semester (Carta)",
-    "action": "javascript",
-    "code": "(() => {document.querySelector(\"#root > div > div.MainPanel__MainWrapper-sc-1fdcn1z-0.kMTrAu > div.SidePanel__SideWrapper-sc-129jyjw-0.bHmBtT > div > div:nth-child(1) > h3 > a:nth-child(3)\").click();})()",
-    "blacklist": "whitelist",
-    "sites": "https://carta-beta.stanford.edu*",
-    "sitesArray": [
-      "https://carta-beta.stanford.edu*"
-    ]
+    ],
+    "id": "721ad65b-ad64-4a11-af1c-a9150bccda11"
   },
   {
     "key": "s",
@@ -79,6 +61,7 @@
       "https://search.brave.com/search?q=*",
       "https://www.youtube.com/*",
       "https://en.cppreference.com/w/*"
-    ]
+    ],
+    "id": "85a75f69-2cc8-4fc1-94fd-09aa86e86381"
   }
 ]
