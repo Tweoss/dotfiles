@@ -1,0 +1,12 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[ui]
+default-command = "log"
+diff-editor = "meld-3"
+
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | ancestors(@, 5)::@"
+
+[user]
+name = "Francis Chua"
+email = "francischua689@gmail.com"
