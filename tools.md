@@ -1,3 +1,7 @@
+# aerospace
+
+https://nikitabobko.github.io/AeroSpace/guide
+
 # autossh
 
 https://search.brave.com/search?q=autossh
@@ -18,6 +22,10 @@ https://github.com/Automattic/harper
 # Helix
 
 https://github.com/helix-editor/helix
+
+# jj_tui
+
+https://github.com/faldor20/jj_tui
 
 # kalker
 
