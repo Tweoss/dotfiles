@@ -8,7 +8,9 @@
                 :code ["^com\\.microsoft\\.VSCode$"]
                 :iterm ["^com\\.googlecode\\.iterm2$"]
                 :arc ["^company\\.thebrowser\\.Browser$"]
-                :zen ["^app\\.zen-browser\\.zen$"]}
+                :zen ["^app\\.zen-browser\\.zen$"]
+                :meld ["^org\\.gnome\\.Meld$"]
+                }
  :devices {:econ_clicker [{:vendor_id 3469}
                           {:product_id 5398}]
            :white_rk [{:vendor_id 14}
@@ -35,20 +37,25 @@
          :rules [:caps-mode
                  [:tab :!Ttab [:messages]]
                  [:!Stab :!STtab [:messages]]]}
-        {:des "Run just in iterm"
+        {:des "iterm binds"
          :rules [:iterm
+                 ; unbind cmd+p
+                 [:!Cp :vk_none]
                  ; binds cmd+r to [cmd+2, ctrl+c, space, q, enter, space, "just", enter]
                  ; binds cmd+r to [cmd+2, ctrl+a, space, #, enter, "just", enter]
                  ; spacebar at front so atuin doesn't keep in shell history
                  ; pound sign at end so existing text isn't deleted but also not run
                  ; [:!Cr [:!C2 :!Ti :spacebar :x :return_or_enter :spacebar :spacebar :spacebar :c :f :semicolon :k :spacebar :return_or_enter]]]}
                  ; [:!Cr [:!C2 :return_or_enter :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]]}
-                 [:!Cr [:!C2 :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]]}
+                 [:!Cr [:!C2 :!Ta :spacebar :c :f :semicolon :k :spacebar :!S3 :return_or_enter]]
+                 ]}
         {:des "General Nav"
          :rules [:caps-mode
                  [:!Rtab :!COup_arrow :zen]
                  [:!Stab :!COup_arrow :zen]
                  [:tab :!COdown_arrow :zen]
+                 [:!Cl :!Opage_down :meld]
+                 [:!Ch :!Opage_up :meld]
                  [:!Rtab :!COleft_arrow]
                  [:!Stab :!COleft_arrow]
                  [:tab :!COright_arrow]]}
@@ -95,7 +102,10 @@
                 ; open quick fix in vscode
                  [:f :!!y]
                 ; format in vscode 
-                 [:y :!Cperiod]]}
+                 [:y :!Cperiod]
+                 ; paste image to a file
+                 [:4 "osascript /Users/francischua/.config/scripts/paste_image.scpt"]
+                 ]}
         {:des "yabai layer"
          :rules [[:condi :yabai-layer]
                 ; disabling yabai-layer
