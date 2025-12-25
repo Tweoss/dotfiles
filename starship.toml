@@ -1,4 +1,7 @@
-format = "$status$all$character"
+format = "$directory$git_branch$git_metrics$git_status$cmd_duration$line_break$character"
+# format = "$status$all$character"
+scan_timeout = 10
+command_timeout = 10
 
 [custom.shpool]
 command = 'echo "$SHPOOL_SESSION_NAME "' # shows output of command
