@@ -11,19 +11,21 @@ if filePath is not "" then
  return --end
 end if
 --see if clipboard is image data
-set jpegDATA to ""
+set imageDATA to ""
+set newFile to ""
 try
- set jpegDATA to the clipboard as JPEG picture
-end try
-if jpegDATA is not "" then
+ set imageDATA to the clipboard as JPEG picture
  set newFile to "/Users/francischua/clipboard_image.jpeg"
+end try
+if imageDATA is not "" then
  -- to prompt the user for a location use:
  -- set newFile to getFileName("new")
  set theFile to open for access newFile with write permission
- write jpegDATA to theFile
+ write imageDATA to theFile
  close access theFile
  -- copy the file to clipboard
  set the clipboard to (POSIX file newFile)
+ display notification "paste_image.scpt copied image file to clipboard" with title "Copied"
  return --end
 end if
 -- beep 1
