@@ -7,6 +7,8 @@ command = "ra-multiplex"
 
 [language-server.ra-multiplex.config.check]
 command = "clippy"
+[language-server.ra-multiplex.config.cargo]
+targetDir = true
 
 [[language]]
 name = "typescript"
@@ -44,6 +46,16 @@ auto-format = true
 '`' = '`'
 '$' = '$'
 
+
+
+[[language]]
+name = "lilypond"
+scope = "source.ly"
+comment-token = "%"
+roots = []
+file-types = ["ly"]
+grammar = "lilypond-g"
+
 [language-server.typescript]
 command = "typescript-language-server"
 
@@ -51,6 +63,24 @@ command = "typescript-language-server"
 name = "typescript"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 auto-format = true
+
+[[grammar]]
+name = "lilypond-g"
+source = { git = "https://github.com/nwhetsell/tree-sitter-lilypond", rev = "016d651d3983d090a7f7ef4753c87b5ed498ad0f" }
+
+# [[language]]
+# name = "rcl"
+# auto-format = false
+# file-types = ["rcl"]
+# formatter = { command = "rcl", args = ["format", "-"] }
+# indent = { tab-width = 2, unit = "  " }
+# roots = ["build.rcl"]
+# scope = "source.rcl"
+# grammar = "rcl"
+
+# [[grammar]]
+# name = "rcl"
+# source = { path = "/Users/francischua/gitutils/rcl/grammar/tree-sitter-rcl" }
 
 [[language]]
 name = "numbat"
@@ -62,3 +92,14 @@ grammar = "numbat"
 [[grammar]]
 name = "numbat"
 source = { git = "https://github.com/irevoire/tree-sitter-numbat", rev = "b4dd180397cad0638abbf18b54e354ea43276f46" }
+
+[[language]]
+name = "asm"
+scope = "source.asm"
+file-types = ["S", "s"]
+roots = []
+comment-token = "//"
+
+[[grammar]]
+name = "asm"
+source = { git = "https://github.com/rush-rs/tree-sitter-asm", rev = "36dc26acc7818920de2e103e20a9f42358caf926" }
