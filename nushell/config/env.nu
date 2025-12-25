@@ -35,13 +35,9 @@ $env.NU_PLUGIN_DIRS = [
 # CS 107E
 $env.CS107E = "/Users/francischua/gitprojects/cs107e.github.io/cs107e"
 
-# Wasmedge
-$env.DYLD_LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
-$env.LIBRARY_PATH = "/Users/francischua/.wasmedge/lib"
-$env.C_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
-$env.CPLUS_INCLUDE_PATH = "/Users/francischua/.wasmedge/include"
-
 $env.EDITOR = $"($env.HOME)/.cargo/bin/hx"
+$env.HELIX_RUNTIME = "/Users/francischua/gitutils/helix"
+$env.KI_EDITOR_KEYBOARD = "dvorak"
 
 
 # Starship needs to be called apparently every startup

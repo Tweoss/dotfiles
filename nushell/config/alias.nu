@@ -9,3 +9,5 @@ alias hu = ls
 alias pu = pueue
 
 alias ta = tasks
+
+alias jt = jj_tui

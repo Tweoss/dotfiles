@@ -7,8 +7,8 @@ export def main [
   try {
     do $command
     pushover-cli "SUCCESS"
-  } catch {
-    pushover-cli "FAIL"
+  } catch {|e| 
+    pushover-cli $"FAIL: ($e.msg)"
   }
 }
 
