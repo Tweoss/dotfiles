@@ -7,3 +7,4 @@ use ~/.config/nushell/scripts/job.nu [job-spawn, job-status, job-log]
 use ~/.config/nushell/scripts/alert.nu
 use ~/.config/nushell/scripts/numbat_eval.nu [e]
 use ~/.config/nushell/scripts/shpool.nu
+use ~/.config/nushell/scripts/fantastical.nu [cal_add]
